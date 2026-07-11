@@ -47,11 +47,11 @@ export function AIGuide() {
             <Sparkles className="h-3 w-3 text-holo" /> AI Guide
           </div>
           <h2 className="font-display text-4xl font-semibold sm:text-6xl">
-            Meet <span className="text-holo">Aria</span>.
+            Meet <span className="text-holo">HistoAI</span>.
             <br />Your museum concierge.
           </h2>
           <p className="mt-6 max-w-md text-muted-foreground">
-            Aria narrates, quizzes and translates every exhibit — adapting tone
+            HistoAI narrates, quizzes and translates every exhibit — adapting tone
             to your age, curiosity and pace. She never gets tired of "why?".
           </p>
           <div className="mt-8 flex flex-wrap gap-2">
@@ -74,7 +74,7 @@ export function AIGuide() {
               <span className="absolute -bottom-0 -right-0 h-2.5 w-2.5 rounded-full bg-emerald-400 ring-2 ring-background" />
             </div>
             <div>
-              <div className="text-sm font-semibold">Aria</div>
+              <div className="text-sm font-semibold">HistoAi</div>
               <div className="text-[10px] text-muted-foreground">
                 AI Museum Guide · online
               </div>
@@ -110,13 +110,13 @@ export function AIGuide() {
             <input
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Ask Aria anything…"
+              placeholder="Ask HistoAI anything…"
               className="flex-1 rounded-full bg-white/5 px-4 py-2.5 text-sm outline-none placeholder:text-muted-foreground focus:bg-white/10"
             />
             <button
               type="submit"
               className="flex h-10 w-10 items-center justify-center rounded-full bg-holo text-primary-foreground shadow-holo transition hover:scale-105"
-              aria-label="Send"
+              HistoAI-label="Send"
             >
               <Send className="h-4 w-4" />
             </button>
