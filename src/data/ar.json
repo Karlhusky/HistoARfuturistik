@@ -1,0 +1,162 @@
+{
+  "_petunjuk": "Setiap materi punya 'targetMind' (hasil compile semua gambar target materi itu jadi 1 file .mind via https://hiukim.github.io/mind-ar-js-doc/tools/compile) dan daftar 'targets'. targetIndex harus urut sesuai urutan gambar saat di-compile.",
+  "_petunjuk_defaultView": "defaultView = tampilan awal pas target baru kedeteksi (zoom lebih besar + ngadep kamera). Nilai di bawah cuma titik awal (zoom:2, rotasi:0) - WAJIB di-tuning per model pake tombol 📐 di layar AR: drag & zoom manual sampe pas, tap 📐, salin hasilnya ke sini.",
+
+  "m1": {
+    "targetMind": "assets/ar/targets/periodisasi-geologi.mind",
+    "targets": [
+      {
+        "key": "periodisasi-geologi",
+        "label": "Periodisasi Geologi: Bumi Sebelum Manusia",
+        "targetIndex": 0,
+        "model": "assets/models/sekarang.glb",
+        "scale": "0.3 0.3 0.3",
+        "defaultView": { "rotY": 0, "zoom": 2 },
+        "introAudio": "assets/audio/periodisasi-geologi/intro.mp3",
+        "hotspots": [
+          { "id": "arkaekum", "label": "Arkaekum", "model": "assets/models/arkaekum.glb", "scale": "0.3 0.3 0.3", "audio": "assets/audio/periodisasi-geologi/arkaezoikum.mp3", "teks": "± 2.500 juta tahun lalu. Zaman tertua. Bumi masih sangat panas dan kulit buminya belum stabil. Belum ada tanda kehidupan." },
+          { "id": "paleozoikum", "label": "Paleozoikum", "model": "assets/models/paleozoikum.glb", "scale": "0.3 0.3 0.3", "audio": "assets/audio/periodisasi-geologi/paleozoikum.mp3", "teks": "± 340 juta tahun lalu (Zaman Primer / Hidup Tua). Tanda kehidupan mulai muncul: mikroorganisme, ikan, amfibi, reptil awal, dan hewan tanpa tulang belakang (invertebrata)." },
+          { "id": "mesozoikum", "label": "Mesozoikum", "model": "assets/models/mesozoikum.glb", "scale": "0.3 0.3 0.3", "audio": "assets/audio/periodisasi-geologi/mesozoikum.mp3", "teks": "± 140 juta tahun lalu (Zaman Sekunder / Hidup Pertengahan). Zaman reptil raksasa, sering disebut zaman dinosaurus. Burung dan mamalia mulai muncul. Reptil besar seperti dinosaurus akhirnya punah karena seleksi alam, memberi ruang bagi burung dan mamalia untuk berkembang." },
+          { "id": "neozoikum", "label": "Neozoikum", "model": "assets/models/neozoikum.glb", "scale": "0.3 0.3 0.3", "audio": "assets/audio/periodisasi-geologi/neozoikum.mp3", "teks": "60 juta tahun lalu hingga kini (Zaman Hidup Baru). Terbagi dua: Tersier (mamalia menyusui berkembang pesat) dan Kuartier (tanda-tanda kehidupan manusia muncul, sekitar 3 juta tahun lalu). Kuartier adalah zaman terpenting bagi kemunculan manusia." }
+        ]
+      }
+    ]
+  },
+
+  "m2-1": {
+    "targetMind": "assets/ar/targets/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu.mind",
+    "targets": [
+      {
+        "key": "paleolitikum",
+        "label": "Masa Berburu dan Meramu Sederhana (Paleolitikum)",
+        "targetIndex": 0,
+        "model": "assets/models/empat-masa-kehidupan-manusia-praaksara/berburu_meramu.glb",
+        "scale": "0.3 0.3 0.3",
+        "defaultView": { "rotY": 0, "zoom": 2 },
+        "introAudio": "assets/audio/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu/intro.mp3",
+        "hotspots": [
+          { "id": "mata-pencaharian", "label": "Cara Mendapatkan Makanan", "teks": "Mata pencaharian dilakukan dengan berburu hewan dan mengumpulkan umbi-umbian, buah-buahan, serta tumbuhan liar yang dapat dimakan.", "audio": "assets/audio/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu/cara-mendapatkan-makanan.mp3" },
+          { "id": "alat", "label": "Alat yang Dipakai", "teks": "Peralatan terbuat dari batu, tulang, dan kayu dengan bentuk yang masih kasar, seperti kapak genggam, kapak penetak, alat serpih, serta alat dari tulang. Mereka juga menggunakan jebakan dan teknik menggiring hewan ke jurang saat berburu.", "audio": "assets/audio/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu/alat-yang-dipakai.mp3" },
+          { "id": "cara-hidup", "label": "Cara Hidup", "teks": "Cara hidup bersifat nomaden mengikuti sumber makanan. Mereka tinggal di dekat sungai, danau, atau gua, serta hidup dalam kelompok kecil untuk memudahkan berburu dan bertahan hidup.", "audio": "assets/audio/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu/cara-hidup.mp3" },
+          { "id": "pembagian-kerja", "label": "Pembagian Kerja", "teks": "Pembagian kerja mulai terlihat: laki-laki berburu, sedangkan perempuan mengumpulkan makanan, mengurus anak, dan menjaga api setelah manusia mengenalnya.", "audio": "assets/audio/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu/pembagian-kerja.mp3" },
+          { "id": "seni-komunikasi", "label": "Seni dan Komunikasi", "teks": "Seni dan komunikasi sudah berkembang dalam bentuk lukisan sederhana bertema hewan buruan serta komunikasi menggunakan kata-kata pendek dan gerak tubuh.", "audio": "assets/audio/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu/seni-dan-komunikasi.mp3" },
+          { "id": "kebudayaan-indonesia", "label": "Kebudayaan Paleolitikum di Indonesia", "teks": "Di Indonesia, kebudayaan Paleolitikum terbagi menjadi Kebudayaan Pacitan yang dikenal dengan kapak penetak (chopper) dari batu, dan Kebudayaan Ngandong yang menghasilkan alat dari tulang dan alat serpih (flakes).", "audio": "assets/audio/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu/kebudayaan-paleolitikum-di-indonesia.mp3" }
+        ]
+      }
+    ]
+  },
+
+  "m3-1": {
+  "targetMind": "assets/ar/targets/tiga-jenis-manusia-purba/meganthropus.mind",
+  "maxZoom": 30,
+  "targets": [
+    {
+      "key": "meganthropus",
+      "label": "Meganthropus Paleojavanicus",
+      "targetIndex": 0,
+      "model": "assets/models/tiga-jenis-manusia-purba/meganthropus.glb",
+      "scale": "0.3 0.3 0.3",
+      "defaultView": {
+        "rotY": -131,
+        "zoom": 2.80
+      },
+
+      "introAudio": "assets/audio/tiga-jenis-manusia-purba/meganthropus/intro.mp3",
+
+      "hotspots": [
+        {
+          "id": "kepala",
+          "label": "Kepala",
+          "model": "assets/models/tiga-jenis-manusia-purba/meganthropus-kepala.glb",
+          "view": {
+            "rotY": -90,
+            "zoom": 20
+          },
+          "audio": "assets/audio/tiga-jenis-manusia-purba/meganthropus/kepala.mp3",
+          "teks": "Kalian sedang melihat kepala manusia purba paling tua yang jejaknya ditemukan di Indonesia. Ukuran otaknya masih relatif kecil dibanding kalian sekarang. Tulang keningnya tebal dan menonjol, dahinya sangat miring ke belakang, dan ia belum punya dagu seperti kalian. Meski begitu, otak sekecil ini sudah cukup untuk hidup berkelompok dan mengenali makanan yang aman di padang rumput Jawa purba. Fosil rahangnya digali oleh Gustav Heinrich Ralph von Koenigswald antara 1936 sampai 1941, di daerah Sangiran, Sragen, Jawa Tengah."
+        },
+        {
+          "id": "mata",
+          "label": "Mata",
+          "model": "assets/models/tiga-jenis-manusia-purba/meganthropus-kepala.glb",
+          "view": {
+            "rotY": -90,
+            "zoom": 30
+          },
+          "audio": "assets/audio/tiga-jenis-manusia-purba/meganthropus/mata.mp3",
+          "teks": "Mata Meganthropus terletak di balik tulang alis yang sangat tebal. Fungsinya bukan cuma untuk melihat. Tulang alis setebal ini melindungi mata dari terik matahari terbuka dan dari benturan saat mencari makan di antara semak-semak yang rimbun. Pandangannya cukup tajam untuk mengintai bahaya dari kejauhan. Karena tubuhnya besar dan gerakannya tidak selincah manusia purba yang datang setelahnya, ia mengandalkan mata dan pendengaran untuk mendeteksi hewan pemangsa lebih dulu."
+        },
+        {
+          "id": "tangan",
+          "label": "Tangan",
+          "model": "assets/models/tiga-jenis-manusia-purba/meganthropus-tangan.glb",
+          "view": {
+            "rotY": 185,
+            "zoom": 10
+          },
+          "audio": "assets/audio/tiga-jenis-manusia-purba/meganthropus/tangan.mp3",
+          "teks": "Tangan Meganthropus kuat dan kekar. Rahangnya yang besar memberi petunjuk bahwa makanannya keras: tumbuh-tumbuhan berserat, umbi-umbian, dan buah liar. Tangan ini lebih sering dipakai untuk merenggut, mencabut, dan meremas makanan daripada membuat alat rumit. Karena hanya fragmen rahang dan gigi yang sampai ke kita, para ahli masih berdebat seberapa jauh Meganthropus membuat peralatan. Yang jelas, ia bertahan hidup di lingkungan terbuka Jawa purba dengan bergantung penuh pada apa yang alam sediakan."
+        }
+      ]
+    }
+  ]
+},
+
+  "m3-2": {
+    "targetMind": "assets/ar/targets/tiga-jenis-manusia-purba/pithecanthropus.mind",
+    "maxZoom":30,
+    "targets": [
+      {
+        "key": "pithecanthropus",
+        "label": "Pithecanthropus Erectus",
+        "targetIndex": 0,
+        "model": "assets/models/tiga-jenis-manusia-purba/pithecanthropus.glb",
+        "scale": "0.3 0.3 0.3",
+        "defaultView": { 
+          "rotY": -131,
+          "zoom": 2.80
+        },
+        
+        "introAudio": "assets/audio/tiga-jenis-manusia-purba/pithecanthropus/intro.mp3",
+        "hotspots": [
+          {
+              "id":"kepala",
+              "label":"Kepala",
+              "model":"assets/models/tiga-jenis-manusia-purba/pithecanthropus-kepala.glb",
+              "view":{
+                  "rotY": -90,
+                  "zoom": 20
+              },
+          
+              "audio":"assets/audio/tiga-jenis-manusia-purba/pithecanthropus/kepala.mp3",
+              "teks":"Kalian sedang melihat kepala manusia purba yang membuat dunia sains geger di akhir abad ke-19. Volume otaknya sekitar 900 cc, kurang dari dua pertiga volume otak kalian sekarang. Tulang alisnya menonjol, dahinya miring ke belakang, dan tengkoraknya berat. Otak sekecil ini sudah cukup untuk membuat alat batu sederhana dan hidup berkelompok, tetapi belum cukup untuk mengembangkan bahasa rumit atau seni lukis. Fosil tengkoraknya digali oleh Eugène Dubois, seorang dokter Belanda, tahun 1891 di Trinil, tepi Bengawan Solo, Ngawi."
+          },
+          {
+              "id":"mata",
+              "label":"Mata",
+              "model":"assets/models/tiga-jenis-manusia-purba/pithecanthropus-kepala.glb",
+              "view":{
+                  "rotY": -90,
+                  "zoom": 30
+              },
+          
+              "audio":"assets/audio/tiga-jenis-manusia-purba/pithecanthropus/mata.mp3",
+              "teks":"Mata Pithecanthropus terletak di balik tulang alis yang tebal dan menonjol. Bentuk itu bukan hiasan. Tulang alis tebal melindungi mata dari benturan saat berburu, sekaligus meredam sinar matahari terik di padang rumput terbuka Jawa purba. Pandangannya tajam untuk mengintai buruan dari jarak jauh, tetapi indera penciumannya kalah dibanding hewan pemangsa lain. Untuk menyeimbangkan kelemahan itu, ia berburu berkelompok dan memakai jebakan sederhana."
+          },
+          {
+            "id":"tangan",
+            "label":"Tangan",
+            "model":"assets/models/tiga-jenis-manusia-purba/pithecanthropus-tangan.glb",
+            "view":{
+                "rotY": 185,
+                "zoom": 10
+            },
+        
+            "audio":"assets/audio/tiga-jenis-manusia-purba/pithecanthropus/tangan.mp3",
+            "teks":"Perhatikan tangannya. Jari-jarinya kuat, ibu jarinya sudah bisa berlawanan dengan jari lain, mirip tangan kalian. Kemampuan ini memungkinkan ia menggenggam batu erat dan memukulkannya dengan tepat. Tangan inilah yang membentuk teknologi paling awal di Nusantara, yaitu kapak perimbas dan kapak genggam khas Kebudayaan Pacitan. Alat-alat itu memang masih kasar. Tidak ada tangkai, tidak diasah halus. Cukup untuk memotong daging, mengorek umbi, dan mengupas kulit hewan buruan. Sederhana, tetapi mengubah cara manusia bertahan hidup di padang rumput yang keras."
+        }
+        ]
+      }
+    ]
+  }
+}
