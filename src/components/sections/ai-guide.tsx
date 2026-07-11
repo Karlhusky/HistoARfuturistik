@@ -2,7 +2,7 @@ import { Send, Sparkles } from "lucide-react";
 import { useState } from "react";
 
 const seed = [
-  { role: "ai", text: "Welcome. I'm Aria, your museum guide. Ask about any era, artifact, or figure." },
+  { role: "ai", text: "Welcome. I'm HistoAI, your guide. Ask about any era, artifact, or figure." },
   { role: "user", text: "Tell me about the Library of Alexandria." },
   {
     role: "ai",
@@ -16,6 +16,12 @@ const prompts = [
   "Show me Renaissance inventions",
 ];
 
+const fallbackReplies = [
+  "Great question — let me look into that for you.",
+  "That's an interesting one. Give me a moment to gather the details.",
+  "I'll dig into the archives and get back to you on that.",
+];
+
 export function AIGuide() {
   const [messages, setMessages] = useState(seed);
   const [input, setInput] = useState("");
@@ -23,13 +29,12 @@ export function AIGuide() {
   function send(text: string) {
     const t = text.trim();
     if (!t) return;
+    const reply =
+      fallbackReplies[Math.floor(Math.random() * fallbackReplies.length)];
     setMessages((m) => [
       ...m,
       { role: "user", text: t },
-      {
-        role: "ai",
-        text: "Great question — connect Lovable AI to unlock real-time answers streamed from Aria.",
-      },
+      { role: "ai", text: reply },
     ]);
     setInput("");
   }
