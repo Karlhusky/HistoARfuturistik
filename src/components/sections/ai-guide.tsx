@@ -1,7 +1,7 @@
 import { Send, Sparkles, Loader2 } from "lucide-react";
 import { useState } from "react";
 
-import { askHistoAI } from "../lib/histo-ai.server";
+import { askHistoAI } from "../../lib/histo-ai.server";
 
 type Message = { role: "ai" | "user"; text: string };
 
