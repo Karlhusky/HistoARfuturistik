@@ -22,22 +22,21 @@ export const askHistoAI = createServerFn({ method: "POST" })
       );
     }
 
-    const response = await fetch("https://api.kie.ai/api/v1/chat/completions", {
+    // Kie AI puts the model name in the URL path itself, not in the body
+    const model = "gemini-2.5-flash";
+
+    const response = await fetch(`https://api.kie.ai/${model}/v1/chat/completions`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        // Swap this for whatever model ID you picked on kie.ai/market
-        // (e.g. "gpt-4o-mini", "deepseek-chat", "claude-sonnet-4-5", etc.)
-        model: "gemini-2.5-flash",
         messages: [
           { role: "system", content: SYSTEM_PROMPT },
           ...(data.history ?? []),
           { role: "user", content: data.message },
         ],
-        max_tokens: 150,
         stream: false,
       }),
     });
