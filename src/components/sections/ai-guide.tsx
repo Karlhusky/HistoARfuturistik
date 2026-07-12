@@ -6,7 +6,7 @@ import { askHistoAI } from "../../lib/histo-ai";
 type Message = { role: "ai" | "user"; text: string };
 
 const seed: Message[] = [
-  { role: "ai", text: "Welcome. I'm HistoAI, your guide. Ask about any era, artifact, or figure." },
+  { role: "ai", text: "Selamat datang. Aku HistoAI, Pemandu kamu. Tanyakan apa saja kepadaku tentang Kehidupan Praaksara Materi Kelas 10." },
 ];
 
 const prompts = [
