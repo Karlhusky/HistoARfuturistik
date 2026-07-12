@@ -6,23 +6,23 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 const features = [
   {
     icon: Compass,
-    title: "Spatial exhibits",
-    desc: "Room-scale WebAR that anchors artifacts to your world using WebXR.",
+    title: "Pameran Interaktif",
+    desc: "WebAR berskala ruangan yang menghadirkan model 3D dan diorama ke lingkungan nyata Anda melalui WebXR.",
   },
   {
     icon: Layers,
-    title: "Layered lessons",
-    desc: "Peel back centuries with parallax storytelling and interactive dioramas.",
+    title: "Pembelajaran Bertahap",
+    desc: "Jelajahi periodisasi bumi, kehidupan manusia praaksara, dan manusia purba Indonesia melalui diorama interaktif.",
   },
   {
     icon: Wand2,
-    title: "AI curator",
-    desc: "A conversational guide that adapts to your grade level in real time.",
+    title: "Pemandu AI",
+    desc: "Asisten percakapan yang menyesuaikan penjelasan dengan tingkat pendidikan Anda secara langsung.",
   },
   {
     icon: Sparkles,
     title: "Holographic UI",
-    desc: "Designed like a museum from the year 2050 — but it runs in Safari.",
+    desc: "Dirancang dengan tampilan modern layaknya teknologi masa depan, namun tetap berjalan langsung di Browser",
   },
 ];
 
@@ -50,13 +50,13 @@ export function Experience() {
     >
       <div className="mb-16 max-w-2xl">
         <div className="mb-4 inline-flex items-center gap-2 rounded-full glass px-3 py-1 text-xs text-muted-foreground">
-          <span className="h-1 w-1 rounded-full bg-holo" /> The Experience
+          <span className="h-1 w-1 rounded-full bg-holo" /> Belajar
         </div>
         <h2 className="font-display text-4xl font-semibold sm:text-6xl">
-          A museum without <span className="text-holo">walls</span>.
+          Tanpa <span className="text-holo">Batas</span>.
         </h2>
         <p className="mt-4 text-muted-foreground">
-          Every surface becomes a stage. Every classroom becomes an era.
+          Setiap permukaan menjadi ruang belajar. Setiap ruang kelas menghadirkan perjalanan ke masa praaksara.
         </p>
       </div>
 
