@@ -3,18 +3,18 @@ import { Check, X, RotateCcw } from "lucide-react";
 
 const questions = [
   {
-    q: "Which civilization built the ziggurat of Ur?",
-    options: ["Egyptians", "Sumerians", "Romans", "Aztecs"],
-    correct: 1,
-  },
-  {
-    q: "In which year did Vesuvius bury Pompeii?",
-    options: ["79 CE", "410 CE", "1066 CE", "1492 CE"],
+    q: "Periodisasi Geologi Paling tua adalah?",
+    options: ["Arkaekum", "Paleozoikum", "Mesozoikum", "Neozoikum"],
     correct: 0,
   },
   {
-    q: "Who painted the Mona Lisa?",
-    options: ["Michelangelo", "Raphael", "Leonardo da Vinci", "Donatello"],
+    q: "Pada masa Mesozoikum, bagaimana kehidupan manusia praaksara",
+    options: ["Bercocok Tanam", "Berburu dan meramu", "Berburu dan bercocok tanam", "Meramu dan bercocok tanam"],
+    correct: 1,
+  },
+  {
+    q: "Siapa Penemu kerangka manusia purba Pithecanthropus?",
+    options: ["G.H.R. von Koenigswald", "B.D. van Rietschoten", "Eugene Dubois", "von Koenigswald"],
     correct: 2,
   },
 ];
