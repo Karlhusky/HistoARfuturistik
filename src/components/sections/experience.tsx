@@ -50,10 +50,10 @@ export function Experience() {
     >
       <div className="mb-16 max-w-2xl">
         <div className="mb-4 inline-flex items-center gap-2 rounded-full glass px-3 py-1 text-xs text-muted-foreground">
-          <span className="h-1 w-1 rounded-full bg-holo" /> Belajar
+          <span className="h-1 w-1 rounded-full bg-holo" /> Experience
         </div>
         <h2 className="font-display text-4xl font-semibold sm:text-6xl">
-          Tanpa <span className="text-holo">Batas</span>.
+          Belajar Tanpa <span className="text-holo">Batas</span>.
         </h2>
         <p className="mt-4 text-muted-foreground">
           Setiap permukaan menjadi ruang belajar. Setiap ruang kelas menghadirkan perjalanan ke masa praaksara.
