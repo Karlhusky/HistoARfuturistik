@@ -39,21 +39,21 @@ export function ARShowcase() {
               <Scan className="h-3 w-3" /> WebAR Ready
             </div>
             <h2 className="ar-anim font-display text-4xl font-semibold sm:text-6xl">
-              Point.{" "}
-              <span className="text-holo">Discover.</span>
+              Arahkan.{" "}
+              <span className="text-holo">jelajahi.</span>
               <br />
-              Learn in place.
+              Belajar.
             </h2>
             <p className="ar-anim mt-6 max-w-md text-muted-foreground">
-              No app store. No download. Scan the code and any artifact appears
-              at true scale — from a Sumerian tablet to the Apollo lander.
+             Tanpa instalasi. Tanpa unduhan. 
+              Cukup pindai kode, lalu model 3D, diorama, dan materi sejarah muncul dalam skala sebenarnya.
             </p>
 
             <ul className="ar-anim mt-8 space-y-3 text-sm">
               {[
-                { icon: Camera, t: "Uses your camera with on-device tracking" },
-                { icon: Smartphone, t: "Runs on iOS Safari + Android Chrome" },
-                { icon: Scan, t: "Occlusion, lighting and anchor persistence" },
+                { icon: Camera, t: "Menggunakan kamera perangkat untuk pelacakan secara langsung" },
+                { icon: Smartphone, t: "Berjalan di Safari (iOS) dan Browser Favoritmu (Android)" },
+                { icon: Scan, t: "Objek virtual tampak lebih nyata dengan oklusi, pencahayaan, dan posisi yang tetap stabil." },
               ].map((r) => (
                 <li key={r.t} className="flex items-center gap-3">
                   <span className="flex h-8 w-8 items-center justify-center rounded-xl glass">
@@ -103,10 +103,10 @@ export function ARShowcase() {
                     Artifact_0417
                   </div>
                   <div className="mt-2 font-display text-2xl font-semibold text-holo">
-                    Rosetta Stone
+                    Periodisasi Geologi
                   </div>
                   <div className="mt-1 text-[10px] text-muted-foreground">
-                    196 BCE · Basalt
+                    340 Juta tahun lalu · Paleozoikum
                   </div>
                 </div>
               </div>
