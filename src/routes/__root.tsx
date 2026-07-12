@@ -73,7 +73,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "HistoAR — The Future Museum for Immersive Learning" },
+      { title: "HistoAR" },
       {
         name: "description",
         content:
