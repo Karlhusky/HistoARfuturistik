@@ -59,32 +59,32 @@ export function Hero() {
         <div className="hero-anim mx-auto mb-6 inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs">
           <span className="h-1.5 w-1.5 rounded-full bg-holo shadow-holo" />
           <span className="text-muted-foreground">
-            WebAR · Now streaming from the Future Museum
+            WebAR · Kini hadir melalui HistoAR,
           </span>
         </div>
         <h1 className="hero-anim font-display text-5xl font-semibold leading-[1.05] tracking-tight sm:text-7xl md:text-8xl">
-          History,
+          Sejarah,
           <br />
-          rendered in <span className="text-holo">light</span>.
+          Hadir Dalam <span className="text-holo">Dunia Nyata</span>.
         </h1>
         <p className="hero-anim mx-auto mt-6 max-w-2xl text-base text-muted-foreground sm:text-lg">
-          HistoAR is an immersive learning platform that projects the past into
-          your room. Walk through civilizations, hold artifacts, and let an AI
-          guide narrate the story — right from your browser.
+         HistoAR adalah platform pembelajaran imersif yang menghadirkan masa lalu ke hadapan Anda melalui teknologi Augmented Reality. 
+         Jelajahi periodisasi bumi, amati manusia purba dan diorama interaktif, serta biarkan HistoAI memandu perjalanan belajar Anda
+         langsung dari peramban, tanpa perlu menginstal aplikasi..
         </p>
         <div className="hero-anim mt-10 flex flex-wrap items-center justify-center gap-3">
           <Link
             to="/materi"
             className="group relative overflow-hidden rounded-full bg-holo px-6 py-3 text-sm font-semibold text-primary-foreground shadow-holo transition hover:scale-[1.02]"
           >
-            <span className="relative z-10">Enter the exhibit</span>
+            <span className="relative z-10">Mulai Pengalaman</span>
             <span className="shimmer absolute inset-0" />
           </Link>
           <a
             href="#experience"
             className="rounded-full glass px-6 py-3 text-sm font-medium transition hover:bg-white/10"
           >
-            Explore the timeline →
+            Jelajahi Garis Waktu →
           </a>
         </div>
 
