@@ -3,6 +3,13 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+// PENTING: plugin harus di-register sekali sebelum dipakai,
+// kalau tidak, config `scrollTrigger` di gsap.from() diabaikan
+// dan elemen bisa "macet" di state awal (opacity: 0).
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
 const features = [
   {
     icon: Compass,
@@ -28,6 +35,7 @@ const features = [
 
 export function Experience() {
   const ref = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from(".exp-card", {
@@ -36,9 +44,23 @@ export function Experience() {
         duration: 0.9,
         ease: "power3.out",
         stagger: 0.1,
-        scrollTrigger: { trigger: ref.current, start: "top 70%" },
+        scrollTrigger: {
+          trigger: ref.current,
+          start: "top 70%",
+          // kalau section ini sudah kelihatan saat halaman
+          // pertama load (misalnya lewat deep-link #learn),
+          // langsung mainkan animasinya alih-alih nunggu event
+          // scroll yang mungkin tidak pernah terjadi lagi
+          once: true,
+        },
       });
+
+      // pastikan ScrollTrigger menghitung ulang posisi elemen
+      // setelah layout & font selesai render (penting kalau ada
+      // scroll-jump ke anchor seperti #learn saat first load)
+      requestAnimationFrame(() => ScrollTrigger.refresh());
     }, ref);
+
     return () => ctx.revert();
   }, []);
 
