@@ -1,14 +1,5 @@
 import { Compass, Layers, Sparkles, Wand2 } from "lucide-react";
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-// PENTING: plugin harus di-register sekali sebelum dipakai,
-// kalau tidak, config `scrollTrigger` di gsap.from() diabaikan
-// dan elemen bisa "macet" di state awal (opacity: 0).
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
+import { useEffect, useRef, useState } from "react";
 
 const features = [
   {
@@ -35,33 +26,33 @@ const features = [
 
 export function Experience() {
   const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".exp-card", {
-        y: 60,
-        opacity: 0,
-        duration: 0.9,
-        ease: "power3.out",
-        stagger: 0.1,
-        scrollTrigger: {
-          trigger: ref.current,
-          start: "top 70%",
-          // kalau section ini sudah kelihatan saat halaman
-          // pertama load (misalnya lewat deep-link #learn),
-          // langsung mainkan animasinya alih-alih nunggu event
-          // scroll yang mungkin tidak pernah terjadi lagi
-          once: true,
-        },
-      });
+    const el = ref.current;
+    if (!el) return;
 
-      // pastikan ScrollTrigger menghitung ulang posisi elemen
-      // setelah layout & font selesai render (penting kalau ada
-      // scroll-jump ke anchor seperti #learn saat first load)
-      requestAnimationFrame(() => ScrollTrigger.refresh());
-    }, ref);
+    // Kalau section sudah ada di viewport saat mount (misalnya
+    // karena deep-link ke #experience), langsung tampilkan tanpa
+    // nunggu event scroll yang mungkin tidak pernah terjadi lagi.
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight * 0.9) {
+      setVisible(true);
+      return;
+    }
 
-    return () => ctx.revert();
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -83,10 +74,15 @@ export function Experience() {
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {features.map((f) => (
+        {features.map((f, i) => (
           <div
             key={f.title}
-            className="exp-card group relative overflow-hidden rounded-3xl glass p-6 transition hover:-translate-y-1 hover:shadow-holo"
+            className="exp-card group relative overflow-hidden rounded-3xl glass p-6 transition-all duration-700 hover:-translate-y-1 hover:shadow-holo"
+            style={{
+              opacity: visible ? 1 : 0,
+              transform: visible ? "translateY(0)" : "translateY(40px)",
+              transitionDelay: visible ? `${i * 100}ms` : "0ms",
+            }}
           >
             <div className="mb-6 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-holo/10 ring-1 ring-holo/40">
               <f.icon className="h-5 w-5 text-holo" />
