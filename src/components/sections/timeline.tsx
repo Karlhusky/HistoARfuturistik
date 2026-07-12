@@ -78,7 +78,7 @@ export function Timeline() {
           Interactive Timeline
         </div>
         <h2 className="font-display text-4xl font-semibold sm:text-6xl">
-          Scroll through <span className="text-holo">5,000 years</span>.
+          Menjelajahi <span className="text-holo">Masa ke masa</span>.
         </h2>
       </div>
 
