@@ -10,9 +10,9 @@ const seed: Message[] = [
 ];
 
 const prompts = [
-  "Explain the Pyramids like I'm 10",
-  "Compare Rome and Han dynasty",
-  "Show me Renaissance inventions",
+ "Jelaskan Periodisasi Bumi untuk siswa kelas 10",
+ "Bandingkan Zaman Berburu dan Meramu dengan Zaman Bercocok Tanam",
+ "Tunjukkan perbedaan Meganthropus, Pithecanthropus, dan Homo",
 ];
 
 export function AIGuide() {
@@ -57,11 +57,12 @@ export function AIGuide() {
           </div>
           <h2 className="font-display text-4xl font-semibold sm:text-6xl">
             Meet <span className="text-holo">HistoAI</span>.
-            <br />Your museum concierge.
+            <br />Pemandu AI kamu.
           </h2>
           <p className="mt-6 max-w-md text-muted-foreground">
-            HistoAI narrates, quizzes and translates every exhibit — adapting
-            tone to your age, curiosity and pace. She never gets tired of "why?".
+            HistoAI Menarasikan, memberikan kuis, dan mengartikan setiap materi dengan gaya penyampaian yang menyesuaikan usia, rasa ingin tahu, dan kecepatan belajarmu.
+            Ia tidak pernah lelah menjawab pertanyaan, "Mengapa?"
+".
           </p>
           <div className="mt-8 flex flex-wrap gap-2">
             {prompts.map((p) => (
@@ -86,7 +87,7 @@ export function AIGuide() {
             <div>
               <div className="text-sm font-semibold">HistoAI</div>
               <div className="text-[10px] text-muted-foreground">
-                AI Museum Guide · online
+                Pemandu AI · online
               </div>
             </div>
           </div>
@@ -112,7 +113,7 @@ export function AIGuide() {
               <div className="flex justify-start">
                 <div className="glass flex items-center gap-2 rounded-2xl px-4 py-2.5 text-sm text-muted-foreground">
                   <Loader2 className="h-3.5 w-3.5 animate-spin" />
-                  Thinking…
+                  Berpikir…
                 </div>
               </div>
             )}
