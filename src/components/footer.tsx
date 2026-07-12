@@ -13,14 +13,14 @@ export function Footer() {
               </span>
             </div>
             <p className="mt-4 max-w-xs text-xs text-muted-foreground">
-              A future museum for every classroom. Built for the web, powered by
-              WebXR and generative AI.
+              Membawa Pembelajaran Sejarah ke Masa Depan. 
+              Dibangun untuk web, ditenagai oleh WebXR.
             </p>
           </div>
           {[
             {
               h: "Product",
-              l: ["WebAR", "Timeline", "AI Guide", "Curriculum"],
+              l: ["WebAR", "Timeline", "AI Guide"],
             },
             { h: "Company", l: ["About", "Educators", "Press", "Careers"] },
             { h: "Legal", l: ["Privacy", "Terms", "Accessibility"] },
@@ -43,7 +43,7 @@ export function Footer() {
         </div>
         <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-6 text-xs text-muted-foreground">
           <span>© {new Date().getFullYear()} HistoAR. All rights reserved.</span>
-          <span className="font-mono">v1.0 · Future Museum edition</span>
+          <span className="font-mono">v1.0 · Edisi Pembelajaran Masa Depan</span>
         </div>
       </div>
     </footer>
