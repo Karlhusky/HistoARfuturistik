@@ -2,12 +2,12 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
 const links = [
-  { href: "#experience", label: "Experience" },
-  { href: "#timeline", label: "Timeline" },
-  { href: "#learn", label: "Learn" },
-  { href: "#ar", label: "WebAR" },
-  { href: "#quiz", label: "Quiz" },
-  { href: "#ai", label: "AI Guide" },
+  { href: "/#experience", label: "Experience" },
+  { href: "/#timeline", label: "Timeline" },
+  { href: "/#learn", label: "Learn" },
+  { href: "/#ar", label: "WebAR" },
+  { href: "/#quiz", label: "Quiz" },
+  { href: "/#ai", label: "AI Guide" },
 ];
 
 export function Nav() {
