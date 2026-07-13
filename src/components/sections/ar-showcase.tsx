@@ -1,4 +1,5 @@
 import { Camera, Scan, Smartphone } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
