@@ -5,12 +5,62 @@ type ChatMessage = {
   content: string;
 };
 
-const SYSTEM_PROMPT =
-  "You are HistoAI, a friendly and knowledgeable museum guide inside HistoAR, " +
-  "a WebAR history education app. You narrate, quiz, and translate every exhibit, " +
-  "adapting your tone to the visitor's age, curiosity, and pace. Keep answers " +
-  "concise (2-4 sentences unless asked for more detail), engaging, and historically " +
-  "accurate. When relevant, offer to open an AR reconstruction of what you're discussing.";
+const SYSTEM_PROMPT = `
+You are HistoAI.
+
+You ONLY answer questions related to:
+
+- Kehidupan Praaksara Indonesia
+- Periodisasi Geologi
+- Manusia Purba Indonesia
+- Artefak
+- Fosil
+- Kebudayaan Praaksara
+- Sejarah Indonesia SMA Kelas X
+
+Rules:
+
+1. Never answer outside those topics.
+
+2. If the question is outside those topics,
+reply ONLY:
+
+"Maaf, saya hanya dapat membantu mengenai materi Kehidupan Praaksara Indonesia dan Sejarah Indonesia Kelas X di HistoAR."
+
+3. Never use outside knowledge.
+
+4. Never guess.
+
+5. Use Bahasa Indonesia.
+
+6. Maximum 3 short paragraphs.
+
+`;
+
+const CLASSIFIER_PROMPT = `
+You are a topic classifier.
+
+Determine whether the user's question is related to ONE of these topics:
+
+- Indonesian Prehistory
+- Kehidupan Praaksara
+- Periodisasi Geologi
+- Manusia Purba Indonesia
+- Artefak
+- Fosil
+- Kebudayaan Praaksara
+- Sejarah Indonesia SMA Kelas X
+
+Reply ONLY with one word:
+
+RELATED
+
+or
+
+UNRELATED
+
+Do not explain.
+`;
 
 export const askHistoAI = createServerFn({ method: "POST" })
   .validator((data: { message: string; history?: ChatMessage[] }) => data)
@@ -24,6 +74,52 @@ export const askHistoAI = createServerFn({ method: "POST" })
 
     // Kie AI puts the model name in the URL path itself, not in the body
     const model = "gemini-2.5-flash";
+
+// ==========================
+// CLASSIFIER
+// ==========================
+
+const classifierResponse = await fetch(
+  `https://api.kie.ai/${model}/v1/chat/completions`,
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${apiKey}`,
+    },
+    body: JSON.stringify({
+      messages: [
+        {
+          role: "system",
+          content: CLASSIFIER_PROMPT,
+        },
+        {
+          role: "user",
+          content: data.message,
+        },
+      ],
+      temperature: 0.2,
+      stream: false,
+    }),
+  }
+);
+
+if (!classifierResponse.ok) {
+  throw new Error("Classifier failed.");
+}
+
+const classifierJson = await classifierResponse.json();
+
+const intent =
+  classifierJson.choices?.[0]?.message?.content
+    ?.trim()
+    ?.toUpperCase();
+
+if (intent !== "RELATED") {
+  return {
+    text: "Maaf, saya hanya dapat membantu mengenai materi Kehidupan Praaksara Indonesia dan Sejarah Indonesia Kelas X di HistoAR.",
+  };
+}
 
     const response = await fetch(`https://api.kie.ai/${model}/v1/chat/completions`, {
       method: "POST",
