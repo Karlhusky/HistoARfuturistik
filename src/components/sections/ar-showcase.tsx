@@ -65,9 +65,12 @@ export function ARShowcase() {
             </ul>
 
             <div className="ar-anim mt-10 flex gap-3">
-              <button className="rounded-full bg-holo px-6 py-3 text-sm font-semibold text-primary-foreground shadow-holo transition hover:scale-[1.02]">
+              <Link
+                to="/materi"
+                className="rounded-full bg-holo px-6 py-3 text-sm font-semibold text-primary-foreground shadow-holo transition hover:scale-[1.02]"
+              >
                 Launch WebAR
-              </button>
+              </Link>
               <button className="rounded-full glass px-6 py-3 text-sm transition hover:bg-white/10">
                 Watch demo
               </button>
