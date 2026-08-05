@@ -45,6 +45,59 @@
       }
     ]
   },
+  "m2-2": {
+    "targetMind": "/assets/ar/targets/empat-masa-kehidupan-manusia-praaksara/mesolitikum.mind",
+    "targets": [
+      {
+        "key": "mesolitikum",
+        "label": "Masa Berburu dan Mengumpulkan Makanan Tingkat Lanjut (Mesolitikum)",
+        "targetIndex": 0,
+        "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/mesolitikum.glb",
+        "scale": "0.3 0.3 0.3",
+        "defaultView": { "rotY": 0, "zoom": 2 },
+        "introAudio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/mesolitikum/0001.mp3",
+        "hotspots": [
+          {
+            "id": "tempat-tinggal",
+            "label": "Tempat Tinggal",
+            "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/mesolitikum.glb",
+            "scale": "0.3 0.3 0.3",
+            "audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/mesolitikum/0002.mp3",
+            "teks": "Mereka tinggal cukup lama di gua-gua yang disebut abris sous roche dan di cerukan di tepi pantai. Pilihan lokasi selalu dekat sumber air. Di tepi pantai, mereka meninggalkan tumpukan sampah dapur berupa kulit kerang yang menggunung. Timbunan ini disebut kjokkenmoddinger dan menjadi salah satu penanda arkeologis paling khas dari Mesolitikum di Indonesia, terutama di pesisir timur Sumatera Utara.",
+            "view": { "rotY": 0, "zoom": 6 }
+          },
+          {
+            "id": "bercocok-tanam",
+            "label": "Awal Bercocok Tanam",
+            "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/mesolitikum.glb",
+            "scale": "0.3 0.3 0.3",
+            "audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/mesolitikum/0003.mp3",
+            "teks": "Meskipun berburu dan meramu masih dominan, tanda-tanda awal bercocok tanam sudah muncul. Mereka mencoba menanam padi, umbi-umbian, dan kacang-kacangan. Mereka juga mulai menjinakkan hewan sebagai cikal bakal peternakan.",
+            "view": { "rotY": 90, "zoom": 6 }
+          },
+          {
+            "id": "alat",
+            "label": "Alat yang Dipakai",
+            "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/mesolitikum.glb",
+            "scale": "0.3 0.3 0.3",
+            "audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/mesolitikum/0004.mp3",
+            "teks": "Alat-alatnya masih dari batu, tulang, tanduk, kulit kerang, dan bambu. Bedanya, permukaannya sudah lebih halus dibanding masa Paleolitikum. Muncul pula alat-alat baru seperti kapak genggam Sumatera (Sumatralith), cungkil dan sudip dari bambu untuk mencungkil serta membersihkan umbi.",
+            "view": { "rotY": 180, "zoom": 6 }
+          },
+          {
+            "id": "seni-lukis",
+            "label": "Seni Lukis Berkembang Pesat",
+            "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/mesolitikum.glb",
+            "scale": "0.3 0.3 0.3",
+            "audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/mesolitikum/0005.mp3",
+            "teks": "Manusia mulai melukis di dinding gua. Objeknya menggambarkan kehidupan sosial, ekonomi, dan kepercayaan mereka. Teknik lukisnya menggores dinding gua dengan alat tajam dan menggunakan cat berwarna merah, hitam, dan putih dari bahan alami. Motifnya antara lain cap tangan, gambar hewan buruan dengan busur panah, serta berbagai hewan target buruan. Lukisan-lukisan ini bukan sekadar hiasan. Mereka percaya lukisan itu bisa membantu mempermudah perburuan. Dari pola-pola lukisan, para ahli menyimpulkan bahwa manusia Mesolitikum sudah punya sistem kepercayaan awal: percaya ada kekuatan besar yang memengaruhi kehidupan mereka. Unsur spiritual mulai lahir di sini.",
+            "view": { "rotY": 270, "zoom": 6 }
+          }
+        ]
+      }
+    ]
+  },
+
   "m2-4-1": {
     "targetMind": "/assets/ar/targets/situs-megalitik/sumatra.mind",
     "targets": [

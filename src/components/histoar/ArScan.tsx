@@ -28,6 +28,8 @@ export function ArScan({
   const [panelHidden, setPanelHidden] = useState(true);
   const [reopenVisible, setReopenVisible] = useState(false);
   const [gate, setGate] = useState({ done: 0, total: 0, unlocked: false });
+  const [modelError, setModelError] = useState<string | null>(null);
+  const [restartToken, setRestartToken] = useState(0);
 
   useEffect(() => {
     let cancelled = false;
@@ -37,9 +39,11 @@ export function ArScan({
       await loadScript("https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js");
       if (cancelled) return;
 
+      setModelError(null);
       const engine = new ArEngine(arConfig, {
         onGateUpdate: (done, total, unlockedNow) => setGate({ done, total, unlocked: unlockedNow }),
         onQuizReady: onAllExplored,
+        onModelError: (targetKey, src) => setModelError(`Model "${targetKey}" gagal dimuat (${src}).`),
       });
       engineRef.current = engine;
       engine.start();
@@ -75,7 +79,15 @@ export function ArScan({
       engineRef.current = null;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [materiId]);
+  }, [materiId, restartToken]);
+
+  // Ngulang boot() dari nol: dispose paksa stream kamera lama + rebuild scene,
+  // biar user nggak perlu hard refresh browser kalau kamera macet.
+  const restartCamera = () => {
+    setReady(false);
+    setModelError(null);
+    setRestartToken((n) => n + 1);
+  };
 
   const gateReady = gate.total > 0 && gate.done >= gate.total;
 
@@ -89,9 +101,23 @@ export function ArScan({
           <ChevronLeft className="h-4 w-4" /> Kembali
         </button>
         <h1 className="font-display text-sm font-semibold">{materiJudul}</h1>
+        <button
+          onClick={restartCamera}
+          className="ml-auto flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
+        >
+          <RotateCcw className="h-4 w-4" /> Kamera bermasalah?
+        </button>
       </header>
 
       <div id="arSceneRoot" className="ar-scene-root fixed inset-0" />
+
+      {modelError && (
+        <div className="glass-strong fixed left-1/2 top-20 z-30 -translate-x-1/2 rounded-2xl px-4 py-2 text-center font-mono text-xs text-destructive">
+          {modelError}
+          <br />
+          Cek console browser untuk detail error, atau tap &quot;Kamera bermasalah?&quot; buat coba lagi.
+        </div>
+      )}
 
       {!ready && (
         <div className="fixed inset-0 z-10 flex items-center justify-center bg-background">

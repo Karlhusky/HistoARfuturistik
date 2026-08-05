@@ -45,6 +45,7 @@ function ensureAutoplayComponent() {
 export interface ArEngineCallbacks {
   onGateUpdate: (done: number, total: number, ready: boolean) => void;
   onQuizReady: () => void;
+  onModelError?: (targetKey: string, src: string, detail: unknown) => void;
 }
 
 export class ArEngine {
@@ -411,6 +412,15 @@ export class ArEngine {
     this.config.targets.forEach((t) => {
       const el = sceneRoot.querySelector(`[data-target-key="${t.key}"]`);
       if (!el) return;
+
+      // Library-nya diam total kalau GLTFLoader gagal (network/parse/GPU) - tanpa
+      // listener ini, model yang gagal muat kelihatan sama persis kayak "nggak muncul".
+      const modelEl = el.querySelector("a-gltf-model");
+      modelEl?.addEventListener("model-error", (e: any) => {
+        const src = modelEl.getAttribute("src") || t.model;
+        console.error(`[ArEngine] Gagal load model "${t.key}":`, src, e?.detail ?? e);
+        this.callbacks.onModelError?.(t.key, src, e?.detail ?? e);
+      });
 
       el.addEventListener("targetFound", () => {
         const isFirstTime = !t._locked;
