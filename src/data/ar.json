@@ -98,6 +98,113 @@
     ]
   },
 
+  "m2-3": {
+    "targetMind": "/assets/ar/targets/empat-masa-kehidupan-manusia-praaksara/neolitikum.mind",
+    "targets": [
+      {
+        "key": "neolitikum",
+        "label": "Masa Bercocok Tanam (Neolitikum)",
+        "targetIndex": 0,
+        "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/neolitikum.glb",
+        "scale": "0.3 0.3 0.3",
+        "defaultView": { "rotY": 0, "zoom": 2 },
+        "introAudio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/neolitikum/intro.mp3",
+        "hotspots": [
+          {
+            "id": "membuka-hunian",
+            "label": "Membuka Lahan dan Pola Hunian",
+            "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/neolitikum.glb",
+            "scale": "0.3 0.3 0.3",
+            "audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/neolitikum/membuka-hunian.mp3",
+            "teks": "Manusia mulai membuka lahan dengan cara menebang hutan dan membakar semak (slash and burn). Setelah lahan siap, mereka menanam tanaman. Berburu dan mengumpulkan makanan masih dijalankan, tapi porsinya berkurang. Mulai muncul perkampungan. Manusia menetap secara berkelompok dalam beberapa keluarga. Populasi meningkat pesat karena pasokan makanan lebih stabil. Lokasi perkampungan biasanya berada di sekitar sumber air seperti pinggiran sungai, danau, dan tepian pantai, atau di dataran tinggi seperti bukit-bukit kecil dengan sumber air di sekitarnya. Dataran tinggi dipilih untuk berlindung dari serangan musuh dan hewan buas."
+          },
+          {
+            "id": "gotongroyong",
+            "label": "Gotong Royong dan Kepemimpinan",
+            "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/neolitikum.glb",
+            "scale": "0.3 0.3 0.3",
+            "audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/neolitikum/gotongroyong.mp3",
+            "teks": "Kehidupan perkampungan menumbuhkan tradisi gotong royong. Mereka bekerja bersama menebang pohon, membakar semak belukar, menabur benih, memanen, membuat gerabah, berburu, menangkap ikan, dan bertukar barang. Pemimpin ditunjuk dari orang paling tua dan berwibawa. Dari sinilah tradisi menghormati orang tua sebagai pemimpin lahir. Kalian yang menghormati orang tua di rumah sebenarnya sedang melanjutkan tradisi yang sudah berusia ribuan tahun."
+          },
+          {
+            "id": "kerja-alat",
+            "label": "Pembagian Kerja dan Alat yang Dipakai",
+            "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/neolitikum.glb",
+            "scale": "0.3 0.3 0.3",
+            "audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/neolitikum/kerja-alat.mp3",
+            "teks": "Pembagian kerja semakin jelas. Laki-laki mengerjakan tugas berat seperti berburu, menangkap ikan di lautan lepas, dan membangun rumah dari kayu dan bambu. Perempuan menangkap ikan di sekitar rumah, membuat gerabah, menabur benih di ladang, merawat rumah, dan mendidik anak-anak sambil melibatkan mereka dalam pekerjaan sehari-hari. Pengakuan atas peran perempuan dalam memenuhi kebutuhan keluarga sudah terbentuk di masa ini. Teknologi juga melompat maju. Alat batu sudah diasah halus, tidak lagi kasar seperti masa sebelumnya. Alat khas Neolitikum di Indonesia antara lain beliung persegi, kapak lonjong, kapak batu, mata panah dan mata tombak, alat obsidian atau batu kecubung, gerabah dengan teknik pembuatan sederhana, serta perhiasan dari batu dan kulit kerang seperti gelang."
+          },
+          {
+            "id": "kepercayaan",
+            "label": "Sistem Kepercayaan",
+            "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/neolitikum.glb",
+            "scale": "0.3 0.3 0.3",
+            "audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/neolitikum/kepercayaan.mp3",
+            "teks": "Kepercayaan pada roh leluhur muncul. Mereka yakin roh orang yang meninggal masih ada di sekitar. Ketika ada yang meninggal, terutama tokoh yang dituakan, diadakan upacara penguburan. Jenazah dibekali perhiasan dan benda-benda yang biasa dipakai semasa hidup, agar rohnya tidak tersesat menuju alam nenek moyang. Kepercayaan ini juga menjadi rem sosial: manusia berperilaku baik karena percaya leluhur mengawasi."
+          }
+        ]
+      }
+    ]
+  },
+
+  "m2-6": {
+    "targetMind": "/assets/ar/targets/empat-masa-kehidupan-manusia-praaksara/zaman_logam.mind",
+    "maxZoom": 30,
+    "targets": [
+      {
+        "key": "perundagian",
+        "label": "Masa Perundagian (Zaman Logam)",
+        "targetIndex": 0,
+        "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/zaman_logam.glb",
+        "scale": "0.3 0.3 0.3",
+        "defaultView": { "rotY": 0, "zoom": 2 },
+        "introAudio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/zaman_logam/intro.mp3",
+        "hotspots": [
+          {
+            "id": "menetap-dan-pembagian-kerja",
+            "label": "Menetap dan Pembagian Kerja",
+            "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/zaman_logam.glb",
+            "scale": "0.3 0.3 0.3",
+            "audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/zaman_logam/menetap-dan-pembagian-kerja.mp3",
+            "teks": "Manusia sudah benar-benar berhenti berpindah dan menetap di perkampungan serta desa. Kegiatan sehari-hari seperti bertani dan berternak diatur secara gotong royong dan hasilnya dibagi adil. Yang membedakan masa ini dengan Neolitikum, pembagian kerja mulai berbasis keahlian: ada yang khusus membuat gerabah, perhiasan, mengecor logam, atau membuat perahu. Manusia mulai punya profesi."
+          },
+          {
+            "id": "kegiatan-sehari-hari",
+            "label": "Kegiatan Sehari-hari",
+            "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/zaman_logam.glb",
+            "scale": "0.3 0.3 0.3",
+            "audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/zaman_logam/kegiatan-sehari-hari.mp3",
+            "teks": "Berburu masih dilakukan untuk menambah kebutuhan sehari-hari, memakai tombak, mata panah, dan jerat dari rotan serta bambu. Pertanian menjadi pekerjaan tetap dengan alat dari logam. Irigasi mulai dibangun agar air bisa dialirkan ke ladang. Peternakan juga berkembang: unggas dan kerbau untuk daging, sedangkan kuda dan anjing untuk berburu dan mengangkut hasil pertanian."
+          },
+          {
+            "id": "teknologi-logam",
+            "label": "Teknologi Logam",
+            "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/zaman_logam.glb",
+            "scale": "0.3 0.3 0.3",
+            "audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/zaman_logam/teknologi-logam.mp3",
+            "teks": "Lompatan teknologi terbesar di masa praaksara. Manusia mengenal peleburan, pencampuran, penempaan, dan pencetakan logam. Emas dan tembaga menjadi favorit karena titik leburnya tidak terlalu tinggi. Lahir berbagai perhiasan dan alat upacara, termasuk nekara perunggu. Yang paling terkenal, Nekara Bulan Pejeng dari Bali, nekara terbesar di Asia Tenggara, dengan tinggi sekitar seratus delapan puluh enam sentimeter dan garis tengah seratus enam puluh sentimeter. Nekara ini dipercaya punya kekuatan gaib untuk memanggil hujan."
+          },
+          {
+            "id": "kemampuan-berlayar",
+            "label": "Kemampuan Berlayar",
+            "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/zaman_logam.glb",
+            "scale": "0.3 0.3 0.3",
+            "audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/zaman_logam/kemampuan-berlayar.mp3",
+            "teks": "Manusia Perundagian sudah mahir berlayar. Perahu bercadik menjadi teknologi kunci yang memungkinkan pelayaran jarak jauh. Mereka berdagang dengan wilayah lain melintasi lautan luas memakai sistem barter. Barang yang banyak dicari antara lain nekara perunggu, perhiasan logam, dan manik-manik, yang dipercaya punya kekuatan magis dan bernilai khusus."
+          },
+          {
+            "id": "seni-dan-sistem-kepercayaan",
+            "label": "Seni dan Sistem Kepercayaan",
+            "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/zaman_logam.glb",
+            "scale": "0.3 0.3 0.3",
+            "audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/zaman_logam/seni-dan-sistem-kepercayaan.mp3",
+            "teks": "Seni ukir berkembang dengan pola geometris yang khas, disertai gambar dinamis dan motif simbolis. Kepercayaan pada arwah leluhur semakin kuat dan dihormati lewat upacara. Penguburan dilakukan dengan dua cara: langsung dan tidak langsung. Praktik penguburan dua tahap ini masih hidup di tengah masyarakat Toraja dalam upacara Rambu Solo."
+          }
+        ]
+      }
+    ]
+  },
+
   "m2-4-1": {
     "targetMind": "/assets/ar/targets/situs-megalitik/sumatra.mind",
     "targets": [
@@ -123,7 +230,7 @@
         "key": "Situs Megalitik Jawa",
         "label": "Situs Megalitik Jawa",
         "targetIndex": 0,
-        "model": "/assets/models/situs-megalitik/sumatra/jawa/jabar.glb",
+        "model": "/assets/models/situs-megalitik/jawa/jabar.glb",
         "scale": "0.3 0.3 0.3",
         "defaultView": { "rotY": 0, "zoom": 2 },
         "introAudio": "/assets/audio/situs-megalitik/jawa/intro.mp3",

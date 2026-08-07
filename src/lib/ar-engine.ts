@@ -55,7 +55,15 @@ export class ArEngine {
   private currentAudio: HTMLAudioElement | null = null;
   private audioBusy = false;
   private audioTimeoutHandle: ReturnType<typeof setTimeout> | null = null;
-  private activeTarget: (ArTarget & { _locked?: boolean }) | null = null;
+  private activeTarget: ArTarget | null = null;
+  // State "target ini udah pernah ketemu" WAJIB per-instance. Dulu disimpen
+  // sebagai t._locked di object config-nya langsung, padahal config itu berasal
+  // dari import ar.json = objek module-level yang hidup terus selama tab kebuka.
+  // Efeknya: masuk AR untuk kedua kalinya (tanpa reload) targetFound dianggap
+  // "bukan pertama kali", openPanel() nggak pernah jalan, jadi defaultView
+  // (zoom) nggak keterapin dan panel + audio intro nggak muncul.
+  private openedTargets = new Set<string>();
+  private trackingKey: string | null = null;
   private maxZoom = DEFAULT_MAX_ZOOM;
   private baseScaleVec = { x: 0.3, y: 0.3, z: 0.3 };
   private zoomFactor = 1;
@@ -422,28 +430,81 @@ export class ArEngine {
         this.callbacks.onModelError?.(t.key, src, e?.detail ?? e);
       });
 
-      el.addEventListener("targetFound", () => {
-        const isFirstTime = !t._locked;
-        t._locked = true;
-        this.activeTarget = t;
-        document.body.classList.add("ar-locked-in");
-        const hint = this.q("arScanHint");
-        if (hint) hint.hidden = true;
-        const viewControls = this.q("arViewControls");
-        if (viewControls) viewControls.hidden = false;
-        const moveControls = this.q("arMoveControls");
-        if (moveControls) moveControls.hidden = false;
-        if (isFirstTime) this.openPanel(t, true);
-      });
-
-      el.addEventListener("targetLost", () => {
-        if (t._locked && (el as any).object3D) {
-          requestAnimationFrame(() => {
-            (el as any).object3D.visible = true;
-          });
-        }
-      });
+      this.watchTarget(el, t);
     });
+  }
+
+  /**
+   * MindAR nge-gate event targetFound/targetLost lewat `object3D.visible`, dan
+   * pas target hilang dia nimpa matrix anchor-nya dengan MATRIKS NOL:
+   *
+   *   if (n === null) { this.el.object3D.matrix = this.invisibleMatrix; return; }
+   *
+   * Versi lama nge-hack `object3D.visible = true` lagi di targetLost biar model
+   * nggak ilang pas target keluar frame. Efeknya justru kebalikannya: entity-nya
+   * "visible" tapi transform-nya kolaps ke satu titik, jadi modelnya nggak
+   * kelihatan sama sekali. Plus, karena .visible kadung true, cek MindAR
+   * `!visible && n !== null` nggak pernah kepenuhi lagi -> targetFound mati
+   * permanen, panel & defaultView nggak pernah jalan lagi.
+   *
+   * Gantinya kita intercept updateWorldMatrix: update valid diterusin apa
+   * adanya, update null (target hilang) sengaja nggak diterusin sama sekali.
+   * Matrix terakhir yang valid tetap kepakai, jadi model diam di posisi terakhir
+   * tanpa perlu ngerusak state internal MindAR.
+   */
+  private watchTarget(el: Element, t: ArTarget) {
+    const anchorEl = el as any;
+
+    const patch = () => {
+      const comp = anchorEl.components?.["mindar-image-target"];
+      if (!comp) return false;
+      if (comp.__histoarPatched) return true;
+      comp.__histoarPatched = true;
+
+      const forward = comp.updateWorldMatrix.bind(comp);
+      comp.updateWorldMatrix = (worldMatrix: number[] | null) => {
+        if (this.disposed) return;
+        if (!worldMatrix) return; // target hilang: pertahankan pose terakhir
+        forward(worldMatrix);
+        this.onTargetTracked(anchorEl, t);
+      };
+      return true;
+    };
+
+    // Komponen MindAR baru ke-init setelah <a-scene> selesai attach, jadi kalau
+    // belum ada kita tunggu event init-nya.
+    if (!patch()) {
+      anchorEl.addEventListener("componentinitialized", (e: any) => {
+        if (e.detail?.name === "mindar-image-target") patch();
+      });
+    }
+  }
+
+  /** Dipanggil tiap frame selama target ke-track; isinya cuma jalan pas transisi. */
+  private onTargetTracked(anchorEl: any, t: ArTarget) {
+    if (this.trackingKey === t.key) return;
+
+    // Materi multi-target: sembunyiin model target sebelumnya biar nggak numpuk.
+    if (this.trackingKey) {
+      const prev = this.q("arSceneRoot")?.querySelector(`[data-target-key="${this.trackingKey}"]`) as any;
+      if (prev?.object3D) prev.object3D.visible = false;
+    }
+
+    this.trackingKey = t.key;
+    this.activeTarget = t;
+    if (anchorEl.object3D) anchorEl.object3D.visible = true;
+
+    document.body.classList.add("ar-locked-in");
+    const hint = this.q("arScanHint");
+    if (hint) hint.hidden = true;
+    const viewControls = this.q("arViewControls");
+    if (viewControls) viewControls.hidden = false;
+    const moveControls = this.q("arMoveControls");
+    if (moveControls) moveControls.hidden = false;
+
+    const isFirstTime = !this.openedTargets.has(t.key);
+    this.openedTargets.add(t.key);
+    if (isFirstTime) this.openPanel(t, true);
   }
 
   start() {
@@ -460,6 +521,14 @@ dispose() {
     this.currentAudio?.pause();
     if (this.audioTimeoutHandle) clearTimeout(this.audioTimeoutHandle);
     document.body.classList.remove("ar-locked-in");
+
+    // A-Frame nempelin class "a-fullscreen" ke <html> pas <a-scene> connect
+    // (html jadi position:fixed + body overflow:hidden) dan cuma ngelepasnya
+    // kalau scene-nya punya atribut "embedded" - disconnectedCallback-nya nggak
+    // bersih-bersih. Tanpa baris ini, halaman lain nggak bisa discroll setelah
+    // user balik dari mode AR.
+    document.documentElement.classList.remove("a-fullscreen");
+
     window.removeEventListener("pointermove", this.onPointerMove);
     window.removeEventListener("pointerup", this.onPointerUp);
     window.removeEventListener("pointercancel", this.onPointerUp);
@@ -469,11 +538,18 @@ dispose() {
 
     // Matiin sistem MindAR dulu (megang webcam loop) sebelum DOM dihapus,
     // kalau cuma innerHTML = "" doang, stream kamera bisa tetap nyala di background.
+    const arSystem = sceneEl?.systems?.["mindar-image-system"];
     try {
-      const arSystem = sceneEl?.systems?.["mindar-image-system"];
       arSystem?.stop?.();
     } catch {
-      // sistem mungkin belum sempat ke-init, aman diabaikan
+      // stop() nyentuh this.video yang bisa aja belum ada kalau user keluar pas
+      // kamera masih nyala-in. Kalau throw di situ, controller.dispose() di baris
+      // terakhirnya nggak kejalan -> worker MindAR bocor tiap masuk-keluar AR.
+      try {
+        arSystem?.controller?.dispose?.();
+      } catch {
+        // controller belum ke-init, aman diabaikan
+      }
     }
 
     // Jaga-jaga: matiin manual semua video track yang aktif di halaman ini.

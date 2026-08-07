@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build",
-    "build:dev": "vite build --mode development",
+    "build": "npm run check:vendor && vite build",
+    "build:dev": "npm run check:vendor && vite build --mode development",
+    "check:vendor": "node scripts/check-vendor.mjs",
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write ."

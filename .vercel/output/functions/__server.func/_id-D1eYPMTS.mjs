@@ -1,0 +1,497 @@
+import { t as materi_default } from "./_ssr/materi-DeSXLGNl.mjs";
+import { M as notFound, f as lazyRouteComponent, p as createFileRoute } from "./_libs/@tanstack/react-router+[...].mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/_id-D1eYPMTS.js
+var { materi: materiList } = materi_default;
+var ar_default = {
+	_petunjuk: "Setiap materi punya 'targetMind' (hasil compile semua gambar target materi itu jadi 1 file .mind via https://hiukim.github.io/mind-ar-js-doc/tools/compile) dan daftar 'targets'. targetIndex harus urut sesuai urutan gambar saat di-compile.",
+	_petunjuk_defaultView: "defaultView = tampilan awal pas target baru kedeteksi (zoom lebih besar + ngadep kamera). Nilai di bawah cuma titik awal (zoom:2, rotasi:0) - WAJIB di-tuning per model pake tombol 📐 di layar AR: drag & zoom manual sampe pas, tap 📐, salin hasilnya ke sini.",
+	m1: {
+		"targetMind": "/assets/ar/targets/periodisasi-geologi.mind",
+		"targets": [{
+			"key": "periodisasi-geologi",
+			"label": "Periodisasi Geologi: Bumi Sebelum Manusia",
+			"targetIndex": 0,
+			"model": "/assets/models/sekarang.glb",
+			"scale": "0.3 0.3 0.3",
+			"defaultView": {
+				"rotY": 0,
+				"zoom": 2
+			},
+			"introAudio": "/assets/audio/periodisasi-geologi/intro.mp3",
+			"hotspots": [
+				{
+					"id": "arkaekum",
+					"label": "Arkaekum",
+					"model": "/assets/models/arkaekum.glb",
+					"scale": "0.3 0.3 0.3",
+					"audio": "/assets/audio/periodisasi-geologi/arkaezoikum.mp3",
+					"teks": "± 2.500 juta tahun lalu. Zaman tertua. Bumi masih sangat panas dan kulit buminya belum stabil. Belum ada tanda kehidupan."
+				},
+				{
+					"id": "paleozoikum",
+					"label": "Paleozoikum",
+					"model": "/assets/models/paleozoikum.glb",
+					"scale": "0.3 0.3 0.3",
+					"audio": "/assets/audio/periodisasi-geologi/paleozoikum.mp3",
+					"teks": "± 340 juta tahun lalu (Zaman Primer / Hidup Tua). Tanda kehidupan mulai muncul: mikroorganisme, ikan, amfibi, reptil awal, dan hewan tanpa tulang belakang (invertebrata)."
+				},
+				{
+					"id": "mesozoikum",
+					"label": "Mesozoikum",
+					"model": "/assets/models/mesozoikum.glb",
+					"scale": "0.3 0.3 0.3",
+					"audio": "/assets/audio/periodisasi-geologi/mesozoikum.mp3",
+					"teks": "± 140 juta tahun lalu (Zaman Sekunder / Hidup Pertengahan). Zaman reptil raksasa, sering disebut zaman dinosaurus. Burung dan mamalia mulai muncul. Reptil besar seperti dinosaurus akhirnya punah karena seleksi alam, memberi ruang bagi burung dan mamalia untuk berkembang."
+				},
+				{
+					"id": "neozoikum",
+					"label": "Neozoikum",
+					"model": "/assets/models/neozoikum.glb",
+					"scale": "0.3 0.3 0.3",
+					"audio": "/assets/audio/periodisasi-geologi/neozoikum.mp3",
+					"teks": "60 juta tahun lalu hingga kini (Zaman Hidup Baru). Terbagi dua: Tersier (mamalia menyusui berkembang pesat) dan Kuartier (tanda-tanda kehidupan manusia muncul, sekitar 3 juta tahun lalu). Kuartier adalah zaman terpenting bagi kemunculan manusia."
+				}
+			]
+		}]
+	},
+	"m2-1": {
+		"targetMind": "/assets/ar/targets/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu.mind",
+		"targets": [{
+			"key": "paleolitikum",
+			"label": "Masa Berburu dan Meramu Sederhana (Paleolitikum)",
+			"targetIndex": 0,
+			"model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/berburu_meramu.glb",
+			"scale": "0.3 0.3 0.3",
+			"defaultView": {
+				"rotY": 0,
+				"zoom": 2
+			},
+			"introAudio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu/intro.mp3",
+			"hotspots": [
+				{
+					"id": "mata-pencaharian",
+					"label": "Cara Mendapatkan Makanan",
+					"teks": "Mata pencaharian dilakukan dengan berburu hewan dan mengumpulkan umbi-umbian, buah-buahan, serta tumbuhan liar yang dapat dimakan.",
+					"audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu/cara-mendapatkan-makanan.mp3"
+				},
+				{
+					"id": "alat",
+					"label": "Alat yang Dipakai",
+					"teks": "Peralatan terbuat dari batu, tulang, dan kayu dengan bentuk yang masih kasar, seperti kapak genggam, kapak penetak, alat serpih, serta alat dari tulang. Mereka juga menggunakan jebakan dan teknik menggiring hewan ke jurang saat berburu.",
+					"audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu/alat-yang-dipakai.mp3"
+				},
+				{
+					"id": "cara-hidup",
+					"label": "Cara Hidup",
+					"teks": "Cara hidup bersifat nomaden mengikuti sumber makanan. Mereka tinggal di dekat sungai, danau, atau gua, serta hidup dalam kelompok kecil untuk memudahkan berburu dan bertahan hidup.",
+					"audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu/cara-hidup.mp3"
+				},
+				{
+					"id": "pembagian-kerja",
+					"label": "Pembagian Kerja",
+					"teks": "Pembagian kerja mulai terlihat: laki-laki berburu, sedangkan perempuan mengumpulkan makanan, mengurus anak, dan menjaga api setelah manusia mengenalnya.",
+					"audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu/pembagian-kerja.mp3"
+				},
+				{
+					"id": "seni-komunikasi",
+					"label": "Seni dan Komunikasi",
+					"teks": "Seni dan komunikasi sudah berkembang dalam bentuk lukisan sederhana bertema hewan buruan serta komunikasi menggunakan kata-kata pendek dan gerak tubuh.",
+					"audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu/seni-dan-komunikasi.mp3"
+				},
+				{
+					"id": "kebudayaan-indonesia",
+					"label": "Kebudayaan Paleolitikum di Indonesia",
+					"teks": "Di Indonesia, kebudayaan Paleolitikum terbagi menjadi Kebudayaan Pacitan yang dikenal dengan kapak penetak (chopper) dari batu, dan Kebudayaan Ngandong yang menghasilkan alat dari tulang dan alat serpih (flakes).",
+					"audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu/kebudayaan-paleolitikum-di-indonesia.mp3"
+				}
+			]
+		}]
+	},
+	"m2-2": {
+		"targetMind": "/assets/ar/targets/empat-masa-kehidupan-manusia-praaksara/mesolitikum.mind",
+		"targets": [{
+			"key": "mesolitikum",
+			"label": "Masa Berburu dan Mengumpulkan Makanan Tingkat Lanjut (Mesolitikum)",
+			"targetIndex": 0,
+			"model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/mesolitikum.glb",
+			"scale": "0.3 0.3 0.3",
+			"defaultView": {
+				"rotY": 0,
+				"zoom": 2
+			},
+			"introAudio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/mesolitikum/0001.mp3",
+			"hotspots": [
+				{
+					"id": "tempat-tinggal",
+					"label": "Tempat Tinggal",
+					"model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/mesolitikum.glb",
+					"scale": "0.3 0.3 0.3",
+					"audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/mesolitikum/0002.mp3",
+					"teks": "Mereka tinggal cukup lama di gua-gua yang disebut abris sous roche dan di cerukan di tepi pantai. Pilihan lokasi selalu dekat sumber air. Di tepi pantai, mereka meninggalkan tumpukan sampah dapur berupa kulit kerang yang menggunung. Timbunan ini disebut kjokkenmoddinger dan menjadi salah satu penanda arkeologis paling khas dari Mesolitikum di Indonesia, terutama di pesisir timur Sumatera Utara.",
+					"view": {
+						"rotY": 0,
+						"zoom": 6
+					}
+				},
+				{
+					"id": "bercocok-tanam",
+					"label": "Awal Bercocok Tanam",
+					"model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/mesolitikum.glb",
+					"scale": "0.3 0.3 0.3",
+					"audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/mesolitikum/0003.mp3",
+					"teks": "Meskipun berburu dan meramu masih dominan, tanda-tanda awal bercocok tanam sudah muncul. Mereka mencoba menanam padi, umbi-umbian, dan kacang-kacangan. Mereka juga mulai menjinakkan hewan sebagai cikal bakal peternakan.",
+					"view": {
+						"rotY": 90,
+						"zoom": 6
+					}
+				},
+				{
+					"id": "alat",
+					"label": "Alat yang Dipakai",
+					"model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/mesolitikum.glb",
+					"scale": "0.3 0.3 0.3",
+					"audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/mesolitikum/0004.mp3",
+					"teks": "Alat-alatnya masih dari batu, tulang, tanduk, kulit kerang, dan bambu. Bedanya, permukaannya sudah lebih halus dibanding masa Paleolitikum. Muncul pula alat-alat baru seperti kapak genggam Sumatera (Sumatralith), cungkil dan sudip dari bambu untuk mencungkil serta membersihkan umbi.",
+					"view": {
+						"rotY": 180,
+						"zoom": 6
+					}
+				},
+				{
+					"id": "seni-lukis",
+					"label": "Seni Lukis Berkembang Pesat",
+					"model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/mesolitikum.glb",
+					"scale": "0.3 0.3 0.3",
+					"audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/mesolitikum/0005.mp3",
+					"teks": "Manusia mulai melukis di dinding gua. Objeknya menggambarkan kehidupan sosial, ekonomi, dan kepercayaan mereka. Teknik lukisnya menggores dinding gua dengan alat tajam dan menggunakan cat berwarna merah, hitam, dan putih dari bahan alami. Motifnya antara lain cap tangan, gambar hewan buruan dengan busur panah, serta berbagai hewan target buruan. Lukisan-lukisan ini bukan sekadar hiasan. Mereka percaya lukisan itu bisa membantu mempermudah perburuan. Dari pola-pola lukisan, para ahli menyimpulkan bahwa manusia Mesolitikum sudah punya sistem kepercayaan awal: percaya ada kekuatan besar yang memengaruhi kehidupan mereka. Unsur spiritual mulai lahir di sini.",
+					"view": {
+						"rotY": 270,
+						"zoom": 6
+					}
+				}
+			]
+		}]
+	},
+	"m2-3": {
+		"targetMind": "/assets/ar/targets/empat-masa-kehidupan-manusia-praaksara/neolitikum.mind",
+		"targets": [{
+			"key": "neolitikum",
+			"label": "Masa Bercocok Tanam (Neolitikum)",
+			"targetIndex": 0,
+			"model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/neolitikum.glb",
+			"scale": "0.3 0.3 0.3",
+			"defaultView": {
+				"rotY": 0,
+				"zoom": 2
+			},
+			"introAudio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/neolitikum/intro.mp3",
+			"hotspots": [
+				{
+					"id": "membuka-hunian",
+					"label": "Membuka Lahan dan Pola Hunian",
+					"model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/neolitikum.glb",
+					"scale": "0.3 0.3 0.3",
+					"audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/neolitikum/membuka-hunian.mp3",
+					"teks": "Manusia mulai membuka lahan dengan cara menebang hutan dan membakar semak (slash and burn). Setelah lahan siap, mereka menanam tanaman. Berburu dan mengumpulkan makanan masih dijalankan, tapi porsinya berkurang. Mulai muncul perkampungan. Manusia menetap secara berkelompok dalam beberapa keluarga. Populasi meningkat pesat karena pasokan makanan lebih stabil. Lokasi perkampungan biasanya berada di sekitar sumber air seperti pinggiran sungai, danau, dan tepian pantai, atau di dataran tinggi seperti bukit-bukit kecil dengan sumber air di sekitarnya. Dataran tinggi dipilih untuk berlindung dari serangan musuh dan hewan buas."
+				},
+				{
+					"id": "gotongroyong",
+					"label": "Gotong Royong dan Kepemimpinan",
+					"model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/neolitikum.glb",
+					"scale": "0.3 0.3 0.3",
+					"audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/neolitikum/gotongroyong.mp3",
+					"teks": "Kehidupan perkampungan menumbuhkan tradisi gotong royong. Mereka bekerja bersama menebang pohon, membakar semak belukar, menabur benih, memanen, membuat gerabah, berburu, menangkap ikan, dan bertukar barang. Pemimpin ditunjuk dari orang paling tua dan berwibawa. Dari sinilah tradisi menghormati orang tua sebagai pemimpin lahir. Kalian yang menghormati orang tua di rumah sebenarnya sedang melanjutkan tradisi yang sudah berusia ribuan tahun."
+				},
+				{
+					"id": "kerja-alat",
+					"label": "Pembagian Kerja dan Alat yang Dipakai",
+					"model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/neolitikum.glb",
+					"scale": "0.3 0.3 0.3",
+					"audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/neolitikum/kerja-alat.mp3",
+					"teks": "Pembagian kerja semakin jelas. Laki-laki mengerjakan tugas berat seperti berburu, menangkap ikan di lautan lepas, dan membangun rumah dari kayu dan bambu. Perempuan menangkap ikan di sekitar rumah, membuat gerabah, menabur benih di ladang, merawat rumah, dan mendidik anak-anak sambil melibatkan mereka dalam pekerjaan sehari-hari. Pengakuan atas peran perempuan dalam memenuhi kebutuhan keluarga sudah terbentuk di masa ini. Teknologi juga melompat maju. Alat batu sudah diasah halus, tidak lagi kasar seperti masa sebelumnya. Alat khas Neolitikum di Indonesia antara lain beliung persegi, kapak lonjong, kapak batu, mata panah dan mata tombak, alat obsidian atau batu kecubung, gerabah dengan teknik pembuatan sederhana, serta perhiasan dari batu dan kulit kerang seperti gelang."
+				},
+				{
+					"id": "kepercayaan",
+					"label": "Sistem Kepercayaan",
+					"model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/neolitikum.glb",
+					"scale": "0.3 0.3 0.3",
+					"audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/neolitikum/kepercayaan.mp3",
+					"teks": "Kepercayaan pada roh leluhur muncul. Mereka yakin roh orang yang meninggal masih ada di sekitar. Ketika ada yang meninggal, terutama tokoh yang dituakan, diadakan upacara penguburan. Jenazah dibekali perhiasan dan benda-benda yang biasa dipakai semasa hidup, agar rohnya tidak tersesat menuju alam nenek moyang. Kepercayaan ini juga menjadi rem sosial: manusia berperilaku baik karena percaya leluhur mengawasi."
+				}
+			]
+		}]
+	},
+	"m2-6": {
+		"targetMind": "/assets/ar/targets/empat-masa-kehidupan-manusia-praaksara/zaman_logam.mind",
+		"maxZoom": 30,
+		"targets": [{
+			"key": "perundagian",
+			"label": "Masa Perundagian (Zaman Logam)",
+			"targetIndex": 0,
+			"model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/zaman_logam.glb",
+			"scale": "0.3 0.3 0.3",
+			"defaultView": {
+				"rotY": 0,
+				"zoom": 2
+			},
+			"introAudio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/zaman_logam/intro.mp3",
+			"hotspots": [
+				{
+					"id": "menetap-dan-pembagian-kerja",
+					"label": "Menetap dan Pembagian Kerja",
+					"model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/zaman_logam.glb",
+					"scale": "0.3 0.3 0.3",
+					"audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/zaman_logam/menetap-dan-pembagian-kerja.mp3",
+					"teks": "Manusia sudah benar-benar berhenti berpindah dan menetap di perkampungan serta desa. Kegiatan sehari-hari seperti bertani dan berternak diatur secara gotong royong dan hasilnya dibagi adil. Yang membedakan masa ini dengan Neolitikum, pembagian kerja mulai berbasis keahlian: ada yang khusus membuat gerabah, perhiasan, mengecor logam, atau membuat perahu. Manusia mulai punya profesi."
+				},
+				{
+					"id": "kegiatan-sehari-hari",
+					"label": "Kegiatan Sehari-hari",
+					"model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/zaman_logam.glb",
+					"scale": "0.3 0.3 0.3",
+					"audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/zaman_logam/kegiatan-sehari-hari.mp3",
+					"teks": "Berburu masih dilakukan untuk menambah kebutuhan sehari-hari, memakai tombak, mata panah, dan jerat dari rotan serta bambu. Pertanian menjadi pekerjaan tetap dengan alat dari logam. Irigasi mulai dibangun agar air bisa dialirkan ke ladang. Peternakan juga berkembang: unggas dan kerbau untuk daging, sedangkan kuda dan anjing untuk berburu dan mengangkut hasil pertanian."
+				},
+				{
+					"id": "teknologi-logam",
+					"label": "Teknologi Logam",
+					"model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/zaman_logam.glb",
+					"scale": "0.3 0.3 0.3",
+					"audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/zaman_logam/teknologi-logam.mp3",
+					"teks": "Lompatan teknologi terbesar di masa praaksara. Manusia mengenal peleburan, pencampuran, penempaan, dan pencetakan logam. Emas dan tembaga menjadi favorit karena titik leburnya tidak terlalu tinggi. Lahir berbagai perhiasan dan alat upacara, termasuk nekara perunggu. Yang paling terkenal, Nekara Bulan Pejeng dari Bali, nekara terbesar di Asia Tenggara, dengan tinggi sekitar seratus delapan puluh enam sentimeter dan garis tengah seratus enam puluh sentimeter. Nekara ini dipercaya punya kekuatan gaib untuk memanggil hujan."
+				},
+				{
+					"id": "kemampuan-berlayar",
+					"label": "Kemampuan Berlayar",
+					"model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/zaman_logam.glb",
+					"scale": "0.3 0.3 0.3",
+					"audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/zaman_logam/kemampuan-berlayar.mp3",
+					"teks": "Manusia Perundagian sudah mahir berlayar. Perahu bercadik menjadi teknologi kunci yang memungkinkan pelayaran jarak jauh. Mereka berdagang dengan wilayah lain melintasi lautan luas memakai sistem barter. Barang yang banyak dicari antara lain nekara perunggu, perhiasan logam, dan manik-manik, yang dipercaya punya kekuatan magis dan bernilai khusus."
+				},
+				{
+					"id": "seni-dan-sistem-kepercayaan",
+					"label": "Seni dan Sistem Kepercayaan",
+					"model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/zaman_logam.glb",
+					"scale": "0.3 0.3 0.3",
+					"audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/zaman_logam/seni-dan-sistem-kepercayaan.mp3",
+					"teks": "Seni ukir berkembang dengan pola geometris yang khas, disertai gambar dinamis dan motif simbolis. Kepercayaan pada arwah leluhur semakin kuat dan dihormati lewat upacara. Penguburan dilakukan dengan dua cara: langsung dan tidak langsung. Praktik penguburan dua tahap ini masih hidup di tengah masyarakat Toraja dalam upacara Rambu Solo."
+				}
+			]
+		}]
+	},
+	"m2-4-1": {
+		"targetMind": "/assets/ar/targets/situs-megalitik/sumatra.mind",
+		"targets": [{
+			"key": "Situs Megalitik Sumatra",
+			"label": "Situs Megalitik Sumatra",
+			"targetIndex": 0,
+			"model": "/assets/models/situs-megalitik/sumatra/sumut.glb",
+			"scale": "0.3 0.3 0.3",
+			"defaultView": {
+				"rotY": 0,
+				"zoom": 2
+			},
+			"introAudio": "/assets/audio/situs-megalitik/sumatra/intro.mp3",
+			"hotspots": [{
+				"id": "Sumatra Utara",
+				"label": "Sumatra Utara",
+				"model": "/assets/models/situs-megalitik/sumatra/sumut.glb",
+				"scale": "0.3 0.3 0.3",
+				"audio": "/assets/audio/situs-megalitik/sumatra/sumut.mp3",
+				"teks": "Pulau ini menyimpan tradisi megalitik yang masih hidup sampai hari ini. Di Bawomataluo dan Hilinawalö Mazingö, kalian akan menemukan menhir dan meja batu (daro-daro) di depan rumah adat. Batu-batu itu bukan sekadar hiasan. Menhir menandai status keluarga bangsawan, sementara meja batu jadi tempat musyawarah adat."
+			}, {
+				"id": "Sumatra Selatan",
+				"label": "Sumatra Selatan",
+				"model": "/assets/models/situs-megalitik/sumatra/sumsel.glb",
+				"scale": "0.3 0.3 0.3",
+				"audio": "/assets/audio/situs-megalitik/sumatra/sumsel.mp3",
+				"teks": "Di lereng Bukit Barisan, sekitar Pagar Alam dan Lahat, ditemukan patung-patung batu raksasa yang berumur sekitar 2.500 tahun. Patungnya menggambarkan manusia sedang menunggang gajah, membawa nekara, atau bergulat dengan ular. Ada juga dolmen, menhir, dan kubur batu bilik. Situs Pasemah dianggap salah satu warisan megalitik paling kaya di Sumatera"
+			}]
+		}]
+	},
+	"m2-4-2": {
+		"targetMind": "/assets/ar/targets/situs-megalitik/jawa.mind",
+		"targets": [{
+			"key": "Situs Megalitik Jawa",
+			"label": "Situs Megalitik Jawa",
+			"targetIndex": 0,
+			"model": "/assets/models/situs-megalitik/jawa/jabar.glb",
+			"scale": "0.3 0.3 0.3",
+			"defaultView": {
+				"rotY": 0,
+				"zoom": 2
+			},
+			"introAudio": "/assets/audio/situs-megalitik/jawa/intro.mp3",
+			"hotspots": [{
+				"id": "Jawa Barat",
+				"label": "Jawa Barat",
+				"model": "/assets/models/situs-megalitik/jawa/jabar.glb",
+				"scale": "0.3 0.3 0.3",
+				"audio": "/assets/audio/situs-megalitik/jawa/jabar.mp3",
+				"teks": "Punden berundak terbesar di Asia Tenggara berdiri di puncak bukit di Kecamatan Campaka. Situs ini terdiri dari lima teras yang tersusun dari balok-balok batu andesit panjang. Debat tentang usianya masih hangat di kalangan ahli, tetapi konsensus arkeologis menempatkannya sebagai warisan megalitik penting untuk memahami tradisi punden berundak di Nusantara."
+			}, {
+				"id": "Jawa Timur",
+				"label": "Jawa Timur",
+				"model": "/assets/models/situs-megalitik/jawa/jatim.glb",
+				"scale": "0.3 0.3 0.3",
+				"audio": "/assets/audio/situs-megalitik/jawa/jatim.mp3",
+				"teks": "Di sekitar Pacitan, selain Kebudayaan Pacitan Paleolitikum, ditemukan pula menhir dan dolmen berukuran sedang. Ini menunjukkan bahwa satu wilayah bisa menyimpan lapisan-lapisan sejarah dari masa berburu sampai bercocok tanam."
+			}]
+		}]
+	},
+	"m3-1": {
+		"targetMind": "/assets/ar/targets/tiga-jenis-manusia-purba/meganthropus.mind",
+		"maxZoom": 30,
+		"targets": [{
+			"key": "meganthropus",
+			"label": "Meganthropus Paleojavanicus",
+			"targetIndex": 0,
+			"model": "/assets/models/tiga-jenis-manusia-purba/meganthropus.glb",
+			"scale": "0.3 0.3 0.3",
+			"defaultView": {
+				"rotY": -131,
+				"zoom": 2.8
+			},
+			"introAudio": "/assets/audio/tiga-jenis-manusia-purba/meganthropus/intro.mp3",
+			"hotspots": [
+				{
+					"id": "kepala",
+					"label": "Kepala",
+					"model": "/assets/models/tiga-jenis-manusia-purba/meganthropus-kepala.glb",
+					"view": {
+						"rotY": -90,
+						"zoom": 20
+					},
+					"audio": "/assets/audio/tiga-jenis-manusia-purba/meganthropus/kepala.mp3",
+					"teks": "Kalian sedang melihat kepala manusia purba paling tua yang jejaknya ditemukan di Indonesia. Ukuran otaknya masih relatif kecil dibanding kalian sekarang. Tulang keningnya tebal dan menonjol, dahinya sangat miring ke belakang, dan ia belum punya dagu seperti kalian. Meski begitu, otak sekecil ini sudah cukup untuk hidup berkelompok dan mengenali makanan yang aman di padang rumput Jawa purba. Fosil rahangnya digali oleh Gustav Heinrich Ralph von Koenigswald antara 1936 sampai 1941, di daerah Sangiran, Sragen, Jawa Tengah."
+				},
+				{
+					"id": "mata",
+					"label": "Mata",
+					"model": "/assets/models/tiga-jenis-manusia-purba/meganthropus-kepala.glb",
+					"view": {
+						"rotY": -90,
+						"zoom": 30
+					},
+					"audio": "/assets/audio/tiga-jenis-manusia-purba/meganthropus/mata.mp3",
+					"teks": "Mata Meganthropus terletak di balik tulang alis yang sangat tebal. Fungsinya bukan cuma untuk melihat. Tulang alis setebal ini melindungi mata dari terik matahari terbuka dan dari benturan saat mencari makan di antara semak-semak yang rimbun. Pandangannya cukup tajam untuk mengintai bahaya dari kejauhan. Karena tubuhnya besar dan gerakannya tidak selincah manusia purba yang datang setelahnya, ia mengandalkan mata dan pendengaran untuk mendeteksi hewan pemangsa lebih dulu."
+				},
+				{
+					"id": "tangan",
+					"label": "Tangan",
+					"model": "/assets/models/tiga-jenis-manusia-purba/meganthropus-tangan.glb",
+					"view": {
+						"rotY": 185,
+						"zoom": 10
+					},
+					"audio": "/assets/audio/tiga-jenis-manusia-purba/meganthropus/tangan.mp3",
+					"teks": "Tangan Meganthropus kuat dan kekar. Rahangnya yang besar memberi petunjuk bahwa makanannya keras: tumbuh-tumbuhan berserat, umbi-umbian, dan buah liar. Tangan ini lebih sering dipakai untuk merenggut, mencabut, dan meremas makanan daripada membuat alat rumit. Karena hanya fragmen rahang dan gigi yang sampai ke kita, para ahli masih berdebat seberapa jauh Meganthropus membuat peralatan. Yang jelas, ia bertahan hidup di lingkungan terbuka Jawa purba dengan bergantung penuh pada apa yang alam sediakan."
+				}
+			]
+		}]
+	},
+	"m3-2": {
+		"targetMind": "/assets/ar/targets/tiga-jenis-manusia-purba/pithecanthropus.mind",
+		"maxZoom": 30,
+		"targets": [{
+			"key": "pithecanthropus",
+			"label": "Pithecanthropus Erectus",
+			"targetIndex": 0,
+			"model": "/assets/models/tiga-jenis-manusia-purba/pithecanthropus.glb",
+			"scale": "0.3 0.3 0.3",
+			"defaultView": {
+				"rotY": -131,
+				"zoom": 2.8
+			},
+			"introAudio": "/assets/audio/tiga-jenis-manusia-purba/pithecanthropus/intro.mp3",
+			"hotspots": [
+				{
+					"id": "kepala",
+					"label": "Kepala",
+					"model": "/assets/models/tiga-jenis-manusia-purba/pithecanthropus-kepala.glb",
+					"view": {
+						"rotY": -90,
+						"zoom": 20
+					},
+					"audio": "/assets/audio/tiga-jenis-manusia-purba/pithecanthropus/kepala.mp3",
+					"teks": "Kalian sedang melihat kepala manusia purba yang membuat dunia sains geger di akhir abad ke-19. Volume otaknya sekitar 900 cc, kurang dari dua pertiga volume otak kalian sekarang. Tulang alisnya menonjol, dahinya miring ke belakang, dan tengkoraknya berat. Otak sekecil ini sudah cukup untuk membuat alat batu sederhana dan hidup berkelompok, tetapi belum cukup untuk mengembangkan bahasa rumit atau seni lukis. Fosil tengkoraknya digali oleh Eugène Dubois, seorang dokter Belanda, tahun 1891 di Trinil, tepi Bengawan Solo, Ngawi."
+				},
+				{
+					"id": "mata",
+					"label": "Mata",
+					"model": "/assets/models/tiga-jenis-manusia-purba/pithecanthropus-kepala.glb",
+					"view": {
+						"rotY": -90,
+						"zoom": 30
+					},
+					"audio": "/assets/audio/tiga-jenis-manusia-purba/pithecanthropus/mata.mp3",
+					"teks": "Mata Pithecanthropus terletak di balik tulang alis yang tebal dan menonjol. Bentuk itu bukan hiasan. Tulang alis tebal melindungi mata dari benturan saat berburu, sekaligus meredam sinar matahari terik di padang rumput terbuka Jawa purba. Pandangannya tajam untuk mengintai buruan dari jarak jauh, tetapi indera penciumannya kalah dibanding hewan pemangsa lain. Untuk menyeimbangkan kelemahan itu, ia berburu berkelompok dan memakai jebakan sederhana."
+				},
+				{
+					"id": "tangan",
+					"label": "Tangan",
+					"model": "/assets/models/tiga-jenis-manusia-purba/pithecanthropus-tangan.glb",
+					"view": {
+						"rotY": 185,
+						"zoom": 10
+					},
+					"audio": "/assets/audio/tiga-jenis-manusia-purba/pithecanthropus/tangan.mp3",
+					"teks": "Perhatikan tangannya. Jari-jarinya kuat, ibu jarinya sudah bisa berlawanan dengan jari lain, mirip tangan kalian. Kemampuan ini memungkinkan ia menggenggam batu erat dan memukulkannya dengan tepat. Tangan inilah yang membentuk teknologi paling awal di Nusantara, yaitu kapak perimbas dan kapak genggam khas Kebudayaan Pacitan. Alat-alat itu memang masih kasar. Tidak ada tangkai, tidak diasah halus. Cukup untuk memotong daging, mengorek umbi, dan mengupas kulit hewan buruan. Sederhana, tetapi mengubah cara manusia bertahan hidup di padang rumput yang keras."
+				}
+			]
+		}]
+	},
+	"m3-3": {
+		"targetMind": "/assets/ar/targets/tiga-jenis-manusia-purba/homo-sapiens.mind",
+		"maxZoom": 30,
+		"targets": [{
+			"key": "Homo Sapiens",
+			"label": "Homo Sapiens",
+			"targetIndex": 0,
+			"model": "/assets/models/tiga-jenis-manusia-purba/homo-sapiens.glb",
+			"scale": "0.3 0.3 0.3",
+			"defaultView": {
+				"rotY": -131,
+				"zoom": 2.8
+			},
+			"introAudio": "/assets/audio/tiga-jenis-manusia-purba/homo-sapiens/intro.mp3",
+			"hotspots": [{
+				"id": "Ciri Fisik",
+				"label": "Ciri Fisik",
+				"model": "/assets/models/tiga-jenis-manusia-purba/homo-sapiens.glb",
+				"view": {
+					"rotY": -90,
+					"zoom": 20
+				},
+				"audio": "/assets/audio/tiga-jenis-manusia-purba/homo-sapiens/ciri-fisik.mp3",
+				"teks": "Ciri fisik.\n• Tinggi kurang lebih 1,73 m, postur ramping.\n• Volume otak 1.300 sampai 1.450 cc (hampir dua kali lipat Pithecanthropus).\n• Wajah lebih rata.\n• Dahi tegak, tidak miring ke belakang.\n• Tulang alis tipis.\n• Sudah punya dagu."
+			}, {
+				"id": "kebudayaan",
+				"label": "Kebudayaan",
+				"model": "/assets/models/tiga-jenis-manusia-purba/homo-sapiens.glb",
+				"view": {
+					"rotY": -90,
+					"zoom": 30
+				},
+				"audio": "/assets/audio/tiga-jenis-manusia-purba/homo-sapiens/kebudayaan.mp3",
+				"teks": "Kebudayaan Homo Sapiens jauh lebih beragam. Di masa Mesolitikum, mereka mulai melukis di dinding gua, membuat mata panah dan tombak yang halus, menetap di gua abris sous roche, dan meninggalkan sampah kerang kjokkenmoddinger di pesisir. Di masa Neolitikum, mereka membuat gerabah, mengasah batu jadi beliung persegi dan kapak lonjong, menanam padi, dan membangun perkampungan. Di masa Perundagian, mereka melebur logam, membangun irigasi, dan berlayar dengan perahu bercadik untuk berdagang antarpulau. Dengan kata lain, hampir seluruh peninggalan yang kalian pelajari di Bagian 3 dibuat oleh Homo Sapiens."
+			}]
+		}]
+	}
+};
+var $$splitComponentImporter = () => import("./_id-CSCODlcy.mjs");
+var arConfigAll = ar_default;
+var Route = createFileRoute("/materi/$id")({
+	loader: ({ params }) => {
+		const materi = materiList.find((m) => m.id === params.id);
+		if (!materi) throw notFound();
+		return {
+			materi,
+			arConfig: arConfigAll[params.id]
+		};
+	},
+	head: ({ loaderData }) => ({ meta: [{ title: `Scan AR — ${loaderData?.materi.judul ?? ""} — HistoAR` }] }),
+	component: lazyRouteComponent($$splitComponentImporter, "component")
+});
+//#endregion
+export { materiList as n, Route as t };

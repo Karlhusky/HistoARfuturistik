@@ -35,8 +35,14 @@ export function ArScan({
     let cancelled = false;
 
     async function boot() {
-      await loadScript("https://aframe.io/releases/1.5.0/aframe.min.js");
-      await loadScript("https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js");
+      // Di-serve dari origin sendiri (public/vendor/), BUKAN CDN. Dua alasan:
+      // 1) service worker nggak bisa precache script cross-origin dengan andal,
+      //    jadi selama ini dari aframe.io/jsdelivr, mode offline mustahil dibikin.
+      // 2) jaringan sekolah kadang nge-filter atau nge-throttle CDN. Kalau itu
+      //    kejadian, AR gagal start di depan kelas tanpa error yang berguna.
+      // Versi + checksum ada di public/vendor/VENDOR.md, dicek scripts/check-vendor.mjs.
+      await loadScript("/vendor/aframe-1.5.0.min.js");
+      await loadScript("/vendor/mindar-image-aframe-1.2.5.prod.js");
       if (cancelled) return;
 
       setModelError(null);
@@ -77,6 +83,9 @@ export function ArScan({
       cleanupPromise.then((cleanup) => cleanup?.());
       engineRef.current?.dispose();
       engineRef.current = null;
+      // Jaring pengaman kalau engine keburu unmount sebelum sempat dibikin:
+      // class dari A-Frame ini yang bikin halaman lain kekunci nggak bisa discroll.
+      document.documentElement.classList.remove("a-fullscreen");
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [materiId, restartToken]);

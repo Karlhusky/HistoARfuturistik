@@ -77,7 +77,24 @@
       "layerColor": "#7a5c3e",
       "judul": "Masa Bercocok Tanam",
       "ringkasan": "Ini adalah masa paling penting dalam sejarah manusia praaksara. Peralihan dari berburu-meramu ke bercocok tanam berlangsung lama, tetapi dampaknya mengubah segalanya. Secara arkeologis, masa ini disebut Neolitikum.",
-      "konten": []
+      "konten": [
+        {
+          "judul": "Membuka Lahan dan Pola Hunian",
+          "isi": "Manusia mulai membuka lahan dengan cara menebang hutan dan membakar semak (slash and burn). Setelah lahan siap, mereka menanam tanaman. Berburu dan mengumpulkan makanan masih dijalankan, tapi porsinya berkurang. Mulai muncul perkampungan. Manusia menetap secara berkelompok dalam beberapa keluarga. Populasi meningkat pesat karena pasokan makanan lebih stabil. Lokasi perkampungan biasanya berada di sekitar sumber air seperti pinggiran sungai, danau, dan tepian pantai, atau di dataran tinggi seperti bukit-bukit kecil dengan sumber air di sekitarnya. Dataran tinggi dipilih untuk berlindung dari serangan musuh dan hewan buas."
+        },
+        {
+          "judul": "Gotong Royong dan Kepemimpinan",
+          "isi": "Kehidupan perkampungan menumbuhkan tradisi gotong royong. Mereka bekerja bersama menebang pohon, membakar semak belukar, menabur benih, memanen, membuat gerabah, berburu, menangkap ikan, dan bertukar barang. Pemimpin ditunjuk dari orang paling tua dan berwibawa. Dari sinilah tradisi menghormati orang tua sebagai pemimpin lahir. Kalian yang menghormati orang tua di rumah sebenarnya sedang melanjutkan tradisi yang sudah berusia ribuan tahun."
+        },
+        {
+          "judul": "Pembagian Kerja dan Alat yang Dipakai",
+          "isi": "Pembagian kerja semakin jelas. Laki-laki mengerjakan tugas berat seperti berburu, menangkap ikan di lautan lepas, dan membangun rumah dari kayu dan bambu. Perempuan menangkap ikan di sekitar rumah, membuat gerabah, menabur benih di ladang, merawat rumah, dan mendidik anak-anak sambil melibatkan mereka dalam pekerjaan sehari-hari. Pengakuan atas peran perempuan dalam memenuhi kebutuhan keluarga sudah terbentuk di masa ini. Teknologi juga melompat maju. Alat batu sudah diasah halus, tidak lagi kasar seperti masa sebelumnya. Alat khas Neolitikum di Indonesia antara lain beliung persegi, kapak lonjong, kapak batu, mata panah dan mata tombak, alat obsidian atau batu kecubung, gerabah dengan teknik pembuatan sederhana, serta perhiasan dari batu dan kulit kerang seperti gelang."
+        },
+        {
+          "judul": "Sistem Kepercayaan",
+          "isi": "Kepercayaan pada roh leluhur muncul. Mereka yakin roh orang yang meninggal masih ada di sekitar. Ketika ada yang meninggal, terutama tokoh yang dituakan, diadakan upacara penguburan. Jenazah dibekali perhiasan dan benda-benda yang biasa dipakai semasa hidup, agar rohnya tidak tersesat menuju alam nenek moyang. Kepercayaan ini juga menjadi rem sosial: manusia berperilaku baik karena percaya leluhur mengawasi."
+        }
+      ]
     },
     {
       "id": "m2-4-1",
@@ -176,7 +193,16 @@
       "layerColor": "#7a5c3e",
       "judul": "Situs Megalitik di Indonesia Timur",
       "ringkasan": "Jejak tradisi megalitik di Papua dan Halmahera.",
-      "konten": []
+      "konten": [
+        {
+          "judul": "Papua",
+          "isi": "Jejak tradisi megalitik di Indonesia bagian timur menjangkau hingga Papua. Berbagai bentuk batu seperti batu tegak dan susunan batu ditemukan sebagai bagian dari kebudayaan lokal yang menghubungkan manusia dengan leluhur dan alam sekitarnya (Rumansara, 2015, hlm. 47–58)."
+        },
+        {
+          "judul": "Halmahera dan Kawasan Maluku",
+          "isi": "Di Halmahera dan kawasan Maluku lainnya juga ditemukan jejak tradisi megalitik, antara lain berupa kubur batu dan susunan batu yang berkaitan dengan penghormatan leluhur. Temuan-temuan ini menunjukkan tradisi megalitik tidak hanya tumbuh di bagian barat dan tengah Indonesia, tetapi menyebar hingga ke ujung timur Nusantara."
+        }
+      ]
     },
     {
       "id": "m2-5",
@@ -185,7 +211,20 @@
       "layerColor": "#7a5c3e",
       "judul": "Sistem Kepercayaan: Animisme dan Dinamisme",
       "ringkasan": "Semua peninggalan megalitik di atas tidak berdiri sendiri. Di baliknya ada sistem kepercayaan yang mendasari kenapa manusia praaksara sampai bersusah payah memindahkan batu-batu besar, mendirikan menhir setinggi tiga meter, dan mengadakan upacara panjang untuk orang mati.",
-      "konten": []
+      "konten": [
+        {
+          "judul": "Apa itu Animisme",
+          "isi": "Animisme adalah kepercayaan bahwa semua benda di alam, seperti pohon, batu, gunung, dan sungai, memiliki roh atau jiwa. Manusia praaksara meyakini roh-roh tersebut bisa memengaruhi kehidupan mereka, sehingga perlu dihormati agar tidak mengganggu."
+        },
+        {
+          "judul": "Apa itu Dinamisme",
+          "isi": "Dinamisme adalah kepercayaan bahwa benda-benda tertentu, misalnya keris, nekara, atau batu besar, mengandung kekuatan gaib. Benda yang dianggap bertuah dipercaya bisa memberikan keselamatan atau keberhasilan bagi pemiliknya."
+        },
+        {
+          "judul": "Hubungannya dengan Peninggalan Megalitik",
+          "isi": "Kepercayaan pada leluhur melahirkan tradisi mendirikan bangunan batu besar. Menhir didirikan untuk menghormati arwah leluhur, dolmen menjadi meja sesajen, dan arca batu menggambarkan perwujudan leluhur. Upacara panjang untuk orang yang meninggal diadakan agar arwahnya selamat menuju alam leluhur. Sistem kepercayaan inilah yang mendasari semua peninggalan megalitik yang kalian pelajari sebelumnya."
+        }
+      ]
     },
     {
       "id": "m2-6",
@@ -194,7 +233,28 @@
       "layerColor": "#7a5c3e",
       "judul": "Masa Perundagian",
       "ringkasan": "Masa Perundagian diperkirakan adalah masa akhir dari zaman praaksara. Nama “perundagian” berasal dari kata undagi dalam bahasa Bali, yang berarti seseorang atau kelompok orang yang memiliki keterampilan khusus, misalnya membuat gerabah, perhiasan, kayu, sampan, atau batu. Secara arkeologis, masa ini disebut Zaman Logam.",
-      "konten": []
+      "konten": [
+        {
+          "judul": "Menetap dan Pembagian Kerja",
+          "isi": "Manusia sudah benar-benar berhenti berpindah dan menetap di perkampungan serta desa. Kegiatan sehari-hari seperti bertani dan berternak diatur secara gotong royong dan hasilnya dibagi adil. Yang membedakan masa ini dengan Neolitikum, pembagian kerja mulai berbasis keahlian: ada yang khusus membuat gerabah, perhiasan, mengecor logam, atau membuat perahu. Manusia mulai punya profesi."
+        },
+        {
+          "judul": "Kegiatan Sehari-hari",
+          "isi": "Berburu masih dilakukan untuk menambah kebutuhan sehari-hari, memakai tombak, mata panah, dan jerat dari rotan serta bambu. Pertanian menjadi pekerjaan tetap dengan alat dari logam. Irigasi mulai dibangun agar air bisa dialirkan ke ladang. Peternakan juga berkembang: unggas dan kerbau untuk daging, sedangkan kuda dan anjing untuk berburu dan mengangkut hasil pertanian."
+        },
+        {
+          "judul": "Teknologi Logam",
+          "isi": "Lompatan teknologi terbesar di masa praaksara. Manusia mengenal peleburan, pencampuran, penempaan, dan pencetakan logam. Emas dan tembaga menjadi favorit karena titik leburnya tidak terlalu tinggi. Lahir berbagai perhiasan dan alat upacara, termasuk nekara perunggu. Yang paling terkenal, Nekara Bulan Pejeng dari Bali, nekara terbesar di Asia Tenggara, dengan tinggi sekitar seratus delapan puluh enam sentimeter dan garis tengah seratus enam puluh sentimeter. Nekara ini dipercaya punya kekuatan gaib untuk memanggil hujan."
+        },
+        {
+          "judul": "Kemampuan Berlayar",
+          "isi": "Manusia Perundagian sudah mahir berlayar. Perahu bercadik menjadi teknologi kunci yang memungkinkan pelayaran jarak jauh. Mereka berdagang dengan wilayah lain melintasi lautan luas memakai sistem barter. Barang yang banyak dicari antara lain nekara perunggu, perhiasan logam, dan manik-manik, yang dipercaya punya kekuatan magis dan bernilai khusus."
+        },
+        {
+          "judul": "Seni dan Sistem Kepercayaan",
+          "isi": "Seni ukir berkembang dengan pola geometris yang khas, disertai gambar dinamis dan motif simbolis. Kepercayaan pada arwah leluhur semakin kuat dan dihormati lewat upacara. Penguburan dilakukan dengan dua cara: langsung dan tidak langsung. Praktik penguburan dua tahap ini masih hidup di tengah masyarakat Toraja dalam upacara Rambu Solo."
+        }
+      ]
     },
     {
       "id": "m3-1",
@@ -243,7 +303,16 @@
       "layerColor": "#7a5c3e",
       "judul": "Homo Sapiens",
       "ringkasan": "Sekitar 40.000 sampai 60.000 tahun lalu, jenis manusia yang wajahnya lebih mirip kalian mulai menghuni Nusantara. Namanya Homo sapiens, artinya “manusia yang bijak”. Ini adalah nenek moyang langsung kalian.",
-      "konten": []
+      "konten": [
+        {
+          "judul": "Ciri Fisik",
+          "isi": "Ciri fisik.\n• Tinggi kurang lebih 1,73 m, postur ramping.\n• Volume otak 1.300 sampai 1.450 cc (hampir dua kali lipat Pithecanthropus).\n• Wajah lebih rata.\n• Dahi tegak, tidak miring ke belakang.\n• Tulang alis tipis.\n• Sudah punya dagu."
+        },
+        {
+          "judul": "Kebudayaan",
+          "isi": "Kebudayaan Homo Sapiens jauh lebih beragam. Di masa Mesolitikum, mereka mulai melukis di dinding gua, membuat mata panah dan tombak yang halus, menetap di gua abris sous roche, dan meninggalkan sampah kerang kjokkenmoddinger di pesisir. Di masa Neolitikum, mereka membuat gerabah, mengasah batu jadi beliung persegi dan kapak lonjong, menanam padi, dan membangun perkampungan. Di masa Perundagian, mereka melebur logam, membangun irigasi, dan berlayar dengan perahu bercadik untuk berdagang antarpulau. Dengan kata lain, hampir seluruh peninggalan yang kalian pelajari di Bagian 3 dibuat oleh Homo Sapiens."
+        }
+      ]
     },
     {
       "id": "m3-4",
@@ -252,7 +321,20 @@
       "layerColor": "#7a5c3e",
       "judul": "Tabel Rangkuman Tiga Jenis Manusia Purba",
       "ringkasan": "Perbandingan Meganthropus paleojavanicus, Pithecanthropus erectus, dan Homo Sapiens (Wajakensis).",
-      "konten": []
+      "konten": [
+        {
+          "judul": "Meganthropus Paleojavanicus",
+          "isi": "Jenis manusia purba tertua yang jejaknya ditemukan di Indonesia. Namanya berarti manusia besar dari Jawa (mega = besar, anthropus = manusia, paleo = tua, javanicus = dari Jawa). Fosilnya berupa rahang bawah dan geraham berukuran sangat besar, ditemukan oleh von Koenigswald antara 1936 sampai 1941 di Sangiran, Jawa Tengah. Tubuhnya diperkirakan tegap dan berotot dengan tinggi sekitar 1,75 meter. Makanannya berupa tumbuhan berserat, umbi, dan buah liar. Belum ditemukan bukti kuat bahwa ia membuat alat yang rumit."
+        },
+        {
+          "judul": "Pithecanthropus Erectus (Homo erectus)",
+          "isi": "Manusia kera yang berjalan tegak. Ditemukan Eugène Dubois tahun 1891 di Trinil, tepi Bengawan Solo, Ngawi, Jawa Timur. Volume otaknya sekitar 900 cc, kurang dari dua pertiga otak manusia modern. Tulang alisnya menonjol dan dahinya miring ke belakang. Ia dianggap pembuat Kebudayaan Pacitan dengan alat batu kasar seperti kapak genggam dan kapak perimbas. Variannya di Indonesia antara lain Pithecanthropus mojokertensis dari Mojokerto dan Pithecanthropus soloensis dari Ngandong."
+        },
+        {
+          "judul": "Homo Sapiens",
+          "isi": "Manusia yang bijak, jenis yang wajahnya paling mirip manusia modern, muncul sekitar 40.000 sampai 60.000 tahun lalu. Temuan pentingnya di Indonesia antara lain Homo wajakensis dari Tulungagung dan Homo soloensis dari Ngandong. Volume otaknya 1.300 sampai 1.450 cc. Kebudayaannya paling beragam: melukis di dinding gua, membuat alat batu dan tulang yang halus, bercocok tanam, melebur logam, sampai berlayar antarpulau."
+        }
+      ]
     },
     {
       "id": "m3-5",
@@ -261,7 +343,16 @@
       "layerColor": "#7a5c3e",
       "judul": "Sangiran: Rumah Para Manusia Purba, Warisan Dunia UNESCO",
       "ringkasan": "Kalian sudah bertemu Meganthropus dan Pithecanthropus lewat AR. Sekarang saatnya kalian tahu di mana mereka “tinggal”. Semua fosil manusia purba paling penting di Indonesia digali dari satu wilayah yang sama: Situs Sangiran. Sangiran bukan cuma penting untuk Indonesia, tetapi diakui dunia sebagai salah satu situs paleoantropologi paling berharga di planet ini.",
-      "konten": []
+      "konten": [
+        {
+          "judul": "Mengapa Sangiran Istimewa",
+          "isi": "Lapisan tanah Sangiran di Kabupaten Sragen, Jawa Tengah, menyimpan rentetan endapan yang membentang jutaan tahun. Lapisan inilah yang mengawetkan fosil-fosil penting seperti Meganthropus paleojavanicus dan Pithecanthropus, bersama sisa-sisa binatang purba dan alat batu. Karena begitu lengkap dan berkesinambungan, Sangiran menjadi kunci untuk memahami perjalanan evolusi manusia di Indonesia (Widianto & Simanjuntak, 2009)."
+        },
+        {
+          "judul": "Warisan Dunia UNESCO (1996)",
+          "isi": "Pada tahun 1996, Situs Sangiran ditetapkan sebagai Warisan Dunia UNESCO. Pengakuan ini menjadikan Sangiran salah satu situs paleoantropologi paling berharga di dunia, setara dengan situs-situs manusia purba penting lainnya (UNESCO, 1996)."
+        }
+      ]
     }
   ]
 }
