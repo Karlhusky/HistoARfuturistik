@@ -111,7 +111,7 @@
         "introAudio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/neolitikum/intro.mp3",
         "hotspots": [
           {
-            "id": "membuka-hunian",
+            "id": "membuka-hunian", "view": { "rotY": -25, "zoom": 2.3 },
             "label": "Membuka Lahan dan Pola Hunian",
             "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/neolitikum.glb",
             "scale": "0.3 0.3 0.3",
@@ -119,7 +119,7 @@
             "teks": "Manusia mulai membuka lahan dengan cara menebang hutan dan membakar semak (slash and burn). Setelah lahan siap, mereka menanam tanaman. Berburu dan mengumpulkan makanan masih dijalankan, tapi porsinya berkurang. Mulai muncul perkampungan. Manusia menetap secara berkelompok dalam beberapa keluarga. Populasi meningkat pesat karena pasokan makanan lebih stabil. Lokasi perkampungan biasanya berada di sekitar sumber air seperti pinggiran sungai, danau, dan tepian pantai, atau di dataran tinggi seperti bukit-bukit kecil dengan sumber air di sekitarnya. Dataran tinggi dipilih untuk berlindung dari serangan musuh dan hewan buas."
           },
           {
-            "id": "gotongroyong",
+            "id": "gotongroyong", "view": { "rotY": 20, "zoom": 2.4 },
             "label": "Gotong Royong dan Kepemimpinan",
             "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/neolitikum.glb",
             "scale": "0.3 0.3 0.3",
@@ -127,7 +127,7 @@
             "teks": "Kehidupan perkampungan menumbuhkan tradisi gotong royong. Mereka bekerja bersama menebang pohon, membakar semak belukar, menabur benih, memanen, membuat gerabah, berburu, menangkap ikan, dan bertukar barang. Pemimpin ditunjuk dari orang paling tua dan berwibawa. Dari sinilah tradisi menghormati orang tua sebagai pemimpin lahir. Kalian yang menghormati orang tua di rumah sebenarnya sedang melanjutkan tradisi yang sudah berusia ribuan tahun."
           },
           {
-            "id": "kerja-alat",
+            "id": "kerja-alat", "view": { "rotY": 40, "zoom": 2.7 },
             "label": "Pembagian Kerja dan Alat yang Dipakai",
             "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/neolitikum.glb",
             "scale": "0.3 0.3 0.3",
@@ -135,7 +135,7 @@
             "teks": "Pembagian kerja semakin jelas. Laki-laki mengerjakan tugas berat seperti berburu, menangkap ikan di lautan lepas, dan membangun rumah dari kayu dan bambu. Perempuan menangkap ikan di sekitar rumah, membuat gerabah, menabur benih di ladang, merawat rumah, dan mendidik anak-anak sambil melibatkan mereka dalam pekerjaan sehari-hari. Pengakuan atas peran perempuan dalam memenuhi kebutuhan keluarga sudah terbentuk di masa ini. Teknologi juga melompat maju. Alat batu sudah diasah halus, tidak lagi kasar seperti masa sebelumnya. Alat khas Neolitikum di Indonesia antara lain beliung persegi, kapak lonjong, kapak batu, mata panah dan mata tombak, alat obsidian atau batu kecubung, gerabah dengan teknik pembuatan sederhana, serta perhiasan dari batu dan kulit kerang seperti gelang."
           },
           {
-            "id": "kepercayaan",
+            "id": "kepercayaan", "view": { "rotY": -40, "zoom": 2.4 },
             "label": "Sistem Kepercayaan",
             "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/neolitikum.glb",
             "scale": "0.3 0.3 0.3",
@@ -161,7 +161,7 @@
         "introAudio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/zaman_logam/intro.mp3",
         "hotspots": [
           {
-            "id": "menetap-dan-pembagian-kerja",
+            "id": "menetap-dan-pembagian-kerja", "view": { "rotY": -30, "zoom": 2.3 },
             "label": "Menetap dan Pembagian Kerja",
             "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/zaman_logam.glb",
             "scale": "0.3 0.3 0.3",
@@ -169,7 +169,7 @@
             "teks": "Manusia sudah benar-benar berhenti berpindah dan menetap di perkampungan serta desa. Kegiatan sehari-hari seperti bertani dan berternak diatur secara gotong royong dan hasilnya dibagi adil. Yang membedakan masa ini dengan Neolitikum, pembagian kerja mulai berbasis keahlian: ada yang khusus membuat gerabah, perhiasan, mengecor logam, atau membuat perahu. Manusia mulai punya profesi."
           },
           {
-            "id": "kegiatan-sehari-hari",
+            "id": "kegiatan-sehari-hari", "view": { "rotY": 0, "zoom": 2.4 },
             "label": "Kegiatan Sehari-hari",
             "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/zaman_logam.glb",
             "scale": "0.3 0.3 0.3",
@@ -177,7 +177,7 @@
             "teks": "Berburu masih dilakukan untuk menambah kebutuhan sehari-hari, memakai tombak, mata panah, dan jerat dari rotan serta bambu. Pertanian menjadi pekerjaan tetap dengan alat dari logam. Irigasi mulai dibangun agar air bisa dialirkan ke ladang. Peternakan juga berkembang: unggas dan kerbau untuk daging, sedangkan kuda dan anjing untuk berburu dan mengangkut hasil pertanian."
           },
           {
-            "id": "teknologi-logam",
+            "id": "teknologi-logam", "view": { "rotY": 30, "zoom": 2.8 },
             "label": "Teknologi Logam",
             "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/zaman_logam.glb",
             "scale": "0.3 0.3 0.3",
@@ -185,7 +185,7 @@
             "teks": "Lompatan teknologi terbesar di masa praaksara. Manusia mengenal peleburan, pencampuran, penempaan, dan pencetakan logam. Emas dan tembaga menjadi favorit karena titik leburnya tidak terlalu tinggi. Lahir berbagai perhiasan dan alat upacara, termasuk nekara perunggu. Yang paling terkenal, Nekara Bulan Pejeng dari Bali, nekara terbesar di Asia Tenggara, dengan tinggi sekitar seratus delapan puluh enam sentimeter dan garis tengah seratus enam puluh sentimeter. Nekara ini dipercaya punya kekuatan gaib untuk memanggil hujan."
           },
           {
-            "id": "kemampuan-berlayar",
+            "id": "kemampuan-berlayar", "view": { "rotY": 60, "zoom": 2.2 },
             "label": "Kemampuan Berlayar",
             "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/zaman_logam.glb",
             "scale": "0.3 0.3 0.3",
@@ -193,7 +193,7 @@
             "teks": "Manusia Perundagian sudah mahir berlayar. Perahu bercadik menjadi teknologi kunci yang memungkinkan pelayaran jarak jauh. Mereka berdagang dengan wilayah lain melintasi lautan luas memakai sistem barter. Barang yang banyak dicari antara lain nekara perunggu, perhiasan logam, dan manik-manik, yang dipercaya punya kekuatan magis dan bernilai khusus."
           },
           {
-            "id": "seni-dan-sistem-kepercayaan",
+            "id": "seni-dan-sistem-kepercayaan", "view": { "rotY": -60, "zoom": 2.4 },
             "label": "Seni dan Sistem Kepercayaan",
             "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/zaman_logam.glb",
             "scale": "0.3 0.3 0.3",
@@ -416,7 +416,7 @@
         "introAudio": "/assets/audio/situs-megalitik/sulawesi/intro.mp3",
         "hotspots": [
           {
-            "id": "Lembah Bada",
+            "id": "Lembah Bada", "view": { "rotY": 0, "zoom": 2.4 },
             "label": "Lembah Bada",
             "model": "/assets/models/situs-megalitik/sulawesi/lembah-bada-napu-besoa.glb",
             "scale": "0.3 0.3 0.3",
@@ -424,7 +424,7 @@
             "teks": "Di kawasan Taman Nasional Lore Lindu, tepatnya di Lembah Bada, Napu, dan Besoa, tersebar sekitar 400 arca menhir batu berukuran raksasa di tengah padang rumput. Yang paling terkenal adalah Palindo, patung batu setinggi hampir 4,5 meter di Lembah Bada. Fungsinya masih diperdebatkan, tetapi kemungkinan besar menjadi penanda leluhur dan wilayah kekuasaan."
           },
           {
-            "id": "Waruga",
+            "id": "Waruga", "view": { "rotY": 25, "zoom": 2.6 },
             "label": "Waruga",
             "model": "/assets/models/situs-megalitik/sulawesi/waruga.glb",
             "scale": "0.3 0.3 0.3",
@@ -451,7 +451,7 @@
         "introAudio": "/assets/audio/situs-megalitik/indonesia-timur/intro.mp3",
         "hotspots": [
           {
-            "id": "Papua",
+            "id": "Papua", "view": { "rotY": 0, "zoom": 2.4 },
             "label": "Papua",
             "model": "/assets/models/situs-megalitik/indonesia-timur/papua.glb",
             "scale": "0.3 0.3 0.3",
@@ -459,7 +459,7 @@
             "teks": "Jejak tradisi megalitik di Indonesia bagian timur menjangkau hingga Papua. Berbagai bentuk batu seperti batu tegak dan susunan batu ditemukan sebagai bagian dari kebudayaan lokal yang menghubungkan manusia dengan leluhur dan alam sekitarnya."
           },
           {
-            "id": "Halmahera",
+            "id": "Halmahera", "view": { "rotY": 20, "zoom": 2.5 },
             "label": "Halmahera",
             "model": "/assets/models/situs-megalitik/indonesia-timur/halmahera.glb",
             "scale": "0.3 0.3 0.3",
