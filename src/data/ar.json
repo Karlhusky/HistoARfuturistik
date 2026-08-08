@@ -399,5 +399,75 @@
         ]
       }
     ]
+  },
+  "m2-4-4": {
+    "targetMind": "/assets/ar/targets/situs-megalitik/sulawesi.mind",
+    "targets": [
+      {
+        "key": "Situs Megalitik Sulawesi",
+        "label": "Situs Megalitik Sulawesi",
+        "targetIndex": 0,
+        "model": "/assets/models/situs-megalitik/sulawesi/lembah-bada-napu-besoa.glb",
+        "scale": "0.3 0.3 0.3",
+        "defaultView": {
+          "rotY": 0,
+          "zoom": 2
+        },
+        "introAudio": "/assets/audio/situs-megalitik/sulawesi/intro.mp3",
+        "hotspots": [
+          {
+            "id": "Lembah Bada",
+            "label": "Lembah Bada",
+            "model": "/assets/models/situs-megalitik/sulawesi/lembah-bada-napu-besoa.glb",
+            "scale": "0.3 0.3 0.3",
+            "audio": "/assets/audio/situs-megalitik/sulawesi/lembah-bada.mp3",
+            "teks": "Di kawasan Taman Nasional Lore Lindu, tepatnya di Lembah Bada, Napu, dan Besoa, tersebar sekitar 400 arca menhir batu berukuran raksasa di tengah padang rumput. Yang paling terkenal adalah Palindo, patung batu setinggi hampir 4,5 meter di Lembah Bada. Fungsinya masih diperdebatkan, tetapi kemungkinan besar menjadi penanda leluhur dan wilayah kekuasaan."
+          },
+          {
+            "id": "Waruga",
+            "label": "Waruga",
+            "model": "/assets/models/situs-megalitik/sulawesi/waruga.glb",
+            "scale": "0.3 0.3 0.3",
+            "audio": "/assets/audio/situs-megalitik/sulawesi/waruga.mp3",
+            "teks": "Di daerah Minahasa, Sulawesi Utara, terutama di Sawangan, terdapat waruga, yaitu kubur batu berbentuk kubus dengan tutup segitiga. Jenazah dimasukkan dalam posisi duduk dan menghadap ke utara, sesuai keyakinan lokal bahwa leluhur berasal dari arah tersebut."
+          }
+        ]
+      }
+    ]
+  },
+  "m2-4-6": {
+    "targetMind": "/assets/ar/targets/situs-megalitik/papua.mind",
+    "targets": [
+      {
+        "key": "Situs Megalitik Indonesia Timur",
+        "label": "Situs Megalitik Indonesia Timur",
+        "targetIndex": 0,
+        "model": "/assets/models/situs-megalitik/indonesia-timur/papua.glb",
+        "scale": "0.3 0.3 0.3",
+        "defaultView": {
+          "rotY": 0,
+          "zoom": 2
+        },
+        "introAudio": "/assets/audio/situs-megalitik/indonesia-timur/intro.mp3",
+        "hotspots": [
+          {
+            "id": "Papua",
+            "label": "Papua",
+            "model": "/assets/models/situs-megalitik/indonesia-timur/papua.glb",
+            "scale": "0.3 0.3 0.3",
+            "audio": "/assets/audio/situs-megalitik/indonesia-timur/papua.mp3",
+            "teks": "Jejak tradisi megalitik di Indonesia bagian timur menjangkau hingga Papua. Berbagai bentuk batu seperti batu tegak dan susunan batu ditemukan sebagai bagian dari kebudayaan lokal yang menghubungkan manusia dengan leluhur dan alam sekitarnya."
+          },
+          {
+            "id": "Halmahera",
+            "label": "Halmahera",
+            "model": "/assets/models/situs-megalitik/indonesia-timur/halmahera.glb",
+            "scale": "0.3 0.3 0.3",
+            "audio": "/assets/audio/situs-megalitik/indonesia-timur/halmahera.mp3",
+            "teks": "Di Halmahera dan kawasan Maluku lainnya juga ditemukan jejak tradisi megalitik, berupa kubur batu dan susunan batu yang berkaitan dengan penghormatan leluhur. Temuan ini menunjukkan tradisi megalitik tidak hanya tumbuh di bagian barat dan tengah Indonesia, tetapi menyebar hingga ke ujung timur Nusantara."
+          }
+        ]
+      }
+    ]
   }
 }
