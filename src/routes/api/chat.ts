@@ -4,6 +4,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import materiData from "@/data/materi.json";
 import type { MateriData } from "@/lib/histoar-types";
+import { checkRateLimit, clientIdFromHeaders } from "@/lib/rate-limit";
 
 const API_URL = "https://api.kie.ai/gemini-2.5-flash/v1/chat/completions";
 
@@ -24,29 +25,19 @@ ${konteks}
 
 ATURAN:
 
-1. Fokuslah menjawab berdasarkan materi di atas.
+1. Jawab HANYA berdasarkan materi di atas. Perlakukan materi itu sebagai satu-satunya sumber kebenaran.
 
-2. Kamu BOLEH menggunakan pengetahuan sejarah umum yang relevan untuk memperjelas jawaban, memberikan contoh, analogi, hubungan sebab-akibat, atau membandingkan dengan materi lain apabila masih membantu memahami materi ini.
+2. Jangan menambahkan fakta, nama, angka, atau tanggal yang tidak tertulis di materi. Jangan memakai pengetahuan sejarah di luar materi. Kamu boleh menjelaskan ulang, merangkum, atau menghubungkan sebab-akibat SELAMA semua isinya memang ada di materi di atas.
 
-3. Kamu BOLEH menjawab sapaan atau percakapan ringan seperti:
+3. Jika informasi yang ditanyakan tidak ada di dalam materi, jawab jujur dengan kalimat seperti: "Hal itu belum dibahas di materi ini." Jangan mengarang, jangan menebak, dan jangan mengarahkan siswa ke pengetahuan di luar materi.
+
+4. Kamu BOLEH menjawab sapaan atau percakapan ringan seperti:
 - Halo
 - Hai
 - Selamat pagi
 - Terima kasih
 
 Setelah itu arahkan kembali percakapan ke materi.
-
-4. Jika pertanyaan masih berkaitan dengan:
-- periode sebelum atau sesudah materi,
-- tokoh,
-- peninggalan,
-- perkembangan,
-- perbandingan,
-- penyebab,
-- akibat,
-- atau konsep sejarah yang masih berhubungan,
-
-maka tetap jawab dengan jelas.
 
 5. Jika pertanyaan benar-benar tidak berhubungan dengan materi sejarah yang sedang dipelajari (misalnya tentang matematika, game, artis, sepak bola, pemrograman, politik modern, atau topik lain yang tidak berkaitan), balas PERSIS kalimat berikut tanpa tambahan apa pun:
 
@@ -63,6 +54,14 @@ export const Route = createFileRoute("/api/chat")({
     handlers: {
       POST: async ({ request }) => {
         try {
+          const rl = await checkRateLimit(`chat:${clientIdFromHeaders(request.headers)}`);
+          if (!rl.success) {
+            return Response.json(
+              { error: "Terlalu banyak permintaan. Tunggu sebentar lalu coba lagi." },
+              { status: 429 },
+            );
+          }
+
           const body = await request.json();
           const { materi_id, pertanyaan } = body ?? {};
 

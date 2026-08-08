@@ -33,8 +33,9 @@ export function QuizPanel({
       setIndex((i) => i + 1);
       setSelected(null);
     } else {
-      const finalScore = selected === q.jawaban ? score : score;
-      onFinish(finalScore, questions.length);
+      // `score` sudah termasuk jawaban soal terakhir (ditambahkan di selectAnswer),
+      // jadi tidak perlu dihitung ulang di sini.
+      onFinish(score, questions.length);
     }
   }
 
