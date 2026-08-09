@@ -243,7 +243,7 @@
   },
   "m3-1": {
   "targetMind": "/assets/ar/targets/tiga-jenis-manusia-purba/meganthropus.mind",
-  "maxZoom": 30,
+  "maxZoom": 40,
   "targets": [
     {
       "key": "meganthropus",
@@ -265,7 +265,7 @@
           "model": "/assets/models/tiga-jenis-manusia-purba/meganthropus-kepala.glb",
           "view": {
             "rotY": -90,
-            "zoom": 20
+            "zoom": 26
           },
           "audio": "/assets/audio/tiga-jenis-manusia-purba/meganthropus/kepala.mp3",
           "teks": "Kalian sedang melihat kepala manusia purba paling tua yang jejaknya ditemukan di Indonesia. Ukuran otaknya masih relatif kecil dibanding kalian sekarang. Tulang keningnya tebal dan menonjol, dahinya sangat miring ke belakang, dan ia belum punya dagu seperti kalian. Meski begitu, otak sekecil ini sudah cukup untuk hidup berkelompok dan mengenali makanan yang aman di padang rumput Jawa purba. Fosil rahangnya digali oleh Gustav Heinrich Ralph von Koenigswald antara 1936 sampai 1941, di daerah Sangiran, Sragen, Jawa Tengah."
@@ -276,7 +276,7 @@
           "model": "/assets/models/tiga-jenis-manusia-purba/meganthropus-kepala.glb",
           "view": {
             "rotY": -90,
-            "zoom": 30
+            "zoom": 36
           },
           "audio": "/assets/audio/tiga-jenis-manusia-purba/meganthropus/mata.mp3",
           "teks": "Mata Meganthropus terletak di balik tulang alis yang sangat tebal. Fungsinya bukan cuma untuk melihat. Tulang alis setebal ini melindungi mata dari terik matahari terbuka dan dari benturan saat mencari makan di antara semak-semak yang rimbun. Pandangannya cukup tajam untuk mengintai bahaya dari kejauhan. Karena tubuhnya besar dan gerakannya tidak selincah manusia purba yang datang setelahnya, ia mengandalkan mata dan pendengaran untuk mendeteksi hewan pemangsa lebih dulu."
