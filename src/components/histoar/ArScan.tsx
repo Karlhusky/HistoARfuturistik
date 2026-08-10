@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import { loadScript } from "@/lib/load-script";
 import { ArEngine } from "@/lib/ar-engine";
+import { arBreadcrumb, captureArModelError } from "@/lib/monitoring";
 import type { ArMateriConfig } from "@/lib/histoar-types";
 import { ChevronLeft, Info, Plus, Minus, RotateCcw, Ruler, ArrowUp, ArrowDown, ArrowLeft, ArrowRight, X } from "lucide-react";
 
@@ -51,15 +52,22 @@ export function ArScan({
       // 2) jaringan sekolah kadang nge-filter atau nge-throttle CDN. Kalau itu
       //    kejadian, AR gagal start di depan kelas tanpa error yang berguna.
       // Versi + checksum ada di public/vendor/VENDOR.md, dicek scripts/check-vendor.mjs.
+      arBreadcrumb("AR boot: memuat vendor A-Frame/MindAR", { materi: materiId });
       await loadScript("/vendor/aframe-1.5.0.min.js");
       await loadScript("/vendor/mindar-image-aframe-1.2.5.prod.js");
       if (cancelled) return;
 
       setModelError(null);
+      arBreadcrumb("AR engine start", { materi: materiId });
       const engine = new ArEngine(arConfig, {
         onGateUpdate: (done, total, unlockedNow) => setGate({ done, total, unlocked: unlockedNow }),
         onQuizReady: onAllExplored,
-        onModelError: (targetKey, src) => setModelError(`Model "${targetKey}" gagal dimuat (${src}).`),
+        onModelError: (targetKey, src) => {
+          setModelError(`Model "${targetKey}" gagal dimuat (${src}).`);
+          // Kirim ke Sentry dengan konteks materi/target → kelihatan walau
+          // kejadiannya di HP siswa yang tak bisa kita reproduksi.
+          captureArModelError({ materi: materiId, targetKey, src });
+        },
       });
       engineRef.current = engine;
       engine.start();

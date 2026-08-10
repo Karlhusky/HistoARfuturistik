@@ -10,6 +10,7 @@ import {
 import { type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import { captureError } from "../lib/monitoring";
 
 function NotFoundComponent() {
   return (
@@ -35,6 +36,7 @@ function NotFoundComponent() {
 
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
+  captureError(error, { boundary: "root" });
   const router = useRouter();
 
   return (
