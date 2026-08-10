@@ -8,10 +8,6 @@ import { ArEngine } from "@/lib/ar-engine";
 import type { ArMateriConfig } from "@/lib/histoar-types";
 import { ChevronLeft, Info, Plus, Minus, RotateCcw, Ruler, ArrowUp, ArrowDown, ArrowLeft, ArrowRight, X } from "lucide-react";
 
-// Alat dev (Salin-View + D-pad geser) hanya tampil saat pengembangan, tidak
-// ke-ship ke siswa. Kalibrasi ar.json tetap bisa dilakukan di mode dev.
-const IS_DEV = import.meta.env.DEV;
-
 export function ArScan({
   materiId,
   materiJudul,
@@ -34,6 +30,16 @@ export function ArScan({
   const [gate, setGate] = useState({ done: 0, total: 0, unlocked: false });
   const [modelError, setModelError] = useState<string | null>(null);
   const [restartToken, setRestartToken] = useState(0);
+  // Alat kalibrasi (Salin-View + D-pad) hanya untuk dev/kalibrator, tidak untuk
+  // siswa. Aktif saat dev-build ATAU URL punya ?dev=1 (mis. di Vercel Preview).
+  // Dihitung setelah mount supaya tidak memicu hydration mismatch.
+  const [showDevTools, setShowDevTools] = useState(false);
+  useEffect(() => {
+    setShowDevTools(
+      import.meta.env.DEV ||
+        new URLSearchParams(window.location.search).get("dev") === "1",
+    );
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -175,7 +181,7 @@ export function ArScan({
         <button id="btnResetView" onClick={() => engineRef.current?.resetView()} aria-label="Reset tampilan" className="flex h-10 w-10 items-center justify-center rounded-xl hover:bg-white/10">
           <RotateCcw className="h-5 w-5" />
         </button>
-        {IS_DEV && (
+        {showDevTools && (
           <button id="btnCopyView" onClick={() => engineRef.current?.copyCurrentView()} aria-label="Salin posisi kamera (dev)" title="DEV: salin posisi buat ditempel ke ar.json" className="flex h-10 w-10 items-center justify-center rounded-xl text-primary hover:bg-white/10">
             <Ruler className="h-5 w-5" />
           </button>
@@ -183,7 +189,7 @@ export function ArScan({
       </div>
 
       {/* D-pad geser hanya untuk dev/kalibrasi; siswa cukup drag untuk memutar. */}
-      {IS_DEV && (
+      {showDevTools && (
         <div
           id="arMoveControls"
           hidden={!showMoveControls}
