@@ -262,7 +262,7 @@
         {
           "id": "kepala",
           "label": "Kepala",
-          "model": "/assets/models/tiga-jenis-manusia-purba/meganthropus-kepala.glb",
+          "model": "/assets/models/tiga-jenis-manusia-purba/meganthropus-kepala.glb?v=2",
           "view": {
             "rotY": -90,
             "zoom": 26
@@ -273,7 +273,7 @@
         {
           "id": "mata",
           "label": "Mata",
-          "model": "/assets/models/tiga-jenis-manusia-purba/meganthropus-kepala.glb",
+          "model": "/assets/models/tiga-jenis-manusia-purba/meganthropus-kepala.glb?v=2",
           "view": {
             "rotY": -90,
             "zoom": 36
@@ -284,7 +284,7 @@
         {
           "id": "tangan",
           "label": "Tangan",
-          "model": "/assets/models/tiga-jenis-manusia-purba/meganthropus-tangan.glb",
+          "model": "/assets/models/tiga-jenis-manusia-purba/meganthropus-tangan.glb?v=2",
           "view": {
             "rotY": 185,
             "zoom": 30
