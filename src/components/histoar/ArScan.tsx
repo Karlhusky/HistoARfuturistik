@@ -8,6 +8,10 @@ import { ArEngine } from "@/lib/ar-engine";
 import type { ArMateriConfig } from "@/lib/histoar-types";
 import { ChevronLeft, Info, Plus, Minus, RotateCcw, Ruler, ArrowUp, ArrowDown, ArrowLeft, ArrowRight, X } from "lucide-react";
 
+// Alat dev (Salin-View + D-pad geser) hanya tampil saat pengembangan, tidak
+// ke-ship ke siswa. Kalibrasi ar.json tetap bisa dilakukan di mode dev.
+const IS_DEV = import.meta.env.DEV;
+
 export function ArScan({
   materiId,
   materiJudul,
@@ -154,40 +158,48 @@ export function ArScan({
         <Info className="h-5 w-5" />
       </button>
 
+      {/* Rail kontrol tunggal: kanan-tengah, sejangkauan jempol. Zoom + / - / Reset.
+          Salin-View adalah alat kalibrasi dev, disembunyikan dari siswa. */}
       <div
         id="arViewControls"
         hidden={!showViewControls}
-        className="glass fixed right-4 top-24 z-20 flex flex-col gap-2 rounded-2xl p-2"
+        className="glass fixed right-4 top-1/2 z-20 flex -translate-y-1/2 flex-col gap-2 rounded-2xl p-2"
       >
-        <button id="btnZoomIn" onClick={() => engineRef.current?.zoomIn()} aria-label="Perbesar model" className="flex h-9 w-9 items-center justify-center rounded-xl hover:bg-white/10">
-          <Plus className="h-4 w-4" />
+        <button id="btnZoomIn" onClick={() => engineRef.current?.zoomIn()} aria-label="Perbesar model" className="flex h-10 w-10 items-center justify-center rounded-xl hover:bg-white/10">
+          <Plus className="h-5 w-5" />
         </button>
-        <button id="btnZoomOut" onClick={() => engineRef.current?.zoomOut()} aria-label="Perkecil model" className="flex h-9 w-9 items-center justify-center rounded-xl hover:bg-white/10">
-          <Minus className="h-4 w-4" />
+        <button id="btnZoomOut" onClick={() => engineRef.current?.zoomOut()} aria-label="Perkecil model" className="flex h-10 w-10 items-center justify-center rounded-xl hover:bg-white/10">
+          <Minus className="h-5 w-5" />
         </button>
-        <button id="btnResetView" onClick={() => engineRef.current?.resetView()} aria-label="Reset tampilan" className="flex h-9 w-9 items-center justify-center rounded-xl hover:bg-white/10">
-          <RotateCcw className="h-4 w-4" />
+        <div className="mx-1 my-0.5 h-px bg-white/10" />
+        <button id="btnResetView" onClick={() => engineRef.current?.resetView()} aria-label="Reset tampilan" className="flex h-10 w-10 items-center justify-center rounded-xl hover:bg-white/10">
+          <RotateCcw className="h-5 w-5" />
         </button>
-        <button id="btnCopyView" onClick={() => engineRef.current?.copyCurrentView()} aria-label="Salin posisi kamera" title="Salin posisi buat ditempel ke ar.json" className="flex h-9 w-9 items-center justify-center rounded-xl hover:bg-white/10">
-          <Ruler className="h-4 w-4" />
-        </button>
+        {IS_DEV && (
+          <button id="btnCopyView" onClick={() => engineRef.current?.copyCurrentView()} aria-label="Salin posisi kamera (dev)" title="DEV: salin posisi buat ditempel ke ar.json" className="flex h-10 w-10 items-center justify-center rounded-xl text-primary hover:bg-white/10">
+            <Ruler className="h-5 w-5" />
+          </button>
+        )}
       </div>
 
-      <div
-        id="arMoveControls"
-        hidden={!showMoveControls}
-        className="glass fixed bottom-24 left-4 z-20 grid grid-cols-3 gap-1 rounded-2xl p-2"
-      >
-        <span />
-        <button id="btnMoveUp" onClick={() => engineRef.current?.moveUp()} className="flex h-9 w-9 items-center justify-center rounded-xl hover:bg-white/10"><ArrowUp className="h-4 w-4" /></button>
-        <span />
-        <button id="btnMoveLeft" onClick={() => engineRef.current?.moveLeft()} className="flex h-9 w-9 items-center justify-center rounded-xl hover:bg-white/10"><ArrowLeft className="h-4 w-4" /></button>
-        <span />
-        <button id="btnMoveRight" onClick={() => engineRef.current?.moveRight()} className="flex h-9 w-9 items-center justify-center rounded-xl hover:bg-white/10"><ArrowRight className="h-4 w-4" /></button>
-        <span />
-        <button id="btnMoveDown" onClick={() => engineRef.current?.moveDown()} className="flex h-9 w-9 items-center justify-center rounded-xl hover:bg-white/10"><ArrowDown className="h-4 w-4" /></button>
-        <span />
-      </div>
+      {/* D-pad geser hanya untuk dev/kalibrasi; siswa cukup drag untuk memutar. */}
+      {IS_DEV && (
+        <div
+          id="arMoveControls"
+          hidden={!showMoveControls}
+          className="glass fixed bottom-24 left-4 z-20 grid grid-cols-3 gap-1 rounded-2xl p-2"
+        >
+          <span />
+          <button id="btnMoveUp" onClick={() => engineRef.current?.moveUp()} className="flex h-9 w-9 items-center justify-center rounded-xl hover:bg-white/10"><ArrowUp className="h-4 w-4" /></button>
+          <span />
+          <button id="btnMoveLeft" onClick={() => engineRef.current?.moveLeft()} className="flex h-9 w-9 items-center justify-center rounded-xl hover:bg-white/10"><ArrowLeft className="h-4 w-4" /></button>
+          <span />
+          <button id="btnMoveRight" onClick={() => engineRef.current?.moveRight()} className="flex h-9 w-9 items-center justify-center rounded-xl hover:bg-white/10"><ArrowRight className="h-4 w-4" /></button>
+          <span />
+          <button id="btnMoveDown" onClick={() => engineRef.current?.moveDown()} className="flex h-9 w-9 items-center justify-center rounded-xl hover:bg-white/10"><ArrowDown className="h-4 w-4" /></button>
+          <span />
+        </div>
+      )}
 
       <div id="arCopyToast" hidden className="glass fixed bottom-4 left-1/2 z-30 -translate-x-1/2 whitespace-pre rounded-xl px-4 py-2 font-mono text-xs" />
 
