@@ -16,7 +16,10 @@ declare global {
 
 const DEFAULT_SCALE = "0.5 0.5 0.5";
 const AUDIO_LOCK_TIMEOUT_MS = 12000;
-const ZOOM_STEP = 0.2;
+// Zoom pakai langkah PERKALIAN, bukan penjumlahan, biar tetap terasa di skala
+// besar (model kecil sering butuh zoomFactor 20-40; +0.2 di situ tak kelihatan).
+const ZOOM_MULT = 1.18;
+const TARGET_LOST_GRACE_MS = 600;
 const MIN_ZOOM = 0.3;
 const DEFAULT_MAX_ZOOM = 8;
 const ROTATE_SPEED = 0.4;
@@ -64,6 +67,7 @@ export class ArEngine {
   // (zoom) nggak keterapin dan panel + audio intro nggak muncul.
   private openedTargets = new Set<string>();
   private trackingKey: string | null = null;
+  private lostTimer: ReturnType<typeof setTimeout> | null = null;
   private maxZoom = DEFAULT_MAX_ZOOM;
   private baseScaleVec = { x: 0.3, y: 0.3, z: 0.3 };
   private zoomFactor = 1;
@@ -199,13 +203,13 @@ export class ArEngine {
 
   zoomIn = () => {
     if (!this.activeTarget) return;
-    this.zoomFactor = Math.min(this.maxZoom, +(this.zoomFactor + ZOOM_STEP).toFixed(2));
+    this.zoomFactor = Math.min(this.maxZoom, +(this.zoomFactor * ZOOM_MULT).toFixed(2));
     this.applyWrapperTransform(this.activeTarget.key);
   };
 
   zoomOut = () => {
     if (!this.activeTarget) return;
-    this.zoomFactor = Math.max(MIN_ZOOM, +(this.zoomFactor - ZOOM_STEP).toFixed(2));
+    this.zoomFactor = Math.max(MIN_ZOOM, +(this.zoomFactor / ZOOM_MULT).toFixed(2));
     this.applyWrapperTransform(this.activeTarget.key);
   };
 
@@ -464,7 +468,14 @@ export class ArEngine {
       const forward = comp.updateWorldMatrix.bind(comp);
       comp.updateWorldMatrix = (worldMatrix: number[] | null) => {
         if (this.disposed) return;
-        if (!worldMatrix) return; // target hilang: pertahankan pose terakhir
+        if (!worldMatrix) {
+          // Target hilang dari frame -> sembunyikan model (UX AR normal).
+          // Kita TIDAK meneruskan matriks null ke MindAR (menghindari kolaps
+          // transform), cukup sembunyikan entity + reset state via grace period
+          // supaya kedipan tracking sesaat tidak bikin model kelap-kelip.
+          this.scheduleTargetLost(anchorEl, t);
+          return;
+        }
         forward(worldMatrix);
         this.onTargetTracked(anchorEl, t);
       };
@@ -480,8 +491,34 @@ export class ArEngine {
     }
   }
 
+  /**
+   * Target hilang: jadwalkan sembunyi setelah grace period. Kalau target
+   * ketemu lagi sebelum timer habis, onTargetTracked membatalkannya.
+   */
+  private scheduleTargetLost(anchorEl: any, t: ArTarget) {
+    if (this.trackingKey !== t.key) return; // bukan target aktif
+    if (this.lostTimer) return; // sudah dijadwalkan
+    this.lostTimer = setTimeout(() => {
+      this.lostTimer = null;
+      if (this.disposed) return;
+      if (anchorEl.object3D) anchorEl.object3D.visible = false;
+      this.trackingKey = null;
+      document.body.classList.remove("ar-locked-in");
+      const hint = this.q("arScanHint");
+      if (hint) hint.hidden = false;
+      const viewControls = this.q("arViewControls");
+      if (viewControls) viewControls.hidden = true;
+      const moveControls = this.q("arMoveControls");
+      if (moveControls) moveControls.hidden = true;
+    }, TARGET_LOST_GRACE_MS);
+  }
+
   /** Dipanggil tiap frame selama target ke-track; isinya cuma jalan pas transisi. */
   private onTargetTracked(anchorEl: any, t: ArTarget) {
+    if (this.lostTimer) {
+      clearTimeout(this.lostTimer); // target balik sebelum grace habis
+      this.lostTimer = null;
+    }
     if (this.trackingKey === t.key) return;
 
     // Materi multi-target: sembunyiin model target sebelumnya biar nggak numpuk.
@@ -520,6 +557,7 @@ dispose() {
     this.disposed = true;
     this.currentAudio?.pause();
     if (this.audioTimeoutHandle) clearTimeout(this.audioTimeoutHandle);
+    if (this.lostTimer) clearTimeout(this.lostTimer);
     document.body.classList.remove("ar-locked-in");
 
     // A-Frame nempelin class "a-fullscreen" ke <html> pas <a-scene> connect
