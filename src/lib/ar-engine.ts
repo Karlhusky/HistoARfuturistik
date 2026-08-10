@@ -5,7 +5,7 @@
 // jadi bagian ini sengaja tetap manipulasi DOM langsung (lewat id yang sama
 // dengan markup di ArScan.tsx) alih-alih dipaksa jadi "React murni".
 
-import type { ArMateriConfig, ArTarget } from "@/lib/histoar-types";
+import type { ArHotspotView, ArMateriConfig, ArTarget } from "@/lib/histoar-types";
 
 declare global {
   interface Window {
@@ -236,6 +236,12 @@ export class ArEngine {
   private rotX = 0;
   private moveX = 0;
   private moveY = 0;
+  // TITIK FOKUS KAMERA, dinyatakan sebagai FRAKSI ukuran model (origin = pusat
+  // model, jadi -0.5..0.5 kira-kira mencakup seluruh model). Titik inilah yang
+  // dibawa ke pusat marker, sehingga "pindah hotspot = pindah viewport": kamera
+  // seolah bergeser lalu mendekat ke satu bagian diorama, bukan dioramanya yang
+  // digelembungkan di tempat.
+  private focus = { x: 0, y: 0, z: 0 };
   private dragging = false;
   private lastX = 0;
   private lastY = 0;
@@ -339,7 +345,22 @@ export class ArEngine {
     const wrapper = sceneRoot?.querySelector(`[data-wrapper="${targetKey}"]`);
     if (!wrapper) return;
     const s = this.modelUnitScale * this.zoomFactor;
-    wrapper.setAttribute("position", `${this.moveX} 0 ${this.moveY}`);
+
+    // Geser wrapper supaya titik fokus mendarat tepat di pusat marker.
+    // Offset dunia = rotY(focus x zoom). Perhatikan TIDAK ada modelUnitScale di
+    // sini: karena focus dinyatakan sebagai fraksi ukuran model, faktor itu
+    // saling meniadakan. Efeknya titik fokus tetap terkunci di tengah walau
+    // di-zoom atau diputar - persis kamera yang di-dolly.
+    const rad = (this.rotY * Math.PI) / 180;
+    const fx = this.focus.x * this.zoomFactor;
+    const fz = this.focus.z * this.zoomFactor;
+    const offX = fx * Math.cos(rad) + fz * Math.sin(rad);
+    const offZ = -fx * Math.sin(rad) + fz * Math.cos(rad);
+    const offY = this.focus.y * this.zoomFactor;
+
+    // CATATAN: moveY sekarang sumbu Y (vertikal). Dulu dipetakan ke Z (kedalaman),
+    // jadi D-pad atas/bawah tidak pernah bisa menggeser tampilan naik-turun.
+    wrapper.setAttribute("position", `${this.moveX - offX} ${this.moveY - offY} ${-offZ}`);
     wrapper.setAttribute("scale", `${s} ${s} ${s}`);
     wrapper.setAttribute("rotation", `${this.rotX} ${this.rotY} 0`);
   }
@@ -351,6 +372,7 @@ export class ArEngine {
     this.rotX = 0;
     this.moveX = 0;
     this.moveY = 0;
+    this.focus = { x: 0, y: 0, z: 0 };
     this.applyWrapperTransform(targetKey);
   }
 
@@ -373,29 +395,35 @@ export class ArEngine {
     this.applyPresetView(this.activeTarget.defaultView);
   };
 
-  moveLeft = () => {
+  /**
+   * D-pad menggeser TITIK FOKUS, bukan posisi model - jadi hasil kalibrasinya
+   * bisa langsung ditempel ke ar.json sebagai `focus`. Arah panah mengikuti
+   * LAYAR: rotasi cuma di sumbu Y, jadi layar-atas selalu sumbu Y model,
+   * sedangkan layar-kanan harus diputar balik ke ruang model.
+   */
+  private panFocus(screenX: number, screenY: number) {
     if (!this.activeTarget) return;
-    this.moveX -= MOVE_STEP;
+    const rad = (this.rotY * Math.PI) / 180;
+    this.focus.x += screenX * Math.cos(rad);
+    this.focus.z += screenX * Math.sin(rad);
+    this.focus.y += screenY;
     this.applyWrapperTransform(this.activeTarget.key);
-  };
-  moveRight = () => {
-    if (!this.activeTarget) return;
-    this.moveX += MOVE_STEP;
-    this.applyWrapperTransform(this.activeTarget.key);
-  };
-  moveUp = () => {
-    if (!this.activeTarget) return;
-    this.moveY += MOVE_STEP;
-    this.applyWrapperTransform(this.activeTarget.key);
-  };
-  moveDown = () => {
-    if (!this.activeTarget) return;
-    this.moveY -= MOVE_STEP;
-    this.applyWrapperTransform(this.activeTarget.key);
-  };
+  }
 
-  private applyPresetView(view?: { rotY?: number; rotX?: number; zoom?: number; moveX?: number; moveY?: number }) {
+  moveLeft = () => this.panFocus(-MOVE_STEP, 0);
+  moveRight = () => this.panFocus(MOVE_STEP, 0);
+  moveUp = () => this.panFocus(0, MOVE_STEP);
+  moveDown = () => this.panFocus(0, -MOVE_STEP);
+
+  private applyPresetView(view?: ArHotspotView) {
     if (!view || !this.activeTarget) return;
+    // `focus` boleh ditulis [x,y,z] atau {x,y,z}; keduanya diterima.
+    if (view.focus) {
+      const f = view.focus;
+      this.focus = Array.isArray(f)
+        ? { x: f[0] ?? 0, y: f[1] ?? 0, z: f[2] ?? 0 }
+        : { x: f.x ?? 0, y: f.y ?? 0, z: f.z ?? 0 };
+    }
     if (typeof view.zoom === "number") this.zoomFactor = Math.min(this.maxZoom, Math.max(MIN_ZOOM, view.zoom));
     if (typeof view.rotY === "number") this.rotY = view.rotY;
     if (typeof view.rotX === "number") this.rotX = view.rotX;
@@ -407,9 +435,11 @@ export class ArEngine {
   copyCurrentView = () => {
     if (!this.activeTarget) return;
     const isHotspot = document.querySelector(".ar-hotspot-pill.is-active") !== null;
-    const snippet = isHotspot
-      ? `"view": {\n    "rotY": ${Math.round(this.rotY)},\n    "zoom": ${this.zoomFactor.toFixed(2)},\n    "moveX": ${this.moveX.toFixed(3)},\n    "moveY": ${this.moveY.toFixed(3)}\n  }`
-      : `"defaultView": {\n    "rotY": ${Math.round(this.rotY)},\n    "zoom": ${this.zoomFactor.toFixed(2)}\n  }`;
+    // Ikut menyalin `focus` supaya hasil kalibrasi D-pad (geser viewport) bisa
+    // langsung ditempel ke ar.json, bukan cuma zoom & rotasi.
+    const f = `[${this.focus.x.toFixed(3)}, ${this.focus.y.toFixed(3)}, ${this.focus.z.toFixed(3)}]`;
+    const key = isHotspot ? "view" : "defaultView";
+    const snippet = `"${key}": {\n    "rotY": ${Math.round(this.rotY)},\n    "zoom": ${this.zoomFactor.toFixed(2)},\n    "focus": ${f}\n  }`;
 
     navigator.clipboard?.writeText(snippet).catch(() => {});
 

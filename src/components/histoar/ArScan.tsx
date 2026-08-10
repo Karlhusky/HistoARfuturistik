@@ -31,6 +31,53 @@ export function ArScan({
   // tap gagang untuk melebarkan & baca detail. Fix "kepotong / nggak full layar".
   const [panelExpanded, setPanelExpanded] = useState(false);
   const [reopenVisible, setReopenVisible] = useState(false);
+  // Panel bisa DIGESER turun-naik dengan menarik gagangnya, karena di HP kecil
+  // sheet ini menutupi model/diorama yang lagi dijelaskan. Nilainya piksel ke
+  // bawah dari posisi normal; 0 = penuh. Baris hotspot sengaja dijaga tetap
+  // terlihat (lihat clamp di onHandleMove) supaya siswa masih bisa ganti bagian
+  // tanpa menarik panelnya balik ke atas dulu.
+  const panelRef = useRef<HTMLDivElement | null>(null);
+  const [sheetOffset, setSheetOffset] = useState(0);
+  const dragState = useRef<{ startY: number; startOffset: number; max: number; moved: boolean } | null>(null);
+
+  const onHandleDown = (e: React.PointerEvent) => {
+    const h = panelRef.current?.getBoundingClientRect().height ?? 0;
+    dragState.current = {
+      startY: e.clientY,
+      startOffset: sheetOffset,
+      max: Math.max(0, h - 120), // sisakan gagang + baris hotspot
+      moved: false,
+    };
+    // Pointer capture cuma kenyamanan (biar jari boleh keluar dari gagang saat
+    // menyeret). Kalau browser menolak, seret TETAP harus jalan - jangan sampai
+    // melempar dan membatalkan sisa handler.
+    try {
+      (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+    } catch {
+      /* pointer sudah tidak aktif; abaikan */
+    }
+  };
+  const onHandleMove = (e: React.PointerEvent) => {
+    const d = dragState.current;
+    if (!d) return;
+    const dy = e.clientY - d.startY;
+    if (Math.abs(dy) > 4) d.moved = true;
+    setSheetOffset(Math.min(d.max, Math.max(0, d.startOffset + dy)));
+  };
+  const onHandleUp = (e: React.PointerEvent) => {
+    const d = dragState.current;
+    dragState.current = null;
+    // WAJIB di-try: releasePointerCapture melempar NotFoundError kalau pointer-nya
+    // sudah tidak dilacak, dan lemparan itu membatalkan toggle di bawahnya -
+    // gagang jadi bisa diseret tapi tidak bisa di-tap.
+    try {
+      (e.currentTarget as HTMLElement).releasePointerCapture?.(e.pointerId);
+    } catch {
+      /* tidak pernah ter-capture; abaikan */
+    }
+    // Tarikan pendek = tap: pakai untuk buka/tutup detail seperti sebelumnya.
+    if (d && !d.moved) setPanelExpanded((v) => !v);
+  };
   const [gate, setGate] = useState({ done: 0, total: 0, unlocked: false });
   const [modelError, setModelError] = useState<string | null>(null);
   const [restartToken, setRestartToken] = useState(0);
@@ -226,13 +273,19 @@ export function ArScan({
           imperatif yang pakai getElementById tetap jalan. */}
       <div
         id="arPanel"
+        ref={panelRef}
         hidden={panelHidden}
-        className="glass-strong fixed inset-x-0 bottom-0 z-20 flex max-h-[80vh] flex-col rounded-t-3xl pb-[env(safe-area-inset-bottom)]"
+        style={{ transform: `translateY(${sheetOffset}px)` }}
+        className="glass-strong fixed inset-x-0 bottom-0 z-20 flex max-h-[80vh] flex-col rounded-t-3xl pb-[env(safe-area-inset-bottom)] touch-none"
       >
         <button
-          onClick={() => setPanelExpanded((v) => !v)}
-          aria-label={panelExpanded ? "Kecilkan panel info" : "Perbesar panel info"}
-          className="mx-auto mt-2 flex h-6 w-full max-w-[140px] items-center justify-center"
+          onPointerDown={onHandleDown}
+          onPointerMove={onHandleMove}
+          onPointerUp={onHandleUp}
+          onPointerCancel={onHandleUp}
+          aria-label="Tarik untuk menggeser panel, tap untuk buka/tutup detail"
+          title="Tarik untuk menggeser panel"
+          className="mx-auto mt-2 flex h-8 w-full max-w-[160px] cursor-grab touch-none items-center justify-center active:cursor-grabbing"
         >
           <span className="h-1.5 w-10 rounded-full bg-white/25" />
         </button>

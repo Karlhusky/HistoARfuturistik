@@ -31,14 +31,33 @@ export interface QuizData {
   quiz: Record<string, QuizQuestion[]>;
 }
 
+/**
+ * Tampilan kamera untuk satu target/hotspot.
+ *
+ * `zoom`  = KELIPATAN LEBAR MARKER (engine menormalkan tiap GLB saat dimuat),
+ *           jadi 1.0 berarti sisi terpanjang model selebar marker; 0.85 = muat
+ *           utuh dengan margin. Bukan lagi angka bebas seperti versi lama.
+ * `focus` = titik yang ditaruh di tengah layar, sebagai FRAKSI ukuran model
+ *           relatif pusatnya (-0.5..0.5 kira-kira menutupi seluruh model).
+ *           Inilah yang bikin tiap hotspot terasa "pindah viewport": kamera
+ *           bergeser ke satu bagian, bukan modelnya yang membesar.
+ */
+export interface ArHotspotView {
+  rotY?: number;
+  rotX?: number;
+  zoom?: number;
+  moveX?: number;
+  moveY?: number;
+  focus?: [number, number, number] | { x?: number; y?: number; z?: number };
+}
+
 export interface ArHotspot {
   id: string;
   label: string;
   model: string;
-  scale?: string;
   audio?: string;
   teks: string;
-  view?: { rotY?: number; zoom?: number };
+  view?: ArHotspotView;
 }
 
 export interface ArTarget {
@@ -46,8 +65,7 @@ export interface ArTarget {
   label: string;
   targetIndex: number;
   model: string;
-  scale?: string;
-  defaultView?: { rotY?: number; zoom?: number };
+  defaultView?: ArHotspotView;
   introAudio?: string;
   hotspots: ArHotspot[];
   _locked?: boolean;

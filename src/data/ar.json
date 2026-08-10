@@ -70,7 +70,12 @@
         "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/berburu_meramu.glb",
         "defaultView": {
           "rotY": 0,
-          "zoom": 0.85
+          "zoom": 0.85,
+          "focus": [
+            0,
+            0,
+            0
+          ]
         },
         "introAudio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu/intro.mp3",
         "hotspots": [
@@ -78,7 +83,12 @@
             "id": "mata-pencaharian",
             "view": {
               "rotY": -20,
-              "zoom": 1.02
+              "zoom": 1.2,
+              "focus": [
+                0,
+                0.022,
+                -0.043
+              ]
             },
             "label": "Cara Mendapatkan Makanan",
             "teks": "Mata pencaharian dilakukan dengan berburu hewan dan mengumpulkan umbi-umbian, buah-buahan, serta tumbuhan liar yang dapat dimakan.",
@@ -88,7 +98,12 @@
             "id": "alat",
             "view": {
               "rotY": 20,
-              "zoom": 1.19
+              "zoom": 2.7,
+              "focus": [
+                0.091,
+                -0.133,
+                0.039
+              ]
             },
             "label": "Alat yang Dipakai",
             "teks": "Peralatan terbuat dari batu, tulang, dan kayu dengan bentuk yang masih kasar, seperti kapak genggam, kapak penetak, alat serpih, serta alat dari tulang. Mereka juga menggunakan jebakan dan teknik menggiring hewan ke jurang saat berburu.",
@@ -98,7 +113,12 @@
             "id": "cara-hidup",
             "view": {
               "rotY": 0,
-              "zoom": 0.94
+              "zoom": 1.2,
+              "focus": [
+                -0.347,
+                0.022,
+                -0.111
+              ]
             },
             "label": "Cara Hidup",
             "teks": "Cara hidup bersifat nomaden mengikuti sumber makanan. Mereka tinggal di dekat sungai, danau, atau gua, serta hidup dalam kelompok kecil untuk memudahkan berburu dan bertahan hidup.",
@@ -108,7 +128,12 @@
             "id": "pembagian-kerja",
             "view": {
               "rotY": 35,
-              "zoom": 1.02
+              "zoom": 1.2,
+              "focus": [
+                0,
+                0.022,
+                -0.043
+              ]
             },
             "label": "Pembagian Kerja",
             "teks": "Pembagian kerja mulai terlihat: laki-laki berburu, sedangkan perempuan mengumpulkan makanan, mengurus anak, dan menjaga api setelah manusia mengenalnya.",
@@ -118,7 +143,12 @@
             "id": "seni-komunikasi",
             "view": {
               "rotY": -35,
-              "zoom": 1.1
+              "zoom": 3.44,
+              "focus": [
+                -0.182,
+                -0.087,
+                0.111
+              ]
             },
             "label": "Seni dan Komunikasi",
             "teks": "Seni dan komunikasi sudah berkembang dalam bentuk lukisan sederhana bertema hewan buruan serta komunikasi menggunakan kata-kata pendek dan gerak tubuh.",
@@ -128,7 +158,12 @@
             "id": "kebudayaan-indonesia",
             "view": {
               "rotY": 15,
-              "zoom": 0.94
+              "zoom": 3.5,
+              "focus": [
+                -0.097,
+                -0.133,
+                -0.044
+              ]
             },
             "label": "Kebudayaan Paleolitikum di Indonesia",
             "teks": "Di Indonesia, kebudayaan Paleolitikum terbagi menjadi Kebudayaan Pacitan yang dikenal dengan kapak penetak (chopper) dari batu, dan Kebudayaan Ngandong yang menghasilkan alat dari tulang dan alat serpih (flakes).",
@@ -137,7 +172,7 @@
         ]
       }
     ],
-    "maxZoom": 4
+    "maxZoom": 5
   },
   "m2-2": {
     "targetMind": "/assets/ar/targets/empat-masa-kehidupan-manusia-praaksara/mesolitikum.mind",
@@ -149,7 +184,12 @@
         "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/mesolitikum.glb",
         "defaultView": {
           "rotY": 0,
-          "zoom": 0.85
+          "zoom": 0.85,
+          "focus": [
+            0,
+            0,
+            0
+          ]
         },
         "introAudio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/mesolitikum/0001.mp3",
         "hotspots": [
@@ -161,7 +201,12 @@
             "teks": "Mereka tinggal cukup lama di gua-gua yang disebut abris sous roche dan di cerukan di tepi pantai. Pilihan lokasi selalu dekat sumber air. Di tepi pantai, mereka meninggalkan tumpukan sampah dapur berupa kulit kerang yang menggunung. Timbunan ini disebut kjokkenmoddinger dan menjadi salah satu penanda arkeologis paling khas dari Mesolitikum di Indonesia, terutama di pesisir timur Sumatera Utara.",
             "view": {
               "rotY": 0,
-              "zoom": 2.2
+              "zoom": 1.2,
+              "focus": [
+                -0.001,
+                -0.116,
+                0.045
+              ]
             }
           },
           {
@@ -172,7 +217,12 @@
             "teks": "Meskipun berburu dan meramu masih dominan, tanda-tanda awal bercocok tanam sudah muncul. Mereka mencoba menanam padi, umbi-umbian, dan kacang-kacangan. Mereka juga mulai menjinakkan hewan sebagai cikal bakal peternakan.",
             "view": {
               "rotY": 90,
-              "zoom": 2.2
+              "zoom": 1.2,
+              "focus": [
+                0.31,
+                -0.217,
+                0.112
+              ]
             }
           },
           {
@@ -183,7 +233,12 @@
             "teks": "Alat-alatnya masih dari batu, tulang, tanduk, kulit kerang, dan bambu. Bedanya, permukaannya sudah lebih halus dibanding masa Paleolitikum. Muncul pula alat-alat baru seperti kapak genggam Sumatera (Sumatralith), cungkil dan sudip dari bambu untuk mencungkil serta membersihkan umbi.",
             "view": {
               "rotY": 180,
-              "zoom": 2.2
+              "zoom": 3.5,
+              "focus": [
+                0.044,
+                -0.216,
+                0.218
+              ]
             }
           },
           {
@@ -194,13 +249,18 @@
             "teks": "Manusia mulai melukis di dinding gua. Objeknya menggambarkan kehidupan sosial, ekonomi, dan kepercayaan mereka. Teknik lukisnya menggores dinding gua dengan alat tajam dan menggunakan cat berwarna merah, hitam, dan putih dari bahan alami. Motifnya antara lain cap tangan, gambar hewan buruan dengan busur panah, serta berbagai hewan target buruan. Lukisan-lukisan ini bukan sekadar hiasan. Mereka percaya lukisan itu bisa membantu mempermudah perburuan. Dari pola-pola lukisan, para ahli menyimpulkan bahwa manusia Mesolitikum sudah punya sistem kepercayaan awal: percaya ada kekuatan besar yang memengaruhi kehidupan mereka. Unsur spiritual mulai lahir di sini.",
             "view": {
               "rotY": 270,
-              "zoom": 2.2
+              "zoom": 1.2,
+              "focus": [
+                0,
+                0.026,
+                -0.269
+              ]
             }
           }
         ]
       }
     ],
-    "maxZoom": 4
+    "maxZoom": 5
   },
   "m2-3": {
     "targetMind": "/assets/ar/targets/empat-masa-kehidupan-manusia-praaksara/neolitikum.mind",
@@ -212,7 +272,12 @@
         "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/neolitikum.glb",
         "defaultView": {
           "rotY": 0,
-          "zoom": 0.85
+          "zoom": 0.85,
+          "focus": [
+            0,
+            0,
+            0
+          ]
         },
         "introAudio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/neolitikum/intro.mp3",
         "hotspots": [
@@ -220,7 +285,12 @@
             "id": "membuka-hunian",
             "view": {
               "rotY": -25,
-              "zoom": 0.98
+              "zoom": 2.02,
+              "focus": [
+                0.213,
+                -0.089,
+                0.025
+              ]
             },
             "label": "Membuka Lahan dan Pola Hunian",
             "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/neolitikum.glb",
@@ -231,7 +301,12 @@
             "id": "gotongroyong",
             "view": {
               "rotY": 20,
-              "zoom": 1.02
+              "zoom": 3.34,
+              "focus": [
+                0.016,
+                -0.06,
+                0.036
+              ]
             },
             "label": "Gotong Royong dan Kepemimpinan",
             "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/neolitikum.glb",
@@ -242,7 +317,12 @@
             "id": "kerja-alat",
             "view": {
               "rotY": 40,
-              "zoom": 1.15
+              "zoom": 1.2,
+              "focus": [
+                -0.088,
+                -0.055,
+                0.024
+              ]
             },
             "label": "Pembagian Kerja dan Alat yang Dipakai",
             "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/neolitikum.glb",
@@ -253,7 +333,12 @@
             "id": "kepercayaan",
             "view": {
               "rotY": -40,
-              "zoom": 1.02
+              "zoom": 3.5,
+              "focus": [
+                0,
+                -0.081,
+                -0.134
+              ]
             },
             "label": "Sistem Kepercayaan",
             "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/neolitikum.glb",
@@ -263,11 +348,11 @@
         ]
       }
     ],
-    "maxZoom": 4
+    "maxZoom": 5
   },
   "m2-6": {
     "targetMind": "/assets/ar/targets/empat-masa-kehidupan-manusia-praaksara/zaman_logam.mind",
-    "maxZoom": 4,
+    "maxZoom": 5,
     "targets": [
       {
         "key": "perundagian",
@@ -276,7 +361,12 @@
         "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/zaman_logam.glb",
         "defaultView": {
           "rotY": 0,
-          "zoom": 0.85
+          "zoom": 0.85,
+          "focus": [
+            0,
+            0,
+            0
+          ]
         },
         "introAudio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/zaman_logam/intro.mp3",
         "hotspots": [
@@ -284,7 +374,12 @@
             "id": "menetap-dan-pembagian-kerja",
             "view": {
               "rotY": -30,
-              "zoom": 0.98
+              "zoom": 1.43,
+              "focus": [
+                -0.188,
+                0.032,
+                0
+              ]
             },
             "label": "Menetap dan Pembagian Kerja",
             "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/zaman_logam.glb",
@@ -295,7 +390,12 @@
             "id": "kegiatan-sehari-hari",
             "view": {
               "rotY": 0,
-              "zoom": 1.02
+              "zoom": 1.34,
+              "focus": [
+                -0.2,
+                -0.021,
+                0.17
+              ]
             },
             "label": "Kegiatan Sehari-hari",
             "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/zaman_logam.glb",
@@ -306,7 +406,12 @@
             "id": "teknologi-logam",
             "view": {
               "rotY": 30,
-              "zoom": 1.19
+              "zoom": 3.5,
+              "focus": [
+                -0.197,
+                -0.025,
+                -0.174
+              ]
             },
             "label": "Teknologi Logam",
             "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/zaman_logam.glb",
@@ -317,7 +422,12 @@
             "id": "kemampuan-berlayar",
             "view": {
               "rotY": 60,
-              "zoom": 0.94
+              "zoom": 2.1,
+              "focus": [
+                0.184,
+                0.004,
+                -0.118
+              ]
             },
             "label": "Kemampuan Berlayar",
             "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/zaman_logam.glb",
@@ -328,7 +438,12 @@
             "id": "seni-dan-sistem-kepercayaan",
             "view": {
               "rotY": -60,
-              "zoom": 1.02
+              "zoom": 3.5,
+              "focus": [
+                -0.319,
+                -0.025,
+                0.072
+              ]
             },
             "label": "Seni dan Sistem Kepercayaan",
             "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/zaman_logam.glb",
@@ -542,7 +657,7 @@
             "model": "/assets/models/tiga-jenis-manusia-purba/homo-sapiens.glb",
             "view": {
               "rotY": -90,
-              "zoom": 2.2
+              "zoom": 1.3
             },
             "audio": "/assets/audio/tiga-jenis-manusia-purba/homo-sapiens/ciri-fisik.mp3",
             "teks": "Ciri fisik.\n• Tinggi kurang lebih 1,73 m, postur ramping.\n• Volume otak 1.300 sampai 1.450 cc (hampir dua kali lipat Pithecanthropus).\n• Wajah lebih rata.\n• Dahi tegak, tidak miring ke belakang.\n• Tulang alis tipis.\n• Sudah punya dagu."
@@ -553,7 +668,7 @@
             "model": "/assets/models/tiga-jenis-manusia-purba/homo-sapiens.glb",
             "view": {
               "rotY": -90,
-              "zoom": 2.2
+              "zoom": 1.3
             },
             "audio": "/assets/audio/tiga-jenis-manusia-purba/homo-sapiens/kebudayaan.mp3",
             "teks": "Kebudayaan Homo Sapiens jauh lebih beragam. Di masa Mesolitikum, mereka mulai melukis di dinding gua, membuat mata panah dan tombak yang halus, menetap di gua abris sous roche, dan meninggalkan sampah kerang kjokkenmoddinger di pesisir. Di masa Neolitikum, mereka membuat gerabah, mengasah batu jadi beliung persegi dan kapak lonjong, menanam padi, dan membangun perkampungan. Di masa Perundagian, mereka melebur logam, membangun irigasi, dan berlayar dengan perahu bercadik untuk berdagang antarpulau. Dengan kata lain, hampir seluruh peninggalan yang kalian pelajari di Bagian 3 dibuat oleh Homo Sapiens."
@@ -643,5 +758,6 @@
       }
     ],
     "maxZoom": 4
-  }
+  },
+  "_petunjuk_kalibrasi": "CARA MENGATUR VIEWPORT TIAP HOTSPOT (tanpa menebak angka): 1. Buka materi di HP/browser dengan ?dev=1 di URL, mis. /materi/m2-6?dev=1 2. Scan marker, lalu tap hotspot yang mau diatur. 3. D-pad kiri-bawah = GESER VIEWPORT (arah panah mengikuti layar).    Tombol +/- = dekat/jauh. Drag di layar = putar model. 4. Kalau sudah pas, tap tombol penggaris. Cuplikan JSON tersalin ke clipboard. 5. Tempel menimpa bagian \"view\" hotspot itu di file ini. Arti angkanya: zoom = kelipatan lebar marker (0.85 = muat utuh, 1.6 = zoom ke sebagian). focus = [x,y,z] titik yang ditaruh di tengah layar, dalam fraksi ukuran model (0,0,0 = pusat model; x positif = ke kanan, y positif = ke atas)."
 }
