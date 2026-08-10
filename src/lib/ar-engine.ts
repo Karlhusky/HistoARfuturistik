@@ -24,6 +24,15 @@ const DEFAULT_MAX_ZOOM = 8;
 const ROTATE_SPEED = 0.4;
 const MOVE_STEP = 0.02;
 
+// Resolusi kamera yang diminta ke getUserMedia. MindAR sendiri cuma minta
+// `{ facingMode: "environment" }`, dan default browser HP itu 640x480 LANDSCAPE.
+// Di layar HP portrait (rasio ~0.46) frame landscape itu kepotong parah, makanya
+// kita minta stream yang orientasinya ngikut layar. Angkanya sengaja 540x960
+// (bukan 720x1280): tracking MindAR jalan per-frame di CPU/GPU HP siswa, jadi
+// jumlah piksel ditahan biar nggak drop frame.
+const CAM_LONG_EDGE = 960;
+const CAM_SHORT_EDGE = 540;
+
 function ensureAutoplayComponent() {
   const AFRAME = window.AFRAME;
   if (!AFRAME || AFRAME.components["autoplay-animations"]) return;
@@ -42,6 +51,127 @@ function ensureAutoplayComponent() {
       if (this.mixer) this.mixer.update(dt / 1000);
     },
   });
+}
+
+/**
+ * Patch preview kamera MindAR biar area scan TIDAK kepotong di HP.
+ *
+ * Dua masalah bawaan MindAR 1.2.5 yang diperbaiki di sini:
+ *
+ * 1. `_startVideo()` minta kamera tanpa constraint resolusi -> browser HP kasih
+ *    640x480 (landscape). Kita minta stream yang orientasinya ngikut layar.
+ * 2. `_resize()` nge-scale video pakai strategi COVER: sisi pendek video dipaksa
+ *    nutup layar, sisanya meluber keluar viewport. Di HP portrait dengan kamera
+ *    landscape, ~65% lebar frame kamera ada DI LUAR layar - siswa nggak bisa
+ *    lihat marker yang lagi mereka arahkan. Kita ganti jadi CONTAIN (fit):
+ *    seluruh frame kamera kelihatan, sisanya jadi bar hitam (lihat .ar-scene-root).
+ *
+ * Rumus fov/near/far dipertahankan persis dari MindAR - rumusnya memang sudah
+ * relatif terhadap ukuran tampil video (`h`), jadi tetap presisi untuk contain
+ * maupun cover selama skalanya uniform.
+ *
+ * Di-patch di level prototype system supaya tidak bergantung timing init A-Frame.
+ */
+function ensureCameraFitPatch() {
+  const AFRAME = window.AFRAME;
+  const System = AFRAME?.systems?.["mindar-image-system"];
+  const proto = System?.prototype;
+  if (!proto || proto.__histoarCameraPatched) return;
+  proto.__histoarCameraPatched = true;
+
+  proto._startVideo = function (this: any) {
+    const video = document.createElement("video");
+    video.setAttribute("autoplay", "");
+    video.setAttribute("muted", "");
+    video.setAttribute("playsinline", "");
+    video.style.position = "absolute";
+    video.style.top = "0px";
+    video.style.left = "0px";
+    video.style.zIndex = "-2";
+    this.video = video;
+    this.container.appendChild(video);
+
+    if (!navigator.mediaDevices?.getUserMedia) {
+      this.el.emit("arError", { error: "VIDEO_FAIL" });
+      this.ui.showCompatibility();
+      return;
+    }
+
+    const portrait = this.container.clientHeight >= this.container.clientWidth;
+    const wanted: MediaStreamConstraints = {
+      audio: false,
+      video: {
+        facingMode: "environment",
+        width: { ideal: portrait ? CAM_SHORT_EDGE : CAM_LONG_EDGE },
+        height: { ideal: portrait ? CAM_LONG_EDGE : CAM_SHORT_EDGE },
+      },
+    };
+
+    navigator.mediaDevices
+      .getUserMedia(wanted)
+      // Sebagian HP/browser nolak constraint resolusi (OverconstrainedError).
+      // Jangan sampai AR gagal total cuma gara-gara itu - balik ke request polos.
+      // Error izin TIDAK di-retry: percuma, dan malah bisa munculin prompt dua kali.
+      .catch((err: DOMException) => {
+        if (err?.name === "NotAllowedError" || err?.name === "SecurityError") throw err;
+        return navigator.mediaDevices.getUserMedia({ audio: false, video: { facingMode: "environment" } });
+      })
+      .then((stream) => {
+        video.addEventListener("loadedmetadata", () => {
+          video.setAttribute("width", String(video.videoWidth));
+          video.setAttribute("height", String(video.videoHeight));
+          this._startAR();
+        });
+        video.srcObject = stream;
+      })
+      .catch((err) => {
+        console.error("[ArEngine] getUserMedia error", err);
+        this.el.emit("arError", { error: "VIDEO_FAIL" });
+      });
+  };
+
+  proto._resize = function (this: any) {
+    const video = this.video;
+    const container = this.container;
+    if (!video || !container || !this.controller) return;
+
+    const cw = container.clientWidth;
+    const ch = container.clientHeight;
+    if (!cw || !ch || !video.videoWidth || !video.videoHeight) return;
+
+    const videoRatio = video.videoWidth / video.videoHeight;
+    const containerRatio = cw / ch;
+
+    // CONTAIN: muat seluruh frame kamera ke dalam layar (jangan crop).
+    let w: number;
+    let h: number;
+    if (videoRatio > containerRatio) {
+      w = cw;
+      h = w / videoRatio;
+    } else {
+      h = ch;
+      w = h * videoRatio;
+    }
+
+    const proj = this.controller.getProjectionMatrix();
+    const fov = ((2 * Math.atan((1 / proj[5]) * (ch / h))) * 180) / Math.PI;
+    const near = proj[14] / (proj[10] - 1);
+    const far = proj[14] / (proj[10] + 1);
+
+    const camera = container.getElementsByTagName("a-camera")[0]?.getObject3D("camera");
+    if (camera) {
+      camera.fov = fov;
+      camera.aspect = containerRatio;
+      camera.near = near;
+      camera.far = far;
+      camera.updateProjectionMatrix();
+    }
+
+    video.style.top = `${-(h - ch) / 2}px`;
+    video.style.left = `${-(w - cw) / 2}px`;
+    video.style.width = `${w}px`;
+    video.style.height = `${h}px`;
+  };
 }
 
 export interface ArEngineCallbacks {
@@ -410,10 +540,19 @@ export class ArEngine {
       )
       .join("");
 
+    // CATATAN "tombol Enter VR nongol di HP": komponennya BUKAN `vr-mode-ui`.
+    // A-Frame 1.5.0 me-rename komponen itu jadi `xr-mode-ui` (cek
+    // public/vendor/aframe-1.5.0.min.js - string "vr-mode-ui" sudah tidak ada di
+    // bundle). Atribut yang tidak dikenal diabaikan diam-diam oleh A-Frame, jadi
+    // `vr-mode-ui="enabled: false"` selama ini TIDAK melakukan apa-apa dan
+    // tombol Enter VR/AR tetap disuntik ke DOM. HistoAR bukan aplikasi VR, dan
+    // tombol itu kalau ke-tap siswa malah nge-hijack sesi WebXR + matiin kamera.
+    // `styles.css` masih menyembunyikan .a-enter-vr/.a-enter-ar sebagai jaring
+    // pengaman kalau nanti vendor di-upgrade dan namanya berubah lagi.
     sceneRoot.innerHTML = `
     <a-scene mindar-image="imageTargetSrc: ${this.config.targetMind}; autoStart: true; filterMinCF: 0.00001; filterBeta: 5; warmupTolerance: 5; missTolerance: 5;"
       color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights"
-      vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+      xr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
       ${targetsHtml}
     </a-scene>
@@ -460,21 +599,44 @@ export class ArEngine {
     const obj = modelEl?.object3D;
     if (!THREE || !obj) return;
     obj.position.set(0, 0, 0);
-    // Pastikan transform wrapper (parent) sudah current sebelum ngukur bounding
-    // box di world-space; kalau stale, center-nya bisa meleset dari worldToLocal
-    // di bawah dan zoom malah geser dikit.
-    obj.parent?.updateMatrixWorld(true);
-    obj.updateMatrixWorld(true);
-    const box = new THREE.Box3().setFromObject(obj);
+
+    // PENTING (bug "model tidak muncul"): ukur bounding box di ruang LOKAL,
+    // JANGAN pakai Box3.setFromObject() + worldToLocal() yang berbasis
+    // world-matrix.
+    //
+    // Anchor `mindar-image-target` di-init dengan matrixAutoUpdate = false dan
+    // matrix = "invisibleMatrix" (matriks NOL) selama target belum pernah
+    // ke-scan. GLB hampir selalu selesai dimuat SEBELUM siswa mengarahkan
+    // kamera, jadi saat `model-loaded` jalan, matrixWorld model = nol.
+    // Konsekuensinya di three.js: Matrix4.invert() dari matriks nol
+    // mengembalikan matriks nol -> Vector3.applyMatrix4 membagi dengan w = 0 ->
+    // hasilnya NaN -> obj.position jadi NaN -> model TIDAK PERNAH ter-render,
+    // bahkan setelah marker akhirnya ketemu (posisi NaN tidak pernah dihitung
+    // ulang). Menghitung sendiri dari matrix lokal bikin proses centering
+    // sepenuhnya lepas dari state tracking MindAR.
+    const box = new THREE.Box3();
+    const walk = (node: any, parentMatrix: any) => {
+      if (node.matrixAutoUpdate) node.updateMatrix();
+      const matrix = new THREE.Matrix4().multiplyMatrices(parentMatrix, node.matrix);
+      const geometry = node.geometry;
+      if (geometry) {
+        if (!geometry.boundingBox) geometry.computeBoundingBox();
+        if (geometry.boundingBox) box.union(geometry.boundingBox.clone().applyMatrix4(matrix));
+      }
+      node.children.forEach((child: any) => walk(child, matrix));
+    };
+    const identity = new THREE.Matrix4();
+    obj.children.forEach((child: any) => walk(child, identity));
+
     if (box.isEmpty()) return;
     const center = box.getCenter(new THREE.Vector3());
-    const parent = obj.parent;
-    if (parent) {
-      parent.updateMatrixWorld(true);
-      obj.position.sub(parent.worldToLocal(center));
-    } else {
-      obj.position.sub(center);
-    }
+    // center ada di ruang lokal obj; obj.position ada di ruang parent.
+    obj.updateMatrix();
+    center.applyMatrix4(obj.matrix);
+    // Sabuk pengaman: geometri rusak/NaN lebih baik dibiarkan tidak ter-center
+    // daripada bikin seluruh model hilang.
+    if (!Number.isFinite(center.x) || !Number.isFinite(center.y) || !Number.isFinite(center.z)) return;
+    obj.position.sub(center);
   }
 
   /** Marker kembali terdeteksi: tampilkan model lagi. */
@@ -575,6 +737,7 @@ export class ArEngine {
 
   start() {
     ensureAutoplayComponent();
+    ensureCameraFitPatch();
     this.buildScene();
     this.updateGateButton();
     this.initDragRotate();

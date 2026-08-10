@@ -229,3 +229,23 @@ html {
   background-size: 200% 100%;
   animation: shimmer 3s linear infinite;
 }
+
+/* Preview kamera AR sekarang di-fit (contain) biar seluruh frame kamera
+   kelihatan dan marker nggak kepotong di layar HP - lihat ensureCameraFitPatch()
+   di src/lib/ar-engine.ts. Sisa ruang di atas/bawah (atau kiri/kanan) sengaja
+   hitam supaya kebaca sebagai "jendela bidik", bukan layar yang rusak. */
+.ar-scene-root {
+  background: #000;
+}
+
+/* A-Frame nyuntik tombol "Enter VR"/"Enter AR" (kanan-bawah) langsung ke <body>.
+   Nama komponen yang benar di A-Frame 1.5.0 adalah xr-mode-ui (sudah dipakai di
+   ar-engine.ts); aturan di bawah cuma jaring pengaman biar tombol VR TIDAK
+   PERNAH muncul di mode AR HistoAR (ini bukan aplikasi VR). */
+.a-enter-vr,
+.a-enter-ar,
+.a-enter-vr-button,
+.a-enter-ar-button,
+.a-orientation-modal {
+  display: none !important;
+}
