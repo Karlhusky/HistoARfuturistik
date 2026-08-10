@@ -432,8 +432,65 @@ export class ArEngine {
         this.callbacks.onModelError?.(t.key, src, e?.detail ?? e);
       });
 
+      // Pusatkan geometri model ke titik pivot wrapper tiap kali model dimuat
+      // (termasuk saat ganti hotspot). Tanpa ini, model yang origin-nya meleset
+      // dari pusat geometri akan "pindah" (naik/turun) saat di-zoom karena scale
+      // terjadi terhadap origin, bukan pusat model. Dengan center-kan di runtime,
+      // zoom & rotasi terjadi DI TEMPAT untuk semua materi, dan tetap benar walau
+      // GLB versi lama (origin meleset) masih ke-cache.
+      modelEl?.addEventListener("model-loaded", () => this.centerModelPivot(modelEl as any));
+
+      // Sembunyikan/munculkan model pakai event MindAR yang sudah di-debounce
+      // (missTolerance), jadi model hilang saat marker benar-benar keluar frame
+      // tanpa kelap-kelip karena jitter sesaat.
+      const anchor = el as any;
+      anchor.addEventListener("targetFound", () => this.handleTargetFound(anchor));
+      anchor.addEventListener("targetLost", () => this.handleTargetLost(anchor, t));
+
       this.watchTarget(el, t);
     });
+  }
+
+  /**
+   * Geser child model supaya pusat bounding-box-nya tepat di origin wrapper,
+   * sehingga scale (zoom) & rotate berputar di tempat, bukan menggeser model.
+   */
+  private centerModelPivot(modelEl: any) {
+    const THREE = (globalThis as any).AFRAME?.THREE ?? (globalThis as any).THREE;
+    const obj = modelEl?.object3D;
+    if (!THREE || !obj) return;
+    obj.position.set(0, 0, 0);
+    obj.updateMatrixWorld(true);
+    const box = new THREE.Box3().setFromObject(obj);
+    if (box.isEmpty()) return;
+    const center = box.getCenter(new THREE.Vector3());
+    const parent = obj.parent;
+    if (parent) {
+      parent.updateMatrixWorld(true);
+      obj.position.sub(parent.worldToLocal(center));
+    } else {
+      obj.position.sub(center);
+    }
+  }
+
+  /** Marker kembali terdeteksi: tampilkan model lagi. */
+  private handleTargetFound(anchorEl: any) {
+    if (anchorEl?.object3D) anchorEl.object3D.visible = true;
+    const hint = this.q("arScanHint");
+    if (hint) hint.hidden = true;
+  }
+
+  /** Marker keluar frame (setelah debounce MindAR): sembunyikan model + kembalikan hint. */
+  private handleTargetLost(anchorEl: any, t: ArTarget) {
+    if (anchorEl?.object3D) anchorEl.object3D.visible = false;
+    if (this.trackingKey === t.key) this.trackingKey = null;
+    document.body.classList.remove("ar-locked-in");
+    const hint = this.q("arScanHint");
+    if (hint) hint.hidden = false;
+    const viewControls = this.q("arViewControls");
+    if (viewControls) viewControls.hidden = true;
+    const moveControls = this.q("arMoveControls");
+    if (moveControls) moveControls.hidden = true;
   }
 
   /**
