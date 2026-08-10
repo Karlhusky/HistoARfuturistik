@@ -14,13 +14,24 @@ declare global {
   }
 }
 
-const DEFAULT_SCALE = "0.5 0.5 0.5";
 const AUDIO_LOCK_TIMEOUT_MS = 12000;
-// Zoom pakai langkah PERKALIAN, bukan penjumlahan, biar tetap terasa di skala
-// besar (model kecil sering butuh zoomFactor 20-40; +0.2 di situ tak kelihatan).
+// SATUAN ZOOM = KELIPATAN LEBAR MARKER.
+//
+// Dulu ukuran model = `scale` (selalu "0.3 0.3 0.3") x `zoom`, dikalikan ke GLB
+// yang ukuran aslinya beda ekstrem antar materi (maxDim 0.21 buat crop kepala
+// s/d 25.2 buat diorama Zaman Logam). Akibatnya `zoom` jadi angka sakti tanpa
+// makna fisik: kepala butuh 26, badan cukup 2.8, dan salah sedikit bikin kamera
+// masuk KE DALAM model (yang kelihatan cuma dinding tekstur, dan +/- terasa
+// menggeser bukan membesar).
+//
+// Sekarang engine mengukur sendiri bounding box tiap GLB saat dimuat lalu
+// menormalkannya (lihat normalizeModel), jadi:
+//     zoom 1.0  = sisi terpanjang model == lebar marker
+//     zoom 0.85 = muat utuh dengan sedikit margin  <- default
+// Angka ini otomatis benar untuk model baru tanpa kalibrasi tangan.
 const ZOOM_MULT = 1.18;
-const MIN_ZOOM = 0.3;
-const DEFAULT_MAX_ZOOM = 8;
+const MIN_ZOOM = 0.2;
+const DEFAULT_MAX_ZOOM = 4;
 const ROTATE_SPEED = 0.4;
 const MOVE_STEP = 0.02;
 
@@ -216,7 +227,10 @@ export class ArEngine {
   private openedTargets = new Set<string>();
   private trackingKey: string | null = null;
   private maxZoom = DEFAULT_MAX_ZOOM;
-  private baseScaleVec = { x: 0.3, y: 0.3, z: 0.3 };
+  // 1 / sisi-terpanjang model yang sedang tampil. Dihitung ulang tiap GLB
+  // selesai dimuat (normalizeModel), jadi zoomFactor selalu berarti sama
+  // untuk semua model. Nilai 1 dipakai sampai ukuran aslinya diketahui.
+  private modelUnitScale = 1;
   private zoomFactor = 1;
   private rotY = 0;
   private rotX = 0;
@@ -320,26 +334,18 @@ export class ArEngine {
     this.currentAudio.play().catch(finish);
   }
 
-  private parseScale(str?: string) {
-    const parts = (str || DEFAULT_SCALE).trim().split(/\s+/).map(Number);
-    return { x: parts[0] || 0.3, y: parts[1] || 0.3, z: parts[2] || 0.3 };
-  }
-
   private applyWrapperTransform(targetKey: string) {
     const sceneRoot = this.q("arSceneRoot");
     const wrapper = sceneRoot?.querySelector(`[data-wrapper="${targetKey}"]`);
     if (!wrapper) return;
-    const s = this.baseScaleVec;
+    const s = this.modelUnitScale * this.zoomFactor;
     wrapper.setAttribute("position", `${this.moveX} 0 ${this.moveY}`);
-    wrapper.setAttribute(
-      "scale",
-      `${s.x * this.zoomFactor} ${s.y * this.zoomFactor} ${s.z * this.zoomFactor}`,
-    );
+    wrapper.setAttribute("scale", `${s} ${s} ${s}`);
     wrapper.setAttribute("rotation", `${this.rotX} ${this.rotY} 0`);
   }
 
-  private setBaseScale(targetKey: string, scaleStr?: string) {
-    this.baseScaleVec = this.parseScale(scaleStr);
+  /** Balikin transform ke titik awal; ukuran diurus modelUnitScale. */
+  private resetTransform(targetKey: string) {
     this.zoomFactor = 1;
     this.rotY = 0;
     this.rotX = 0;
@@ -425,7 +431,7 @@ export class ArEngine {
     window.addEventListener("pointercancel", this.onPointerUp);
   }
 
-  private updateModel(targetKey: string, modelSrc: string | undefined, scale: string | undefined, resetZoomRotation: boolean) {
+  private updateModel(targetKey: string, modelSrc: string | undefined, resetZoomRotation: boolean) {
     if (!modelSrc) return;
     const sceneRoot = this.q("arSceneRoot");
     const modelEl = sceneRoot?.querySelector(`[data-target-key="${targetKey}"] a-gltf-model`);
@@ -434,12 +440,8 @@ export class ArEngine {
     const currentSrc = modelEl.getAttribute("src");
     if (currentSrc !== modelSrc) modelEl.setAttribute("src", modelSrc);
 
-    if (resetZoomRotation) {
-      this.setBaseScale(targetKey, scale);
-    } else {
-      this.baseScaleVec = this.parseScale(scale);
-      this.applyWrapperTransform(targetKey);
-    }
+    if (resetZoomRotation) this.resetTransform(targetKey);
+    else this.applyWrapperTransform(targetKey);
   }
 
   private setDescText(text: string) {
@@ -488,7 +490,7 @@ export class ArEngine {
       .join("");
 
     if (isFirstOpen) {
-      this.updateModel(target.key, target.model, target.scale, true);
+      this.updateModel(target.key, target.model, true);
       this.applyPresetView(target.defaultView);
       this.setDescText("Pilih salah satu bagian di atas untuk mendengar & membaca penjelasannya.");
       this.playIntroAudio(target.introAudio);
@@ -509,7 +511,7 @@ export class ArEngine {
       btnEl.classList.add("is-visited-pill");
     }
 
-    this.updateModel(target.key, hotspot.model || target.model, hotspot.scale || target.scale, false);
+    this.updateModel(target.key, hotspot.model || target.model, false);
     this.applyPresetView(hotspot.view);
     this.setDescText(hotspot.teks);
     this.playNarrationAudio(hotspot.audio, null);
@@ -552,7 +554,7 @@ export class ArEngine {
       .map(
         (t) => `
       <a-entity mindar-image-target="targetIndex: ${t.targetIndex}" data-target-key="${t.key}">
-        <a-entity class="ar-model-wrapper" data-wrapper="${t.key}" scale="${t.scale || DEFAULT_SCALE}" rotation="0 0 0">
+        <a-entity class="ar-model-wrapper" data-wrapper="${t.key}" scale="1 1 1" rotation="0 0 0">
           <a-gltf-model src="${t.model}" position="0 0 0" autoplay-animations></a-gltf-model>
         </a-entity>
       </a-entity>`,
@@ -596,7 +598,7 @@ export class ArEngine {
       // terjadi terhadap origin, bukan pusat model. Dengan center-kan di runtime,
       // zoom & rotasi terjadi DI TEMPAT untuk semua materi, dan tetap benar walau
       // GLB versi lama (origin meleset) masih ke-cache.
-      modelEl?.addEventListener("model-loaded", () => this.centerModelPivot(modelEl as any));
+      modelEl?.addEventListener("model-loaded", () => this.normalizeModel(modelEl as any, t.key));
 
       // Sembunyikan/munculkan model pakai event MindAR yang sudah di-debounce
       // (missTolerance), jadi model hilang saat marker benar-benar keluar frame
@@ -610,10 +612,13 @@ export class ArEngine {
   }
 
   /**
-   * Geser child model supaya pusat bounding-box-nya tepat di origin wrapper,
-   * sehingga scale (zoom) & rotate berputar di tempat, bukan menggeser model.
+   * Dua hal sekaligus, dari SATU kali pengukuran bounding box:
+   *  1. geser model supaya pusatnya tepat di origin wrapper -> zoom & rotate
+   *     terjadi DI TEMPAT, dan model duduk pas di tengah marker;
+   *  2. normalkan ukurannya ke lebar marker -> `zoom` di ar.json punya makna
+   *     fisik yang sama untuk semua model.
    */
-  private centerModelPivot(modelEl: any) {
+  private normalizeModel(modelEl: any, targetKey?: string) {
     const THREE = (globalThis as any).AFRAME?.THREE ?? (globalThis as any).THREE;
     const obj = modelEl?.object3D;
     if (!THREE || !obj) return;
@@ -637,21 +642,25 @@ export class ArEngine {
     const walk = (node: any, parentMatrix: any) => {
       if (node.matrixAutoUpdate) node.updateMatrix();
       const matrix = new THREE.Matrix4().multiplyMatrices(parentMatrix, node.matrix);
-      // Sumber bounding box mengikuti cara Box3.expandByObject milik three:
-      // SkinnedMesh punya `boundingBox` sendiri yang dihitung lewat bone
-      // transform, sedangkan `geometry.boundingBox` masih pose BIND. Model
-      // ber-skin (mis. diorama Paleolitikum & Zaman Logam) pose bind-nya bisa
-      // meleset jauh dari pose tampil - dulu itu bikin pivot geser sampai 17%
-      // ukuran model, jadi zoom terasa "menggeser" bukan membesar di tempat.
-      let local = null;
-      if (node.boundingBox !== undefined) {
-        if (node.boundingBox === null) node.computeBoundingBox();
-        local = node.boundingBox;
-      } else if (node.geometry) {
-        if (!node.geometry.boundingBox) node.geometry.computeBoundingBox();
-        local = node.geometry.boundingBox;
+      // WAJIB `geometry.boundingBox`, JANGAN `node.boundingBox`.
+      //
+      // SkinnedMesh punya computeBoundingBox() sendiri yang katanya "sadar
+      // skinning", tapi hasilnya berada di ruang SKELETON (getVertexPosition
+      // memakai bindMatrix + matriks bone), bukan di ruang lokal node. Mengalikan
+      // hasil itu dengan rantai matriks node = mencampur dua ruang berbeda.
+      // Terukur pada meganthropus.glb: node.boundingBox -> 0.18x0.20x0.22,
+      // padahal ukuran sebenarnya 0.26x0.94x1.00 (dikonfirmasi dengan membaca
+      // accessor POSITION langsung dari file GLB). Meleset 4.63x = skala root
+      // rig-nya, dan itu bikin model jadi 4.6x terlalu besar: yang tampil cuma
+      // telapak kaki.
+      //
+      // `geometry.boundingBox` = pose bind di ruang lokal mesh, yang memang
+      // sejajar dengan node.matrix, jadi inilah yang benar untuk dirantai.
+      const geometry = node.geometry;
+      if (geometry) {
+        if (!geometry.boundingBox) geometry.computeBoundingBox();
+        if (geometry.boundingBox) box.union(geometry.boundingBox.clone().applyMatrix4(matrix));
       }
-      if (local) box.union(local.clone().applyMatrix4(matrix));
       node.children.forEach((child: any) => walk(child, matrix));
     };
     const identity = new THREE.Matrix4();
@@ -666,6 +675,21 @@ export class ArEngine {
     // daripada bikin seluruh model hilang.
     if (!Number.isFinite(center.x) || !Number.isFinite(center.y) || !Number.isFinite(center.z)) return;
     obj.position.sub(center);
+
+    // NORMALISASI UKURAN. Sisi terpanjang model dipetakan ke 1 satuan wrapper.
+    // Karena postMatrix MindAR men-skala anchor sebesar lebar marker, 1 satuan
+    // wrapper == lebar marker -> zoomFactor jadi "kelipatan lebar marker" yang
+    // sama artinya untuk SEMUA model, sekecil apa pun GLB-nya diekspor.
+    const size = box.getSize(new THREE.Vector3());
+    const maxDim = Math.max(size.x, size.y, size.z);
+    if (Number.isFinite(maxDim) && maxDim > 1e-6) {
+      this.modelUnitScale = 1 / maxDim;
+      // Model dimuat ASINKRON, jadi applyPresetView() untuk hotspot ini biasanya
+      // sudah jalan duluan dengan modelUnitScale model SEBELUMNYA. Wajib
+      // di-apply ulang, kalau tidak ukurannya baru benar setelah user menyentuh
+      // tombol zoom.
+      if (targetKey) this.applyWrapperTransform(targetKey);
+    }
   }
 
   /** Marker kembali terdeteksi: tampilkan model lagi. */
