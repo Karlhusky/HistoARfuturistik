@@ -130,6 +130,25 @@ function ensureCameraFitPatch() {
       });
   };
 
+  // MindAR `stop()` -> `pause()` nembak `this.controller.stopProcessVideo()` dan
+  // `this.video.srcObject.getTracks()` tanpa penjagaan. Kalau kamera GAGAL start
+  // (izin ditolak, kamera dipakai aplikasi lain, HP tanpa kamera belakang),
+  // controller/srcObject nggak pernah ada -> begitu user nekan "Kembali",
+  // A-Frame manggil remove() komponen `mindar-image` -> stop() -> TypeError yang
+  // NGGAK KETANGKEP (lolos dari try/catch di dispose() karena datang lewat
+  // disconnectedCallback, bukan dari panggilan kita). Efeknya: exception merah di
+  // HP siswa + noise di Sentry, persis pas mereka lagi kesulitan.
+  proto.pause = function (this: any, keepVideo?: boolean) {
+    if (!keepVideo) this.video?.pause?.();
+    this.controller?.stopProcessVideo?.();
+  };
+  proto.stop = function (this: any) {
+    this.pause();
+    (this.video?.srcObject as MediaStream | undefined)?.getTracks?.().forEach((t) => t.stop());
+    this.video?.remove?.();
+    this.controller?.dispose?.();
+  };
+
   proto._resize = function (this: any) {
     const video = this.video;
     const container = this.container;
@@ -618,11 +637,21 @@ export class ArEngine {
     const walk = (node: any, parentMatrix: any) => {
       if (node.matrixAutoUpdate) node.updateMatrix();
       const matrix = new THREE.Matrix4().multiplyMatrices(parentMatrix, node.matrix);
-      const geometry = node.geometry;
-      if (geometry) {
-        if (!geometry.boundingBox) geometry.computeBoundingBox();
-        if (geometry.boundingBox) box.union(geometry.boundingBox.clone().applyMatrix4(matrix));
+      // Sumber bounding box mengikuti cara Box3.expandByObject milik three:
+      // SkinnedMesh punya `boundingBox` sendiri yang dihitung lewat bone
+      // transform, sedangkan `geometry.boundingBox` masih pose BIND. Model
+      // ber-skin (mis. diorama Paleolitikum & Zaman Logam) pose bind-nya bisa
+      // meleset jauh dari pose tampil - dulu itu bikin pivot geser sampai 17%
+      // ukuran model, jadi zoom terasa "menggeser" bukan membesar di tempat.
+      let local = null;
+      if (node.boundingBox !== undefined) {
+        if (node.boundingBox === null) node.computeBoundingBox();
+        local = node.boundingBox;
+      } else if (node.geometry) {
+        if (!node.geometry.boundingBox) node.geometry.computeBoundingBox();
+        local = node.geometry.boundingBox;
       }
+      if (local) box.union(local.clone().applyMatrix4(matrix));
       node.children.forEach((child: any) => walk(child, matrix));
     };
     const identity = new THREE.Matrix4();
