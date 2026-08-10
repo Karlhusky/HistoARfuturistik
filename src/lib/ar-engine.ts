@@ -460,6 +460,10 @@ export class ArEngine {
     const obj = modelEl?.object3D;
     if (!THREE || !obj) return;
     obj.position.set(0, 0, 0);
+    // Pastikan transform wrapper (parent) sudah current sebelum ngukur bounding
+    // box di world-space; kalau stale, center-nya bisa meleset dari worldToLocal
+    // di bawah dan zoom malah geser dikit.
+    obj.parent?.updateMatrixWorld(true);
     obj.updateMatrixWorld(true);
     const box = new THREE.Box3().setFromObject(obj);
     if (box.isEmpty()) return;
@@ -494,22 +498,23 @@ export class ArEngine {
   }
 
   /**
-   * MindAR nge-gate event targetFound/targetLost lewat `object3D.visible`, dan
-   * pas target hilang dia nimpa matrix anchor-nya dengan MATRIKS NOL:
+   * Kita cuma "nyempil" di updateWorldMatrix buat nge-hook transisi found
+   * (onTargetTracked: buka panel, set activeTarget, tampilin kontrol) — BUKAN
+   * buat ngubah perilaku visibilitas MindAR.
    *
-   *   if (n === null) { this.el.object3D.matrix = this.invisibleMatrix; return; }
+   * PENTING (bug "model nyangkut di layar"): setiap update HARUS tetap diteruskan
+   * ke MindAR, termasuk update null. MindAR sendiri yang nge-emit event
+   * `targetLost`/`targetFound` (dan nge-set object3D.visible) di dalam
+   * updateWorldMatrix. Versi lama nyegat null di sini ("pertahankan pose
+   * terakhir") — akibatnya MindAR nggak pernah nge-emit targetLost, jadi
+   * handleTargetLost mati total dan model tetap kelihatan walau marker udah
+   * keluar frame. Sekarang null tetap diteruskan: MindAR nge-emit targetLost
+   * (udah di-debounce lewat missTolerance, jadi jitter sesaat nggak bikin
+   * kelap-kelip) -> handleTargetLost sembunyiin model + balikin hint scan.
    *
-   * Versi lama nge-hack `object3D.visible = true` lagi di targetLost biar model
-   * nggak ilang pas target keluar frame. Efeknya justru kebalikannya: entity-nya
-   * "visible" tapi transform-nya kolaps ke satu titik, jadi modelnya nggak
-   * kelihatan sama sekali. Plus, karena .visible kadung true, cek MindAR
-   * `!visible && n !== null` nggak pernah kepenuhi lagi -> targetFound mati
-   * permanen, panel & defaultView nggak pernah jalan lagi.
-   *
-   * Gantinya kita intercept updateWorldMatrix: update valid diterusin apa
-   * adanya, update null (target hilang) sengaja nggak diterusin sama sekali.
-   * Matrix terakhir yang valid tetap kepakai, jadi model diam di posisi terakhir
-   * tanpa perlu ngerusak state internal MindAR.
+   * Yang TETAP kita hindari: nge-hack `object3D.visible = true` di targetLost
+   * (bug lama) — itu yang dulu bikin transform kolaps ke satu titik + targetFound
+   * mati permanen. Di sini kita nggak nyentuh .visible sama sekali di jalur ini.
    */
   private watchTarget(el: Element, t: ArTarget) {
     const anchorEl = el as any;
@@ -523,8 +528,10 @@ export class ArEngine {
       const forward = comp.updateWorldMatrix.bind(comp);
       comp.updateWorldMatrix = (worldMatrix: number[] | null) => {
         if (this.disposed) return;
-        if (!worldMatrix) return; // target hilang: pertahankan pose terakhir
+        // Selalu teruskan (termasuk null) supaya MindAR nge-emit targetFound/
+        // targetLost seperti biasa. Transisi found kita hook di bawah.
         forward(worldMatrix);
+        if (!worldMatrix) return;
         this.onTargetTracked(anchorEl, t);
       };
       return true;
