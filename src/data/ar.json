@@ -287,7 +287,7 @@
           "model": "/assets/models/tiga-jenis-manusia-purba/meganthropus-tangan.glb",
           "view": {
             "rotY": 185,
-            "zoom": 10
+            "zoom": 30
           },
           "audio": "/assets/audio/tiga-jenis-manusia-purba/meganthropus/tangan.mp3",
           "teks": "Tangan Meganthropus kuat dan kekar. Rahangnya yang besar memberi petunjuk bahwa makanannya keras: tumbuh-tumbuhan berserat, umbi-umbian, dan buah liar. Tangan ini lebih sering dipakai untuk merenggut, mencabut, dan meremas makanan daripada membuat alat rumit. Karena hanya fragmen rahang dan gigi yang sampai ke kita, para ahli masih berdebat seberapa jauh Meganthropus membuat peralatan. Yang jelas, ia bertahan hidup di lingkungan terbuka Jawa purba dengan bergantung penuh pada apa yang alam sediakan."
