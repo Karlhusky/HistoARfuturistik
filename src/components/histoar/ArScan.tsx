@@ -27,6 +27,9 @@ export function ArScan({
   const [showViewControls, setShowViewControls] = useState(false);
   const [showMoveControls, setShowMoveControls] = useState(false);
   const [panelHidden, setPanelHidden] = useState(true);
+  // Panel di-peek (pendek) secara default supaya area scan AR lega di HP;
+  // tap gagang untuk melebarkan & baca detail. Fix "kepotong / nggak full layar".
+  const [panelExpanded, setPanelExpanded] = useState(false);
   const [reopenVisible, setReopenVisible] = useState(false);
   const [gate, setGate] = useState({ done: 0, total: 0, unlocked: false });
   const [modelError, setModelError] = useState<string | null>(null);
@@ -217,12 +220,24 @@ export function ArScan({
 
       <div id="arCopyToast" hidden className="glass fixed bottom-4 left-1/2 z-30 -translate-x-1/2 whitespace-pre rounded-xl px-4 py-2 font-mono text-xs" />
 
+      {/* Bottom sheet. Default "peek" (pendek) supaya area scan/model lega di HP —
+          ini fix "kepotong, nggak full layar". Tap gagang buat lebarin. Semua
+          elemen ber-id TETAP di DOM (di-collapse pakai display:none), jadi engine
+          imperatif yang pakai getElementById tetap jalan. */}
       <div
         id="arPanel"
         hidden={panelHidden}
-        className="glass-strong fixed inset-x-0 bottom-0 z-20 max-h-[55vh] overflow-y-auto rounded-t-3xl p-5"
+        className="glass-strong fixed inset-x-0 bottom-0 z-20 flex max-h-[80vh] flex-col rounded-t-3xl pb-[env(safe-area-inset-bottom)]"
       >
-        <div className="flex items-center justify-between">
+        <button
+          onClick={() => setPanelExpanded((v) => !v)}
+          aria-label={panelExpanded ? "Kecilkan panel info" : "Perbesar panel info"}
+          className="mx-auto mt-2 flex h-6 w-full max-w-[140px] items-center justify-center"
+        >
+          <span className="h-1.5 w-10 rounded-full bg-white/25" />
+        </button>
+
+        <div className="flex items-center justify-between px-5">
           <h2 id="arPanelTitle" className="font-display text-lg font-semibold">
             —
           </h2>
@@ -231,37 +246,42 @@ export function ArScan({
           </button>
         </div>
 
-        <div id="arHotspotRow" className="mt-3 flex flex-wrap gap-2 empty:hidden [&_.ar-hotspot-pill]:rounded-full [&_.ar-hotspot-pill]:border [&_.ar-hotspot-pill]:border-white/10 [&_.ar-hotspot-pill]:bg-white/[0.03] [&_.ar-hotspot-pill]:px-3 [&_.ar-hotspot-pill]:py-1.5 [&_.ar-hotspot-pill]:text-xs [&_.ar-hotspot-pill.is-active]:bg-holo [&_.ar-hotspot-pill.is-active]:text-primary-foreground [&_.ar-hotspot-pill.is-visited-pill]:border-holo/50 [&_.ar-hotspot-pill:disabled]:opacity-40" />
+        <div className="min-h-0 flex-1 overflow-y-auto px-5 pb-5">
+          <div id="arHotspotRow" className="mt-3 flex flex-wrap gap-2 empty:hidden [&_.ar-hotspot-pill]:rounded-full [&_.ar-hotspot-pill]:border [&_.ar-hotspot-pill]:border-white/10 [&_.ar-hotspot-pill]:bg-white/[0.03] [&_.ar-hotspot-pill]:px-3 [&_.ar-hotspot-pill]:py-1.5 [&_.ar-hotspot-pill]:text-xs [&_.ar-hotspot-pill.is-active]:bg-holo [&_.ar-hotspot-pill.is-active]:text-primary-foreground [&_.ar-hotspot-pill.is-visited-pill]:border-holo/50 [&_.ar-hotspot-pill:disabled]:opacity-40" />
 
-        <p id="arPanelDesc" className="mt-3 text-sm leading-relaxed text-muted-foreground [&:not(.is-expanded)]:line-clamp-3">
-          —
-        </p>
-        <button
-          id="arDescToggle"
-          hidden
-          onClick={() => engineRef.current?.toggleDesc()}
-          className="mt-1 text-xs font-medium text-primary"
-        >
-          Baca selengkapnya ▾
-        </button>
+          {/* Bagian panjang: disembunyikan saat panel di-peek biar model AR keliatan. */}
+          <div className={panelExpanded ? "" : "hidden"}>
+            <p id="arPanelDesc" className="mt-3 text-sm leading-relaxed text-muted-foreground [&:not(.is-expanded)]:line-clamp-3">
+              —
+            </p>
+            <button
+              id="arDescToggle"
+              hidden
+              onClick={() => engineRef.current?.toggleDesc()}
+              className="mt-1 text-xs font-medium text-primary"
+            >
+              Baca selengkapnya ▾
+            </button>
 
-        <div id="arProgressDots" className="mt-4 flex gap-1.5 [&_.ar-dot]:h-1.5 [&_.ar-dot]:w-1.5 [&_.ar-dot]:rounded-full [&_.ar-dot]:bg-white/15 [&_.ar-dot.is-visited]:bg-holo" />
+            <div id="arProgressDots" className="mt-4 flex gap-1.5 [&_.ar-dot]:h-1.5 [&_.ar-dot]:w-1.5 [&_.ar-dot]:rounded-full [&_.ar-dot]:bg-white/15 [&_.ar-dot.is-visited]:bg-holo" />
+          </div>
 
-        <button
-          id="btnKeQuiz"
-          disabled={!gateReady}
-          onClick={() => gateReady && navigate({ to: "/quiz/$id", params: { id: materiId } })}
-          className="mt-5 w-full rounded-full bg-holo px-4 py-3 text-sm font-semibold text-primary-foreground shadow-holo transition disabled:cursor-not-allowed disabled:opacity-40"
-        >
-          {gateReady ? "Lanjut ke Quiz →" : `🔒 Jelajahi semua bagian dulu (${gate.done}/${gate.total || "…"})`}
-        </button>
-        <p id="arGateNote" className="mt-2 text-center text-xs text-muted-foreground">
-          {gateReady
-            ? "Semua bagian sudah dijelajahi. Mantap!"
-            : gate.total
-              ? `Sisa ${gate.total - gate.done} bagian lagi yang belum di-tap.`
-              : ""}
-        </p>
+          <button
+            id="btnKeQuiz"
+            disabled={!gateReady}
+            onClick={() => gateReady && navigate({ to: "/quiz/$id", params: { id: materiId } })}
+            className="mt-5 w-full rounded-full bg-holo px-4 py-3 text-sm font-semibold text-primary-foreground shadow-holo transition disabled:cursor-not-allowed disabled:opacity-40"
+          >
+            {gateReady ? "Lanjut ke Quiz →" : `🔒 Jelajahi semua bagian dulu (${gate.done}/${gate.total || "…"})`}
+          </button>
+          <p id="arGateNote" className={`mt-2 text-center text-xs text-muted-foreground ${panelExpanded ? "" : "hidden"}`}>
+            {gateReady
+              ? "Semua bagian sudah dijelajahi. Mantap!"
+              : gate.total
+                ? `Sisa ${gate.total - gate.done} bagian lagi yang belum di-tap.`
+                : ""}
+          </p>
+        </div>
       </div>
     </div>
   );
