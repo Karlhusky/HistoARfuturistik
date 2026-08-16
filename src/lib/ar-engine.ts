@@ -600,9 +600,19 @@ export class ArEngine {
     // tombol itu kalau ke-tap siswa malah nge-hijack sesi WebXR + matiin kamera.
     // `styles.css` masih menyembunyikan .a-enter-vr/.a-enter-ar sebagai jaring
     // pengaman kalau nanti vendor di-upgrade dan namanya berubah lagi.
+    // CATATAN "model tidak muncul" (invisible, bukan crash): `physicallyCorrectLights`
+    // mengubah unit intensitas cahaya jadi lux/candela, tapi scene ini tidak
+    // pernah mendefinisikan <a-light> sendiri - selalu mengandalkan default
+    // light bawaan A-Frame (AmbientLight intensity 1, DirectionalLight 0.6),
+    // yang dikalibrasi untuk model NON-physical. Di bawah physicallyCorrectLights,
+    // 0.6 lux itu setara cahaya bulan sabit - GLB dengan MeshStandardMaterial jadi
+    // hitam total di atas kanvas hitam: object3D.visible = true, matrix valid, tidak
+    // ada error konsol, tapi TIDAK ADA piksel yang tampil (diverifikasi lewat
+    // screenshot CDP: skor render sehat 100%, tapi model baru kelihatan setelah
+    // cahaya disuntik manual dengan intensitas fisik yang wajar).
     sceneRoot.innerHTML = `
     <a-scene mindar-image="imageTargetSrc: ${this.config.targetMind}; autoStart: true; filterMinCF: 0.00001; filterBeta: 5; warmupTolerance: 5; missTolerance: 5;"
-      color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights"
+      color-space="sRGB" renderer="colorManagement: true"
       xr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
       ${targetsHtml}
