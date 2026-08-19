@@ -532,6 +532,47 @@
     ],
     "maxZoom": 4
   },
+  "m2-4-3": {
+    "targetMind": "/assets/ar/targets/situs-megalitik/bali.mind",
+    "targets": [
+      {
+        "key": "Situs Megalitik Bali dan Nusa Tenggara",
+        "label": "Situs Megalitik di Bali dan Nusa Tenggara",
+        "targetIndex": 0,
+        "model": "/assets/models/situs-megalitik/bali-dan-nusa-tenggara/gilimanuk.glb",
+        "defaultView": {
+          "rotY": 0,
+          "zoom": 0.85
+        },
+        "introAudio": "/assets/audio/situs-megalitik/bali-dan-nusa-tenggara/intro.mp3",
+        "hotspots": [
+          {
+            "id": "gilimanuk",
+            "view": {
+              "rotY": 0,
+              "zoom": 1.02
+            },
+            "label": "Gilimanuk (Bali)",
+            "model": "/assets/models/situs-megalitik/bali-dan-nusa-tenggara/gilimanuk.glb",
+            "audio": "/assets/audio/situs-megalitik/bali-dan-nusa-tenggara/gilimanuk.mp3",
+            "teks": "Situs ini menyimpan ratusan kubur batu dan sarkofagus khas Bali dengan hiasan kepala manusia dan hewan. Bekal kubur berupa manik-manik dan perhiasan logam menunjukkan bahwa Gilimanuk adalah situs peralihan antara Neolitikum akhir dan Perundagian awal."
+          },
+          {
+            "id": "sumba",
+            "view": {
+              "rotY": 25,
+              "zoom": 0.85
+            },
+            "label": "Sumba",
+            "model": "/assets/models/situs-megalitik/bali-dan-nusa-tenggara/sumba.glb",
+            "audio": "/assets/audio/situs-megalitik/bali-dan-nusa-tenggara/sumba.mp3",
+            "teks": "Tradisi megalitik di Sumba juga masih hidup. Kuburan batu besar (reti) berdiri di depan rumah adat, dan penguburan bangsawan bisa memakan waktu berhari-hari dengan ritual yang rumit. Yang unik, tradisi ini tidak berhenti di masa lampau, tetapi terus berlangsung sampai abad ke-21."
+          }
+        ]
+      }
+    ],
+    "maxZoom": 4
+  },
   "m3-1": {
     "targetMind": "/assets/ar/targets/tiga-jenis-manusia-purba/meganthropus.mind",
     "maxZoom": 4,
@@ -718,6 +759,35 @@
     ],
     "maxZoom": 4
   },
+  "m2-4-5": {
+    "targetMind": "/assets/ar/targets/situs-megalitik/toraja.mind",
+    "targets": [
+      {
+        "key": "Situs Megalitik Toraja",
+        "label": "Situs Megalitik di Tana Toraja",
+        "targetIndex": 0,
+        "model": "/assets/models/situs-megalitik/toraja/toraja.glb",
+        "defaultView": {
+          "rotY": 0,
+          "zoom": 0.85
+        },
+        "introAudio": "/assets/audio/situs-megalitik/toraja/intro.mp3",
+        "hotspots": [
+          {
+            "id": "toraja",
+            "view": {
+              "zoom": 0.85
+            },
+            "label": "Toraja",
+            "model": "/assets/models/situs-megalitik/toraja/toraja.glb",
+            "audio": "/assets/audio/situs-megalitik/toraja/toraja.mp3",
+            "teks": "Tradisi megalitik Toraja adalah salah satu yang paling terkenal di dunia. Batu Simbuang didirikan pada upacara pemakaman Rambu Solo untuk mengenang orang yang meninggal. Makam-makam batu di Londa dan Kete Kesu berupa lubang batu yang dipahat di tebing, tempat menyimpan tau-tau (patung kayu yang menyerupai orang yang meninggal). Praktik penguburan dua tahap yang khas Perundagian masih hidup di Toraja sampai sekarang."
+          }
+        ]
+      }
+    ],
+    "maxZoom": 4
+  },
   "m2-4-6": {
     "targetMind": "/assets/ar/targets/situs-megalitik/papua.mind",
     "targets": [
@@ -753,6 +823,45 @@
             "model": "/assets/models/situs-megalitik/indonesia-timur/halmahera.glb",
             "audio": "/assets/audio/situs-megalitik/indonesia-timur/halmahera.mp3",
             "teks": "Di Halmahera dan kawasan Maluku lainnya juga ditemukan jejak tradisi megalitik, berupa kubur batu dan susunan batu yang berkaitan dengan penghormatan leluhur. Temuan ini menunjukkan tradisi megalitik tidak hanya tumbuh di bagian barat dan tengah Indonesia, tetapi menyebar hingga ke ujung timur Nusantara."
+          }
+        ]
+      }
+    ],
+    "maxZoom": 4
+  },
+  "m2-5": {
+    "targetMind": "/assets/ar/targets/situs-megalitik/sistem-kepercayaan.mind",
+    "targets": [
+      {
+        "key": "Sistem Kepercayaan",
+        "label": "Sistem Kepercayaan: Animisme dan Dinamisme",
+        "targetIndex": 0,
+        "model": "/assets/models/sistem-kepercayaan/sistem-kepercayaan.glb",
+        "defaultView": {
+          "rotY": 0,
+          "zoom": 0.85
+        },
+        "introAudio": "/assets/audio/sistem-kepercayaan/intro.mp3",
+        "hotspots": [
+          {
+            "id": "apa-itu-animisme",
+            "view": {
+              "zoom": 0.85
+            },
+            "label": "Apa itu Animisme",
+            "model": "/assets/models/sistem-kepercayaan/apa-itu-animisme.glb",
+            "audio": "/assets/audio/sistem-kepercayaan/apa-itu-animisme.mp3",
+            "teks": "Animisme adalah kepercayaan bahwa semua benda di alam, seperti pohon, batu, gunung, dan sungai, memiliki roh atau jiwa. Manusia praaksara meyakini roh-roh tersebut bisa memengaruhi kehidupan mereka, sehingga perlu dihormati agar tidak mengganggu."
+          },
+          {
+            "id": "apa-itu-dinamisme",
+            "view": {
+              "zoom": 0.85
+            },
+            "label": "Apa itu Dinamisme",
+            "model": "/assets/models/sistem-kepercayaan/apa-itu-dinamisme.glb",
+            "audio": "/assets/audio/sistem-kepercayaan/apa-itu-dinamisme.mp3",
+            "teks": "Dinamisme adalah kepercayaan bahwa benda-benda tertentu, misalnya keris, nekara, atau batu besar, mengandung kekuatan gaib. Benda yang dianggap bertuah dipercaya bisa memberikan keselamatan atau keberhasilan bagi pemiliknya."
           }
         ]
       }
