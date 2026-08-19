@@ -847,6 +847,74 @@
         ],
         "jawaban": 2
       }
+    ],
+    "m3-0": [
+      {
+        "id": "m3-0q1",
+        "pertanyaan": "Prinsip dasar penanggalan relatif fosil di Sangiran adalah...",
+        "opsi": [
+          "Fosil yang lebih besar pasti lebih tua",
+          "Semakin dalam lapisan tanah tempat fosil ditemukan, semakin tua usianya",
+          "Semua fosil di Sangiran seumur",
+          "Usia ditentukan dari warna fosil saja"
+        ],
+        "jawaban": 1
+      },
+      {
+        "id": "m3-0q2",
+        "pertanyaan": "Tiga formasi utama lapisan tanah Sangiran, dari yang tertua, adalah...",
+        "opsi": [
+          "Notopuro, Kabuh, Pucangan",
+          "Pucangan, Kabuh, Notopuro",
+          "Kabuh, Pucangan, Notopuro",
+          "Pucangan, Notopuro, Kabuh"
+        ],
+        "jawaban": 1
+      },
+      {
+        "id": "m3-0q3",
+        "pertanyaan": "Kemampuan berjalan tegak (bipedalisme) pada manusia purba bisa dibaca dari posisi...",
+        "opsi": [
+          "Gigi geraham",
+          "Foramen magnum, lubang tempat tulang belakang masuk ke tengkorak",
+          "Warna tulang",
+          "Ukuran telapak tangan"
+        ],
+        "jawaban": 1
+      },
+      {
+        "id": "m3-0q4",
+        "pertanyaan": "Pengamatan mikroskopis pada bekas serpihan dan goresan di permukaan alat batu untuk menebak fungsinya disebut...",
+        "opsi": [
+          "Stratigrafi",
+          "Ekskavasi digital",
+          "Traseologi (use-wear analysis)",
+          "Forensik tengkorak"
+        ],
+        "jawaban": 2
+      },
+      {
+        "id": "m3-0q5",
+        "pertanyaan": "Homo floresiensis, si manusia hobbit, ditemukan tahun 2003 di...",
+        "opsi": [
+          "Sangiran, Jawa Tengah",
+          "Trinil, Jawa Timur",
+          "Gua Liang Bua, Pulau Flores",
+          "Wajak, Tulungagung"
+        ],
+        "jawaban": 2
+      },
+      {
+        "id": "m3-0q6",
+        "pertanyaan": "Perdebatan ilmiah soal Homo floresiensis berkisar pada...",
+        "opsi": [
+          "Apakah ia spesies tersendiri atau manusia modern yang mengalami kekerdilan akibat isolasi pulau",
+          "Apakah ia lebih tua dari Meganthropus",
+          "Apakah fosilnya ditemukan di Jawa atau Sumatra",
+          "Apakah ia sudah mengenal logam"
+        ],
+        "jawaban": 0
+      }
     ]
   }
 }

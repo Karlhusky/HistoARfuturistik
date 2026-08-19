@@ -868,5 +868,124 @@
     ],
     "maxZoom": 4
   },
-  "_petunjuk_kalibrasi": "CARA MENGATUR VIEWPORT TIAP HOTSPOT (tanpa menebak angka): 1. Buka materi di HP/browser dengan ?dev=1 di URL, mis. /materi/m2-6?dev=1 2. Scan marker, lalu tap hotspot yang mau diatur. 3. D-pad kiri-bawah = GESER VIEWPORT (arah panah mengikuti layar).    Tombol +/- = dekat/jauh. Drag di layar = putar model. 4. Kalau sudah pas, tap tombol penggaris. Cuplikan JSON tersalin ke clipboard. 5. Tempel menimpa bagian \"view\" hotspot itu di file ini. Arti angkanya: zoom = kelipatan lebar marker (0.85 = muat utuh, 1.6 = zoom ke sebagian). focus = [x,y,z] titik yang ditaruh di tengah layar, dalam fraksi ukuran model (0,0,0 = pusat model; x positif = ke kanan, y positif = ke atas)."
+  "_petunjuk_kalibrasi": "CARA MENGATUR VIEWPORT TIAP HOTSPOT (tanpa menebak angka): 1. Buka materi di HP/browser dengan ?dev=1 di URL, mis. /materi/m2-6?dev=1 2. Scan marker, lalu tap hotspot yang mau diatur. 3. D-pad kiri-bawah = GESER VIEWPORT (arah panah mengikuti layar).    Tombol +/- = dekat/jauh. Drag di layar = putar model. 4. Kalau sudah pas, tap tombol penggaris. Cuplikan JSON tersalin ke clipboard. 5. Tempel menimpa bagian \"view\" hotspot itu di file ini. Arti angkanya: zoom = kelipatan lebar marker (0.85 = muat utuh, 1.6 = zoom ke sebagian). focus = [x,y,z] titik yang ditaruh di tengah layar, dalam fraksi ukuran model (0,0,0 = pusat model; x positif = ke kanan, y positif = ke atas).",
+  "m3-0": {
+    "targetMind": "/assets/ar/targets/ragam-temuan-manusia-purba.mind",
+    "maxZoom": 4,
+    "targets": [
+      {
+        "key": "Ragam Temuan Manusia Purba",
+        "label": "Ragam Temuan Manusia Purba di Indonesia",
+        "targetIndex": 0,
+        "model": "/assets/models/ragam-temuan-manusia-purba/meja-fosil-sangiran.glb",
+        "defaultView": {
+          "rotY": 0,
+          "zoom": 0.85
+        },
+        "introAudio": "/assets/audio/ragam-temuan-manusia-purba/intro.mp3",
+        "hotspots": [
+          {
+            "id": "meja-fosil-sangiran",
+            "label": "Meja Fosil Sangiran",
+            "model": "/assets/models/ragam-temuan-manusia-purba/meja-fosil-sangiran.glb",
+            "audio": "/assets/audio/ragam-temuan-manusia-purba/meja-fosil-sangiran.mp3",
+            "teks": "Di Museum Sangiran, ribuan fosil dipajang dalam meja-meja kaca: rahang dan gigi Meganthropus, tengkorak Pithecanthropus, tulang gajah purba, sampai cangkang kerang dari danau purba yang pernah menutupi kawasan ini. Setiap fosil diberi label lokasi dan lapisan tanah tempat ia ditemukan, karena posisi itulah yang menentukan usia perkiraannya.",
+            "view": {
+              "zoom": 0.85
+            }
+          },
+          {
+            "id": "forensik-tengkorak",
+            "label": "Forensik Tengkorak",
+            "model": "/assets/models/ragam-temuan-manusia-purba/forensik-tengkorak.glb",
+            "audio": "/assets/audio/ragam-temuan-manusia-purba/forensik-tengkorak.mp3",
+            "teks": "Ahli paleoantropologi membaca tengkorak seperti detektif membaca sidik jari. Ketebalan tulang alis, kemiringan dahi, dan volume rongga otak dipakai untuk memperkirakan usia individu dan pola makannya. Dari serpihan tengkorak yang sering tidak utuh, mereka merekonstruksi wajah manusia purba secara digital.",
+            "view": {
+              "zoom": 0.85
+            }
+          },
+          {
+            "id": "homo-erectus-trinil",
+            "label": "Homo erectus Trinil",
+            "model": "/assets/models/ragam-temuan-manusia-purba/homo-erectus-trinil.glb",
+            "audio": "/assets/audio/ragam-temuan-manusia-purba/homo-erectus-trinil.mp3",
+            "teks": "Di tepi Bengawan Solo, Trinil, Eugène Dubois menggali selama bertahun-tahun sebelum menemukan tutup tengkorak dan tulang paha Pithecanthropus erectus pada 1891. Situs ini kemudian jadi rujukan dunia untuk memahami evolusi manusia berjalan tegak, dan namanya diabadikan sebagai lokasi tipe spesies Homo erectus.",
+            "view": {
+              "zoom": 0.85
+            }
+          },
+          {
+            "id": "berjalan-tegak",
+            "label": "Berjalan Tegak",
+            "model": "/assets/models/ragam-temuan-manusia-purba/berjalan-tegak.glb",
+            "audio": "/assets/audio/ragam-temuan-manusia-purba/berjalan-tegak.mp3",
+            "teks": "Kemampuan berjalan tegak dengan dua kaki (bipedalisme) dibaca dari bentuk tulang paha, panggul, dan posisi foramen magnum, lubang tempat tulang belakang masuk ke tengkorak. Pada manusia yang berjalan tegak, foramen magnum terletak di bawah tengkorak, bukan di belakang seperti pada kera yang merangkak.",
+            "view": {
+              "zoom": 0.85
+            }
+          },
+          {
+            "id": "stratigrafi-sangiran",
+            "label": "Stratigrafi Sangiran",
+            "model": "/assets/models/ragam-temuan-manusia-purba/stratigrafi-sangiran.glb",
+            "audio": "/assets/audio/ragam-temuan-manusia-purba/stratigrafi-sangiran.mp3",
+            "teks": "Lapisan tanah Sangiran tersusun dari tiga formasi utama: Pucangan (tertua, berwarna hitam kebiruan), Kabuh (kuning kecokelatan, tempat sebagian besar fosil manusia ditemukan), dan Notopuro (paling atas). Semakin dalam lapisan tempat fosil ditemukan, semakin tua usianya.",
+            "view": {
+              "zoom": 0.85
+            }
+          },
+          {
+            "id": "ekosistem-jawa-pleistosen",
+            "label": "Ekosistem Jawa Pleistosen",
+            "model": "/assets/models/ragam-temuan-manusia-purba/ekosistem-jawa-pleistosen.glb",
+            "audio": "/assets/audio/ragam-temuan-manusia-purba/ekosistem-jawa-pleistosen.mp3",
+            "teks": "Jutaan tahun lalu, Jawa purba adalah padang rumput terbuka dengan sungai besar dan danau. Di sana hidup berdampingan gajah purba (Stegodon), badak, kerbau liar, rusa, dan buaya. Manusia purba berbagi ruang hidup dengan hewan-hewan raksasa ini, dan fosil mereka sering ditemukan bercampur dalam satu lapisan tanah yang sama.",
+            "view": {
+              "zoom": 0.85
+            }
+          },
+          {
+            "id": "alat-batu-dan-jejak-pakai",
+            "label": "Alat Batu dan Jejak Pakai",
+            "model": "/assets/models/ragam-temuan-manusia-purba/alat-batu-dan-jejak-pakai.glb",
+            "audio": "/assets/audio/ragam-temuan-manusia-purba/alat-batu-dan-jejak-pakai.mp3",
+            "teks": "Alat batu tidak dibuat asal jadi. Lewat pengamatan mikroskopis pada bekas serpihan dan goresan di permukaannya, yang disebut traseologi atau use-wear analysis, arkeolog bisa menebak alat itu dipakai untuk apa: memotong daging, mengupas umbi, atau mengikis kulit kayu.",
+            "view": {
+              "zoom": 0.85
+            }
+          },
+          {
+            "id": "ekskavasi-digital",
+            "label": "Ekskavasi Digital",
+            "model": "/assets/models/ragam-temuan-manusia-purba/ekskavasi-digital.glb",
+            "audio": "/assets/audio/ragam-temuan-manusia-purba/ekskavasi-digital.mp3",
+            "teks": "Penggalian arkeologi masa kini tidak lagi hanya mengandalkan cangkul dan kuas. Pemindaian 3D, fotogrametri, dan pemetaan GIS dipakai untuk mendokumentasikan posisi persis setiap fosil sebelum diangkat, sehingga informasi lapisan dan konteks temuannya tidak hilang meski fosilnya sudah dipindahkan ke museum.",
+            "view": {
+              "zoom": 0.85
+            }
+          },
+          {
+            "id": "homo-floresiensis",
+            "label": "Homo floresiensis",
+            "model": "/assets/models/ragam-temuan-manusia-purba/homo-floresiensis.glb",
+            "audio": "/assets/audio/ragam-temuan-manusia-purba/homo-floresiensis.mp3",
+            "teks": "Pada 2003, di Gua Liang Bua, Pulau Flores, ditemukan kerangka manusia purba berukuran sangat kecil, tinggi sekitar satu meter dengan volume otak sekitar 380 cc, dijuluki manusia hobbit. Spesies ini diberi nama Homo floresiensis dan diperkirakan masih hidup sampai sekitar 50.000 tahun lalu, jauh lebih baru dari Meganthropus maupun Pithecanthropus.",
+            "view": {
+              "zoom": 0.85
+            }
+          },
+          {
+            "id": "museum-bukti-dan-hipotesis",
+            "label": "Museum Bukti dan Hipotesis",
+            "model": "/assets/models/ragam-temuan-manusia-purba/museum-bukti-dan-hipotesis.glb",
+            "audio": "/assets/audio/ragam-temuan-manusia-purba/museum-bukti-dan-hipotesis.mp3",
+            "teks": "Sains tidak pernah selesai. Setiap fosil baru bisa mengubah atau memperkuat hipotesis sebelumnya. Sebagian ahli menganggap Homo floresiensis spesies tersendiri, sementara yang lain menduga ia manusia modern yang mengalami kekerdilan akibat isolasi di pulau kecil. Museum memajang kedua sisi perdebatan ini, karena begitulah sains bekerja: teori terbaik hari ini bisa direvisi besok.",
+            "view": {
+              "zoom": 0.85
+            }
+          }
+        ]
+      }
+    ]
+  }
 }

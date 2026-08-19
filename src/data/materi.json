@@ -257,8 +257,58 @@
       ]
     },
     {
-      "id": "m3-1",
+      "id": "m3-0",
       "urutan": 13,
+      "kode": "3.0 / Ragam Temuan",
+      "layerColor": "#7a5c3e",
+      "judul": "Ragam Temuan Manusia Purba di Indonesia: Bukti, Rekonstruksi, dan Perdebatan",
+      "ringkasan": "Sebelum bertemu Meganthropus, Pithecanthropus, dan Homo Sapiens satu per satu, kenali dulu bagaimana bukti mereka ditemukan, dibaca, dan diperdebatkan para ahli.",
+      "konten": [
+        {
+          "judul": "Meja Fosil Sangiran",
+          "isi": "Di Museum Sangiran, ribuan fosil dipajang dalam meja-meja kaca: rahang dan gigi Meganthropus, tengkorak Pithecanthropus, tulang gajah purba, sampai cangkang kerang dari danau purba yang pernah menutupi kawasan ini. Setiap fosil diberi label lokasi dan lapisan tanah tempat ia ditemukan, karena posisi itulah yang menentukan usia perkiraannya."
+        },
+        {
+          "judul": "Forensik Tengkorak",
+          "isi": "Ahli paleoantropologi membaca tengkorak seperti detektif membaca sidik jari. Ketebalan tulang alis, kemiringan dahi, dan volume rongga otak dipakai untuk memperkirakan usia individu dan pola makannya. Dari serpihan tengkorak yang sering tidak utuh, mereka merekonstruksi wajah manusia purba secara digital."
+        },
+        {
+          "judul": "Homo erectus Trinil",
+          "isi": "Di tepi Bengawan Solo, Trinil, Eugène Dubois menggali selama bertahun-tahun sebelum menemukan tutup tengkorak dan tulang paha Pithecanthropus erectus pada 1891. Situs ini kemudian jadi rujukan dunia untuk memahami evolusi manusia berjalan tegak, dan namanya diabadikan sebagai lokasi tipe spesies Homo erectus."
+        },
+        {
+          "judul": "Berjalan Tegak",
+          "isi": "Kemampuan berjalan tegak dengan dua kaki (bipedalisme) dibaca dari bentuk tulang paha, panggul, dan posisi foramen magnum, lubang tempat tulang belakang masuk ke tengkorak. Pada manusia yang berjalan tegak, foramen magnum terletak di bawah tengkorak, bukan di belakang seperti pada kera yang merangkak."
+        },
+        {
+          "judul": "Stratigrafi Sangiran",
+          "isi": "Lapisan tanah Sangiran tersusun dari tiga formasi utama: Pucangan (tertua, berwarna hitam kebiruan), Kabuh (kuning kecokelatan, tempat sebagian besar fosil manusia ditemukan), dan Notopuro (paling atas). Semakin dalam lapisan tempat fosil ditemukan, semakin tua usianya, prinsip inilah yang jadi dasar penanggalan relatif di Sangiran (Widianto & Simanjuntak, 2009)."
+        },
+        {
+          "judul": "Ekosistem Jawa Pleistosen",
+          "isi": "Jutaan tahun lalu, Jawa purba adalah padang rumput terbuka dengan sungai besar dan danau. Di sana hidup berdampingan gajah purba (Stegodon), badak, kerbau liar, rusa, dan buaya. Manusia purba berbagi ruang hidup dengan hewan-hewan raksasa ini, dan fosil mereka sering ditemukan bercampur dalam satu lapisan tanah yang sama."
+        },
+        {
+          "judul": "Alat Batu dan Jejak Pakai",
+          "isi": "Alat batu tidak dibuat asal jadi. Lewat pengamatan mikroskopis pada bekas serpihan dan goresan di permukaannya, yang disebut traseologi atau use-wear analysis, arkeolog bisa menebak alat itu dipakai untuk apa: memotong daging, mengupas umbi, atau mengikis kulit kayu."
+        },
+        {
+          "judul": "Ekskavasi Digital",
+          "isi": "Penggalian arkeologi masa kini tidak lagi hanya mengandalkan cangkul dan kuas. Pemindaian 3D, fotogrametri, dan pemetaan GIS dipakai untuk mendokumentasikan posisi persis setiap fosil sebelum diangkat, sehingga informasi lapisan dan konteks temuannya tidak hilang meski fosilnya sudah dipindahkan ke museum."
+        },
+        {
+          "judul": "Homo floresiensis",
+          "isi": "Pada 2003, di Gua Liang Bua, Pulau Flores, ditemukan kerangka manusia purba berukuran sangat kecil, tinggi sekitar satu meter dengan volume otak sekitar 380 cc, dijuluki manusia hobbit. Spesies ini diberi nama Homo floresiensis dan diperkirakan masih hidup sampai sekitar 50.000 tahun lalu, jauh lebih baru dari Meganthropus maupun Pithecanthropus."
+        },
+        {
+          "judul": "Museum Bukti dan Hipotesis",
+          "isi": "Sains tidak pernah selesai. Setiap fosil baru bisa mengubah atau memperkuat hipotesis sebelumnya. Sebagian ahli menganggap Homo floresiensis spesies tersendiri, sementara yang lain menduga ia manusia modern yang mengalami kekerdilan akibat isolasi di pulau kecil. Museum memajang kedua sisi perdebatan ini, karena begitulah sains bekerja: teori terbaik hari ini bisa direvisi besok."
+        }
+      ]
+    },
+    {
+      "id": "m3-1",
+      "urutan": 14,
       "kode": "3.1 / Manusia Raksasa Dari Jawa",
       "judul": "Meganthropus Paleojavanicus",
       "ringkasan": "Mengenal manusia purba tertua yang fosilnya ditemukan di Sangiran beserta ciri fisik dan cara hidupnya.",
@@ -284,7 +334,7 @@
     },
     {
       "id": "m3-2",
-      "urutan": 14,
+      "urutan": 15,
       "kode": "3.2 / PITHECANTHROPUS",
       "layerColor": "#7a6a52",
       "judul": "Pithecanthropus Erectus",
@@ -298,7 +348,7 @@
     },
     {
       "id": "m3-3",
-      "urutan": 15,
+      "urutan": 16,
       "kode": "3.3 / Homo Sapiens",
       "layerColor": "#7a5c3e",
       "judul": "Homo Sapiens",
@@ -316,7 +366,7 @@
     },
     {
       "id": "m3-4",
-      "urutan": 16,
+      "urutan": 17,
       "kode": "3.4 / Tabel Perbandingan",
       "layerColor": "#7a5c3e",
       "judul": "Tabel Rangkuman Tiga Jenis Manusia Purba",
@@ -338,7 +388,7 @@
     },
     {
       "id": "m3-5",
-      "urutan": 17,
+      "urutan": 18,
       "kode": "3.5 / Sangiran",
       "layerColor": "#7a5c3e",
       "judul": "Sangiran: Rumah Para Manusia Purba, Warisan Dunia UNESCO",
