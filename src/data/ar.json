@@ -965,6 +965,17 @@
             }
           },
           {
+            "id": "ekskavasi-digital-pov-kamera",
+            "label": "Sudut Pandang Kamera",
+            "model": "/assets/models/ragam-temuan-manusia-purba/ekskavasi-digital.glb",
+            "teks": "Begini kira-kira bidikan yang direkam kamera dokumentasi yang berdiri di tepi galian: fosil didekatkan dan dipusatkan di tengah layar, persis seperti arkeolog memotret temuan sebelum diangkat dari lapisan tanahnya.",
+            "view": {
+              "zoom": 3.6,
+              "rotY": -54,
+              "focus": [-0.095, 0.056, 0.059]
+            }
+          },
+          {
             "id": "homo-floresiensis",
             "label": "Homo floresiensis",
             "model": "/assets/models/ragam-temuan-manusia-purba/homo-floresiensis.glb",
