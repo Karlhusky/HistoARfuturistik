@@ -87,21 +87,6 @@ export function Hero() {
             Jelajahi Garis Waktu →
           </a>
         </div>
-
-        <div className="hero-anim mt-16 grid grid-cols-3 gap-4 sm:gap-8">
-          {[
-            { k: "12k+", v: "Learners" },
-            { k: "48", v: "AR Exhibits" },
-            { k: "4.9★", v: "Rated" },
-          ].map((s) => (
-            <div key={s.v} className="glass rounded-2xl px-4 py-4">
-              <div className="font-display text-2xl font-semibold text-holo sm:text-3xl">
-                {s.k}
-              </div>
-              <div className="mt-1 text-xs text-muted-foreground">{s.v}</div>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );
