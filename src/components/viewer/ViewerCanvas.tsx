@@ -36,7 +36,12 @@ function Model() {
   });
 
   return (
-    <group ref={group} position={[0, -1.05, 0]} rotation={[0, -Math.PI / 2, 0]}>
+    <group
+      ref={group}
+      position={[0, -1.05, 0]}
+      rotation={[0, -Math.PI / 2, 0]}
+      scale={1.3}
+    >
       <primitive object={clone} />
     </group>
   );
@@ -46,7 +51,7 @@ export default function ViewerCanvas() {
   return (
     <Canvas
       camera={{
-        position: [0, 1.3, 3.2],
+        position: [0, 1.2, 3.6],
         fov: 34,
       }}
     >
