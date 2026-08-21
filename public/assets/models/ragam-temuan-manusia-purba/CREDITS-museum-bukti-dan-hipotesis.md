@@ -12,8 +12,11 @@ This model combines real photogrammetry/CT scans sourced from Sketchfab (used un
   https://sketchfab.com/3d-models/71ff6fd96ce248d2863c89372250a171
   Used as the RIGHT comparative specimen.
 
-- **Human Skull (Homo sapiens) - Cráneo humano** by caiarqueometriaucm (Universidad Complutense Madrid)
-  https://sketchfab.com/3d-models/1b3ffdb24f714801ba4f376668829bc8
-  Used as the LEFT comparison specimen. Note: the downloaded asset carried no texture data, so a neutral ivory-bone material was applied in Blender to match the piece's own preview appearance.
+- ~~Human Skull (Homo sapiens) - Cráneo humano~~ by caiarqueometriaucm — **replaced 2026-08-21**, see below.
 
-All three were decimated/optimized (geometry simplified and textures resized to ≤1024px JPEG) for WebAR use; the museum platform, pedestals, and scientific tools (caliper, magnifier, measuring scale, fossil fragments) are original low-poly geometry built for HistoAR.
+- **Human Male Skull** by Ruslan Gadzhiev (https://sketchfab.com/ruslangadzhiev)
+  https://sketchfab.com/3d-models/human-male-skull-f1eaaef50e5845c796d6834fd1b702e5
+  License: CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+  Used as the Homo sapiens comparison specimen (`HomoSapiens_Skull` node). Replaces the original caiarqueometriaucm scan, which shipped with no texture data and rendered as a flat/undefined color. This scan also had no texture, but its geometry is much higher-detail (cranium + mandible + teeth); a procedural fossil-bone material (Noise/Voronoi in Blender) was baked to a 1024px JPEG base color texture to match the tan/brown mottled look of the other two specimens, then the mesh was decimated (~83k → ~25k verts) for WebAR.
+
+All specimens were decimated/optimized (geometry simplified and textures resized to ≤1024px JPEG) for WebAR use; the museum platform, pedestals, and scientific tools (caliper, magnifier, measuring scale, fossil fragments) are original low-poly geometry built for HistoAR.
