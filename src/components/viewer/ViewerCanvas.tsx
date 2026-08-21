@@ -15,18 +15,11 @@ function Model() {
 
   const { scene, animations } = useGLTF("/models/meganthropus.glb");
 
-  console.log("Animations:", animations);
-  console.log("Jumlah animasi:", animations.length);
-
   const clone = useMemo(() => SkeletonUtils.clone(scene), [scene]);
 
   const { actions } = useAnimations(animations, clone);
 
   useEffect(() => {
-  console.log("Animations:", animations);
-  console.log("Count:", animations.length);
-  console.log("Actions:", actions);
-
   Object.values(actions).forEach((action) => {
     action?.reset().fadeIn(0.5).play();
   });
@@ -43,7 +36,7 @@ function Model() {
   });
 
   return (
-    <group ref={group} position={[0, -1.05, 0]}>
+    <group ref={group} position={[0, -1.05, 0]} rotation={[0, -Math.PI / 2, 0]}>
       <primitive object={clone} />
     </group>
   );
@@ -53,7 +46,7 @@ export default function ViewerCanvas() {
   return (
     <Canvas
       camera={{
-        position: [0, 1.3, 4.5],
+        position: [0, 1.3, 3.2],
         fov: 34,
       }}
     >
