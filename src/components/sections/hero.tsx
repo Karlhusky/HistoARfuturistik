@@ -59,7 +59,7 @@ export function Hero() {
         <div className="hero-anim mx-auto mb-6 inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs">
           <span className="h-1.5 w-1.5 rounded-full bg-holo shadow-holo" />
           <span className="text-muted-foreground">
-            WebAR · Kini hadir melalui HistoAR,
+            WebAR kini hadir di HistoAR
           </span>
         </div>
         <h1 className="hero-anim font-display text-5xl font-semibold leading-[1.05] tracking-tight sm:text-7xl md:text-8xl">
@@ -70,7 +70,7 @@ export function Hero() {
         <p className="hero-anim mx-auto mt-6 max-w-2xl text-base text-muted-foreground sm:text-lg">
          HistoAR adalah platform pembelajaran imersif yang menghadirkan masa lalu ke hadapan Anda melalui teknologi Augmented Reality. 
          Jelajahi periodisasi bumi, amati manusia purba dan diorama interaktif, serta biarkan HistoAI memandu perjalanan belajar Anda
-         langsung dari peramban, tanpa perlu menginstal aplikasi..
+         langsung dari peramban, tanpa perlu menginstal aplikasi.
         </p>
         <div className="hero-anim mt-10 flex flex-wrap items-center justify-center gap-3">
           <Link

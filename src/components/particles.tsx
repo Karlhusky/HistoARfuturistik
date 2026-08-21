@@ -1,8 +1,20 @@
-import { useMemo } from "react";
+import { useEffect, useState } from "react";
 
 export function Particles({ count = 40 }: { count?: number }) {
-  const items = useMemo(
-    () =>
+  const [items, setItems] = useState<
+    Array<{
+      id: number;
+      left: number;
+      size: number;
+      delay: number;
+      duration: number;
+      drift: number;
+      opacity: number;
+    }>
+  >([]);
+
+  useEffect(() => {
+    setItems(
       Array.from({ length: count }).map((_, i) => ({
         id: i,
         left: Math.random() * 100,
@@ -12,8 +24,9 @@ export function Particles({ count = 40 }: { count?: number }) {
         drift: (Math.random() - 0.5) * 200,
         opacity: 0.3 + Math.random() * 0.5,
       })),
-    [count],
-  );
+    );
+  }, [count]);
+
   return (
     <div
       aria-hidden
