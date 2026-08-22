@@ -67,7 +67,7 @@
         "key": "paleolitikum",
         "label": "Masa Berburu dan Meramu Sederhana (Paleolitikum)",
         "targetIndex": 0,
-        "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/berburu_meramu.glb",
+        "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/berburu_meramu.glb?v=2",
         "defaultView": {
           "rotY": 0,
           "zoom": 1.5,
