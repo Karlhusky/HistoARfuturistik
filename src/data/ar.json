@@ -70,7 +70,7 @@
         "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/berburu_meramu.glb",
         "defaultView": {
           "rotY": 0,
-          "zoom": 0.85,
+          "zoom": 1.5,
           "focus": [
             0,
             0,
@@ -82,12 +82,12 @@
           {
             "id": "mata-pencaharian",
             "view": {
-              "rotY": -20,
-              "zoom": 1.2,
+              "rotY": -15,
+              "zoom": 1.9,
               "focus": [
                 0,
-                0.022,
-                -0.043
+                0,
+                0
               ]
             },
             "label": "Cara Mendapatkan Makanan",
@@ -97,12 +97,12 @@
           {
             "id": "alat",
             "view": {
-              "rotY": 20,
-              "zoom": 2.7,
+              "rotY": -60,
+              "zoom": 4.5,
               "focus": [
-                0.091,
-                -0.133,
-                0.039
+                0.1218,
+                -0.0688,
+                0.1732
               ]
             },
             "label": "Alat yang Dipakai",
@@ -113,11 +113,11 @@
             "id": "cara-hidup",
             "view": {
               "rotY": 0,
-              "zoom": 1.2,
+              "zoom": 2.8,
               "focus": [
-                -0.347,
-                0.022,
-                -0.111
+                0.0006,
+                -0.0733,
+                -0.1677
               ]
             },
             "label": "Cara Hidup",
@@ -127,12 +127,12 @@
           {
             "id": "pembagian-kerja",
             "view": {
-              "rotY": 35,
-              "zoom": 1.2,
+              "rotY": 20,
+              "zoom": 1.7,
               "focus": [
                 0,
-                0.022,
-                -0.043
+                -0.05,
+                0
               ]
             },
             "label": "Pembagian Kerja",
@@ -142,12 +142,12 @@
           {
             "id": "seni-komunikasi",
             "view": {
-              "rotY": -35,
-              "zoom": 3.44,
+              "rotY": 30,
+              "zoom": 3.0,
               "focus": [
-                -0.182,
-                -0.087,
-                0.111
+                0.0248,
+                -0.0121,
+                0.1020
               ]
             },
             "label": "Seni dan Komunikasi",
@@ -157,12 +157,12 @@
           {
             "id": "kebudayaan-indonesia",
             "view": {
-              "rotY": 15,
-              "zoom": 3.5,
+              "rotY": 100,
+              "zoom": 3.3,
               "focus": [
-                -0.097,
-                -0.133,
-                -0.044
+                0.1218,
+                -0.0688,
+                0.1732
               ]
             },
             "label": "Kebudayaan Paleolitikum di Indonesia",
@@ -184,11 +184,11 @@
         "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/mesolitikum.glb",
         "defaultView": {
           "rotY": 0,
-          "zoom": 0.85,
+          "zoom": 1.2,
           "focus": [
-            0,
-            0,
-            0
+            -0.001,
+            -0.116,
+            0.045
           ]
         },
         "introAudio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/mesolitikum/0001.mp3",
@@ -232,7 +232,7 @@
             "audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/mesolitikum/0004.mp3",
             "teks": "Alat-alatnya masih dari batu, tulang, tanduk, kulit kerang, dan bambu. Bedanya, permukaannya sudah lebih halus dibanding masa Paleolitikum. Muncul pula alat-alat baru seperti kapak genggam Sumatera (Sumatralith), cungkil dan sudip dari bambu untuk mencungkil serta membersihkan umbi.",
             "view": {
-              "rotY": 180,
+              "rotY": 0,
               "zoom": 3.5,
               "focus": [
                 0.044,
@@ -248,12 +248,12 @@
             "audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/mesolitikum/0005.mp3",
             "teks": "Manusia mulai melukis di dinding gua. Objeknya menggambarkan kehidupan sosial, ekonomi, dan kepercayaan mereka. Teknik lukisnya menggores dinding gua dengan alat tajam dan menggunakan cat berwarna merah, hitam, dan putih dari bahan alami. Motifnya antara lain cap tangan, gambar hewan buruan dengan busur panah, serta berbagai hewan target buruan. Lukisan-lukisan ini bukan sekadar hiasan. Mereka percaya lukisan itu bisa membantu mempermudah perburuan. Dari pola-pola lukisan, para ahli menyimpulkan bahwa manusia Mesolitikum sudah punya sistem kepercayaan awal: percaya ada kekuatan besar yang memengaruhi kehidupan mereka. Unsur spiritual mulai lahir di sini.",
             "view": {
-              "rotY": 270,
-              "zoom": 1.2,
+              "rotY": 0,
+              "zoom": 2.2,
               "focus": [
-                0,
-                0.026,
-                -0.269
+                -0.001,
+                -0.116,
+                0.045
               ]
             }
           }
@@ -361,11 +361,11 @@
         "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/zaman_logam.glb",
         "defaultView": {
           "rotY": 0,
-          "zoom": 0.85,
+          "zoom": 1.4,
           "focus": [
-            0,
-            0,
-            0
+            -0.2,
+            -0.02,
+            0.1
           ]
         },
         "introAudio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/zaman_logam/intro.mp3",
@@ -594,7 +594,7 @@
             "model": "/assets/models/tiga-jenis-manusia-purba/meganthropus-kepala.glb?v=2",
             "view": {
               "rotY": -90,
-              "zoom": 0.85
+              "zoom": 1.18
             },
             "audio": "/assets/audio/tiga-jenis-manusia-purba/meganthropus/kepala.mp3",
             "teks": "Kalian sedang melihat kepala manusia purba paling tua yang jejaknya ditemukan di Indonesia. Ukuran otaknya masih relatif kecil dibanding kalian sekarang. Tulang keningnya tebal dan menonjol, dahinya sangat miring ke belakang, dan ia belum punya dagu seperti kalian. Meski begitu, otak sekecil ini sudah cukup untuk hidup berkelompok dan mengenali makanan yang aman di padang rumput Jawa purba. Fosil rahangnya digali oleh Gustav Heinrich Ralph von Koenigswald antara 1936 sampai 1941, di daerah Sangiran, Sragen, Jawa Tengah."
@@ -646,7 +646,7 @@
             "model": "/assets/models/tiga-jenis-manusia-purba/pithecanthropus-kepala.glb",
             "view": {
               "rotY": -90,
-              "zoom": 0.85
+              "zoom": 1.27
             },
             "audio": "/assets/audio/tiga-jenis-manusia-purba/pithecanthropus/kepala.mp3",
             "teks": "Kalian sedang melihat kepala manusia purba yang membuat dunia sains geger di akhir abad ke-19. Volume otaknya sekitar 900 cc, kurang dari dua pertiga volume otak kalian sekarang. Tulang alisnya menonjol, dahinya miring ke belakang, dan tengkoraknya berat. Otak sekecil ini sudah cukup untuk membuat alat batu sederhana dan hidup berkelompok, tetapi belum cukup untuk mengembangkan bahasa rumit atau seni lukis. Fosil tengkoraknya digali oleh Eugène Dubois, seorang dokter Belanda, tahun 1891 di Trinil, tepi Bengawan Solo, Ngawi."
@@ -687,8 +687,8 @@
         "targetIndex": 0,
         "model": "/assets/models/tiga-jenis-manusia-purba/homo-sapiens.glb",
         "defaultView": {
-          "rotY": -131,
-          "zoom": 0.85
+          "rotY": -90,
+          "zoom": 1.3
         },
         "introAudio": "/assets/audio/tiga-jenis-manusia-purba/homo-sapiens/intro.mp3",
         "hotspots": [

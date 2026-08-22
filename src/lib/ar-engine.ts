@@ -48,6 +48,11 @@ function ensureAutoplayComponent() {
   const AFRAME = window.AFRAME;
   if (!AFRAME || AFRAME.components["autoplay-animations"]) return;
   AFRAME.registerComponent("autoplay-animations", {
+    // Default: muterin semua klip (perilaku lama, cocok buat model yang cuma
+    // punya 1 klip). Set `only-idle: true` di elemen buat model yang punya
+    // banyak klip sekaligus (Idle/Walk/Run/Attack/Death) supaya gak numpuk/glitch
+    // rebutan tulang yang sama -- lihat pemakaiannya khusus homo-sapiens.glb.
+    schema: { onlyIdle: { type: "boolean", default: false } },
     init: function (this: any) {
       this.mixer = null;
       this.el.addEventListener("model-loaded", (e: any) => {
@@ -55,7 +60,13 @@ function ensureAutoplayComponent() {
         const animations = model.animations;
         if (!animations || !animations.length) return;
         this.mixer = new window.THREE.AnimationMixer(model);
-        animations.forEach((clip: any) => this.mixer.clipAction(clip).play());
+        if (this.data.onlyIdle) {
+          const idleClip =
+            animations.find((clip: any) => /idle/i.test(clip.name)) ?? animations[0];
+          this.mixer.clipAction(idleClip).play();
+        } else {
+          animations.forEach((clip: any) => this.mixer.clipAction(clip).play());
+        }
       });
     },
     tick: function (this: any, _t: number, dt: number) {
@@ -581,14 +592,15 @@ export class ArEngine {
     if (!sceneRoot) return;
 
     const targetsHtml = this.config.targets
-      .map(
-        (t) => `
+      .map((t) => {
+        const onlyIdle = t.model.includes("homo-sapiens.glb");
+        return `
       <a-entity mindar-image-target="targetIndex: ${t.targetIndex}" data-target-key="${t.key}">
         <a-entity class="ar-model-wrapper" data-wrapper="${t.key}" scale="1 1 1" rotation="0 0 0">
-          <a-gltf-model src="${t.model}" position="0 0 0" autoplay-animations></a-gltf-model>
+          <a-gltf-model src="${t.model}" position="0 0 0" autoplay-animations="onlyIdle: ${onlyIdle}"></a-gltf-model>
         </a-entity>
-      </a-entity>`,
-      )
+      </a-entity>`;
+      })
       .join("");
 
     // CATATAN "tombol Enter VR nongol di HP": komponennya BUKAN `vr-mode-ui`.
