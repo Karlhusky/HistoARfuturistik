@@ -103,7 +103,7 @@
     {
       "id": "m2-4-0",
       "urutan": 5,
-      "kode": "3.4 / Delapan Bentuk Peninggalan",
+      "kode": "3.4 / Peninggalan Megalitik dan Situsnya",
       "layerColor": "#7a5c3e",
       "judul": "Delapan Bentuk Peninggalan Megalitik",
       "ringkasan": "Kepercayaan pada leluhur melahirkan tradisi mendirikan bangunan batu besar. Delapan bentuk peninggalan megalitik yang paling sering dijumpai di Nusantara, dari menhir sampai arca batu.",
@@ -145,7 +145,7 @@
     {
       "id": "m2-4-1",
       "urutan": 6,
-      "kode": "3.4 / Situs Sumatra",
+      "kode": "3.4.1 / Situs Sumatra",
       "layerColor": "#7a5c3e",
       "judul": "Situs Megalitik Sumatra: Nias & Pasemah",
       "ringkasan": "Dari barat Nusantara: tradisi megalitik yang masih hidup di Nias, dan patung-patung batu raksasa berumur 2.500 tahun di Pasemah, Sumatera Selatan.",
@@ -163,7 +163,7 @@
     {
       "id": "m2-4-3",
       "urutan": 7,
-      "kode": "3.4 / Situs Bali",
+      "kode": "3.4.2 / Situs Bali",
       "layerColor": "#7a5c3e",
       "judul": "Situs Megalitik Bali: Gilimanuk",
       "ringkasan": "Situs Gilimanuk di Bali menyimpan ratusan kubur batu dan sarkofagus, penanda peralihan antara Neolitikum akhir dan Perundagian awal.",
@@ -177,7 +177,7 @@
     {
       "id": "m2-4-5",
       "urutan": 8,
-      "kode": "3.4 / Situs Toraja",
+      "kode": "3.4.3 / Situs Toraja",
       "layerColor": "#7a5c3e",
       "judul": "Situs Megalitik Toraja",
       "ringkasan": "Tradisi megalitik Toraja, salah satu yang paling terkenal di dunia — batu Simbuang, makam tebing Londa dan Kete Kesu, serta tau-tau.",
@@ -198,11 +198,11 @@
       "konten": [
         {
           "judul": "Apa itu Animisme",
-          "isi": "Animisme adalah kepercayaan bahwa semua benda di alam, seperti pohon, batu, gunung, dan sungai, memiliki roh atau jiwa. Manusia praaksara meyakini roh-roh tersebut bisa memengaruhi kehidupan mereka, sehingga perlu dihormati agar tidak mengganggu."
+          "isi": "Animisme berasal dari kata Latin anima, “roh” atau “jiwa”. Kepercayaan ini meyakini bahwa setiap benda dan makhluk di alam — manusia, hewan, tumbuhan, batu besar, gunung, sungai, bahkan angin dan hujan — memiliki roh sendiri (Koentjaraningrat, 1985, hlm. 224–226). Roh leluhur yang sudah meninggal dipercaya masih memengaruhi kehidupan: jika dihormati lewat sesajen dan upacara, ia menjaga keturunannya; jika diabaikan, ia bisa mendatangkan penyakit atau bencana. Dari kepercayaan inilah lahir tradisi seperti upacara penguburan Rambu Solo di Toraja, sesajen di pohon tua, dan menhir sebagai tempat singgah roh leluhur."
         },
         {
           "judul": "Apa itu Dinamisme",
-          "isi": "Dinamisme adalah kepercayaan bahwa benda-benda tertentu, misalnya keris, nekara, atau batu besar, mengandung kekuatan gaib. Benda yang dianggap bertuah dipercaya bisa memberikan keselamatan atau keberhasilan bagi pemiliknya."
+          "isi": "Dinamisme berasal dari kata Yunani dynamis, “kekuatan” atau “daya”. Berbeda dari animisme yang percaya pada roh berkepribadian, dinamisme meyakini benda-benda tertentu — keris, batu akik, nekara perunggu, atau pusaka keluarga — mengandung kekuatan gaib tanpa kepribadian, lebih mirip energi (Soekmono, 1973, hlm. 66–70). Benda semacam ini dipercaya bisa memberi perlindungan dan kesembuhan, bahkan nekara dipercaya bisa memanggil hujan lewat bunyinya. Kepercayaan ini masih hidup lewat tradisi merawat pusaka, seperti jamasan keris di Jawa."
         },
         {
           "judul": "Hubungannya dengan Peninggalan Megalitik",
