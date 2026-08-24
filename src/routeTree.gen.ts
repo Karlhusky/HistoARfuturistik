@@ -10,14 +10,19 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as MateriIndexRouteImport } from './routes/materi/index'
-import { Route as QuizIdRouteImport } from './routes/quiz/$id'
-import { Route as MateriIdRouteImport } from './routes/materi/$id'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
+import { Route as MateriIndexRouteImport } from './routes/materi/index'
+import { Route as MateriIdRouteImport } from './routes/materi/$id'
+import { Route as QuizIdRouteImport } from './routes/quiz/$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiChatRoute = ApiChatRouteImport.update({
+  id: '/api/chat',
+  path: '/api/chat',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MateriIndexRoute = MateriIndexRouteImport.update({
@@ -25,19 +30,14 @@ const MateriIndexRoute = MateriIndexRouteImport.update({
   path: '/materi/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const QuizIdRoute = QuizIdRouteImport.update({
-  id: '/quiz/$id',
-  path: '/quiz/$id',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const MateriIdRoute = MateriIdRouteImport.update({
   id: '/materi/$id',
   path: '/materi/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiChatRoute = ApiChatRouteImport.update({
-  id: '/api/chat',
-  path: '/api/chat',
+const QuizIdRoute = QuizIdRouteImport.update({
+  id: '/quiz/$id',
+  path: '/quiz/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -88,18 +88,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/chat': {
+      id: '/api/chat'
+      path: '/api/chat'
+      fullPath: '/api/chat'
+      preLoaderRoute: typeof ApiChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/materi/': {
       id: '/materi/'
       path: '/materi'
       fullPath: '/materi/'
       preLoaderRoute: typeof MateriIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/quiz/$id': {
-      id: '/quiz/$id'
-      path: '/quiz/$id'
-      fullPath: '/quiz/$id'
-      preLoaderRoute: typeof QuizIdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/materi/$id': {
@@ -109,11 +109,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MateriIdRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/chat': {
-      id: '/api/chat'
-      path: '/api/chat'
-      fullPath: '/api/chat'
-      preLoaderRoute: typeof ApiChatRouteImport
+    '/quiz/$id': {
+      id: '/quiz/$id'
+      path: '/quiz/$id'
+      fullPath: '/quiz/$id'
+      preLoaderRoute: typeof QuizIdRouteImport
       parentRoute: typeof rootRouteImport
     }
   }

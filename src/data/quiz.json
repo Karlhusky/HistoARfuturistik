@@ -217,6 +217,63 @@
         "jawaban": 1
       }
     ],
+    "m2-4-0": [
+      {
+        "id": "m2-4-0q1",
+        "pertanyaan": "Batu tegak seperti tugu yang berfungsi sebagai penghormatan pada arwah disebut...",
+        "opsi": [
+          "Dolmen",
+          "Menhir",
+          "Sarkofagus",
+          "Waruga"
+        ],
+        "jawaban": 1
+      },
+      {
+        "id": "m2-4-0q2",
+        "pertanyaan": "Batu datar besar yang disangga beberapa batu tegak, berfungsi sebagai meja sesajen atau altar upacara, disebut...",
+        "opsi": [
+          "Menhir",
+          "Dolmen",
+          "Punden berundak",
+          "Peti kubur batu"
+        ],
+        "jawaban": 1
+      },
+      {
+        "id": "m2-4-0q3",
+        "pertanyaan": "Wadah jenazah yang dipahat dari satu batu utuh disebut...",
+        "opsi": [
+          "Waruga",
+          "Kubur berundak",
+          "Sarkofagus",
+          "Arca / patung batu"
+        ],
+        "jawaban": 2
+      },
+      {
+        "id": "m2-4-0q4",
+        "pertanyaan": "Kubur batu berbentuk kubus dengan tutup segitiga disebut...",
+        "opsi": [
+          "Punden berundak",
+          "Waruga",
+          "Peti kubur batu",
+          "Dolmen"
+        ],
+        "jawaban": 1
+      },
+      {
+        "id": "m2-4-0q5",
+        "pertanyaan": "Bangunan bertingkat yang berfungsi sebagai tempat pemujaan disebut...",
+        "opsi": [
+          "Punden berundak",
+          "Kubur berundak",
+          "Sarkofagus",
+          "Menhir"
+        ],
+        "jawaban": 0
+      }
+    ],
     "m2-4-1": [
       {
         "id": "m2-4-1q1",
@@ -263,52 +320,6 @@
         "jawaban": 0
       }
     ],
-    "m2-4-2": [
-      {
-        "id": "m2-4-2q1",
-        "pertanyaan": "Punden berundak terbesar di Asia Tenggara yang terdiri dari lima teras balok batu andesit berada di situs...",
-        "opsi": [
-          "Cipari",
-          "Gunung Padang",
-          "Pacitan",
-          "Matesih"
-        ],
-        "jawaban": 1
-      },
-      {
-        "id": "m2-4-2q2",
-        "pertanyaan": "Di situs Cipari, Kuningan, ditemukan peninggalan berupa...",
-        "opsi": [
-          "Peti kubur batu, menhir, dan bekas rumah panggung dari batu",
-          "Nekara perunggu raksasa",
-          "Waruga kubus",
-          "Sarkofagus berhias kepala hewan"
-        ],
-        "jawaban": 0
-      },
-      {
-        "id": "m2-4-2q3",
-        "pertanyaan": "Ditemukannya menhir dan dolmen berdampingan dengan Kebudayaan Pacitan Paleolitikum di sekitar Pacitan menunjukkan bahwa...",
-        "opsi": [
-          "Semua situs megalitik seumur",
-          "Satu wilayah bisa menyimpan lapisan-lapisan sejarah dari masa berburu sampai bercocok tanam",
-          "Pacitan hanya dihuni pada masa Perundagian",
-          "Menhir selalu dibuat sebelum manusia mengenal berburu"
-        ],
-        "jawaban": 1
-      },
-      {
-        "id": "m2-4-2q4",
-        "pertanyaan": "Gunung Padang secara administratif terletak di...",
-        "opsi": [
-          "Kuningan, Jawa Barat",
-          "Cianjur, Jawa Barat",
-          "Pacitan, Jawa Timur",
-          "Sragen, Jawa Tengah"
-        ],
-        "jawaban": 1
-      }
-    ],
     "m2-4-3": [
       {
         "id": "m2-4-3q1",
@@ -329,74 +340,6 @@
           "Neolitikum akhir dan Perundagian awal",
           "Perundagian dan zaman modern",
           "Mesolitikum dan Neolitikum"
-        ],
-        "jawaban": 1
-      },
-      {
-        "id": "m2-4-3q3",
-        "pertanyaan": "Kuburan batu besar yang berdiri di depan rumah adat di Sumba disebut...",
-        "opsi": [
-          "Reti",
-          "Waruga",
-          "Tau-tau",
-          "Daro-daro"
-        ],
-        "jawaban": 0
-      },
-      {
-        "id": "m2-4-3q4",
-        "pertanyaan": "Yang unik dari tradisi megalitik Sumba adalah...",
-        "opsi": [
-          "Sudah punah sejak ribuan tahun lalu",
-          "Tidak berhenti di masa lampau, tetapi terus berlangsung sampai abad ke-21",
-          "Hanya dipraktikkan sekali dalam seabad",
-          "Tidak melibatkan penguburan"
-        ],
-        "jawaban": 1
-      }
-    ],
-    "m2-4-4": [
-      {
-        "id": "m2-4-4q1",
-        "pertanyaan": "Ratusan arca menhir raksasa yang tersebar di padang rumput kawasan Taman Nasional Lore Lindu ditemukan di...",
-        "opsi": [
-          "Lembah Bada, Napu, dan Besoa",
-          "Toraja",
-          "Minahasa",
-          "Halmahera"
-        ],
-        "jawaban": 0
-      },
-      {
-        "id": "m2-4-4q2",
-        "pertanyaan": "Patung batu paling terkenal di Lembah Bada, setinggi hampir 4,5 meter, bernama...",
-        "opsi": [
-          "Tau-tau",
-          "Palindo",
-          "Simbuang",
-          "Reti"
-        ],
-        "jawaban": 1
-      },
-      {
-        "id": "m2-4-4q3",
-        "pertanyaan": "Waruga, kubur batu berbentuk kubus dengan tutup segitiga khas Minahasa, ditemukan terutama di daerah...",
-        "opsi": [
-          "Sawangan",
-          "Pagar Alam",
-          "Campaka",
-          "Kete Kesu"
-        ],
-        "jawaban": 0
-      },
-      {
-        "id": "m2-4-4q4",
-        "pertanyaan": "Jenazah dalam waruga dimasukkan dalam posisi duduk menghadap ke utara karena...",
-        "opsi": [
-          "Lebih mudah dipahat",
-          "Keyakinan lokal bahwa leluhur berasal dari arah tersebut",
-          "Aturan pemerintah kolonial",
-          "Mengikuti arah matahari terbenam"
         ],
         "jawaban": 1
       }
@@ -432,41 +375,6 @@
           "Kesinambungan tradisi leluhur hingga masa kini",
           "Pengaruh budaya asing modern",
           "Praktik yang baru muncul abad ke-20"
-        ],
-        "jawaban": 1
-      }
-    ],
-    "m2-4-6": [
-      {
-        "id": "m2-4-6q1",
-        "pertanyaan": "Jejak tradisi megalitik di Indonesia bagian timur, berupa batu tegak dan susunan batu, ditemukan menjangkau hingga...",
-        "opsi": [
-          "Toraja",
-          "Papua",
-          "Bali",
-          "Jawa Barat"
-        ],
-        "jawaban": 1
-      },
-      {
-        "id": "m2-4-6q2",
-        "pertanyaan": "Di Halmahera dan kawasan Maluku, jejak tradisi megalitik yang ditemukan antara lain berupa...",
-        "opsi": [
-          "Sarkofagus berhias kepala manusia",
-          "Kubur batu dan susunan batu terkait penghormatan leluhur",
-          "Nekara Bulan Pejeng",
-          "Punden berundak lima teras"
-        ],
-        "jawaban": 1
-      },
-      {
-        "id": "m2-4-6q3",
-        "pertanyaan": "Ditemukannya jejak megalitik di Papua dan Halmahera menunjukkan bahwa tradisi megalitik...",
-        "opsi": [
-          "Hanya berkembang di Jawa",
-          "Menyebar hingga ke ujung timur Nusantara, tidak hanya di bagian barat dan tengah",
-          "Tidak pernah sampai ke Indonesia timur",
-          "Berasal dari luar Nusantara"
         ],
         "jawaban": 1
       }
@@ -754,6 +662,28 @@
           "Homo floresiensis"
         ],
         "jawaban": 2
+      },
+      {
+        "id": "m3-3q6",
+        "pertanyaan": "Homo wajakensis digali oleh B.D. van Rietschoten pada tahun 1889 di daerah...",
+        "opsi": [
+          "Trinil, Ngawi, Jawa Timur",
+          "Wajak, Tulungagung, Jawa Timur",
+          "Ngandong, lembah Bengawan Solo",
+          "Sangiran, Sragen, Jawa Tengah"
+        ],
+        "jawaban": 1
+      },
+      {
+        "id": "m3-3q7",
+        "pertanyaan": "Homo soloensis ditemukan di daerah...",
+        "opsi": [
+          "Wajak, Tulungagung",
+          "Trinil, Ngawi",
+          "Ngandong, lembah Bengawan Solo",
+          "Liang Bua, Flores"
+        ],
+        "jawaban": 2
       }
     ],
     "m3-4": [
@@ -811,41 +741,6 @@
           "Homo floresiensis"
         ],
         "jawaban": 1
-      }
-    ],
-    "m3-5": [
-      {
-        "id": "m3-5q1",
-        "pertanyaan": "Situs Sangiran secara administratif terletak di Kabupaten...",
-        "opsi": [
-          "Ngawi, Jawa Timur",
-          "Sragen, Jawa Tengah",
-          "Tulungagung, Jawa Timur",
-          "Cianjur, Jawa Barat"
-        ],
-        "jawaban": 1
-      },
-      {
-        "id": "m3-5q2",
-        "pertanyaan": "Sangiran menjadi kunci untuk memahami evolusi manusia di Indonesia karena...",
-        "opsi": [
-          "Satu-satunya situs yang punya alat logam",
-          "Lapisan tanahnya menyimpan rentetan endapan yang membentang jutaan tahun secara lengkap dan berkesinambungan",
-          "Terletak paling dekat dengan laut",
-          "Hanya ditemukan fosil hewan, bukan manusia"
-        ],
-        "jawaban": 1
-      },
-      {
-        "id": "m3-5q3",
-        "pertanyaan": "Situs Sangiran ditetapkan sebagai Warisan Dunia UNESCO pada tahun...",
-        "opsi": [
-          "1972",
-          "1985",
-          "1996",
-          "2003"
-        ],
-        "jawaban": 2
       }
     ],
     "m3-0": [

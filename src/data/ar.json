@@ -454,6 +454,105 @@
       }
     ]
   },
+  "m2-4-0": {
+    "targetMind": "/assets/ar/targets/situs-megalitik/bentuk-peninggalan.mind",
+    "targets": [
+      {
+        "key": "Bentuk Peninggalan Megalitik",
+        "label": "Peninggalan Megalitik dan Situsnya di Nusantara",
+        "targetIndex": 0,
+        "model": "/assets/models/situs-megalitik/bentuk-peninggalan/menhir.glb",
+        "defaultView": {
+          "rotY": 0,
+          "zoom": 0.85
+        },
+        "introAudio": "/assets/audio/situs-megalitik/bentuk-peninggalan/intro.mp3",
+        "hotspots": [
+          {
+            "id": "menhir",
+            "label": "Menhir",
+            "model": "/assets/models/situs-megalitik/bentuk-peninggalan/menhir.glb",
+            "audio": "/assets/audio/situs-megalitik/bentuk-peninggalan/menhir.mp3",
+            "teks": "Fungsi: penghormatan pada arwah. Deskripsi singkat: batu tegak seperti tugu, biasanya...",
+            "view": {
+              "zoom": 0.85
+            }
+          },
+          {
+            "id": "dolmen",
+            "label": "Dolmen",
+            "model": "/assets/models/situs-megalitik/bentuk-peninggalan/dolmen.glb",
+            "audio": "/assets/audio/situs-megalitik/bentuk-peninggalan/dolmen.mp3",
+            "teks": "Fungsi: meja sesajen atau altar upacara. Deskripsi singkat: batu datar besar disangga beberapa...",
+            "view": {
+              "zoom": 0.85
+            }
+          },
+          {
+            "id": "sarkofagus",
+            "label": "Sarkofagus",
+            "model": "/assets/models/situs-megalitik/bentuk-peninggalan/sarkofagus.glb",
+            "audio": "/assets/audio/situs-megalitik/bentuk-peninggalan/sarkofagus.mp3",
+            "teks": "Fungsi: peti mati dari batu utuh. Deskripsi singkat: wadah jenazah yang dipahat dari...",
+            "view": {
+              "zoom": 0.85
+            }
+          },
+          {
+            "id": "kubur-berundak",
+            "label": "Kubur Berundak",
+            "model": "/assets/models/situs-megalitik/bentuk-peninggalan/kubur-berundak.glb",
+            "audio": "/assets/audio/situs-megalitik/bentuk-peninggalan/kubur-berundak.mp3",
+            "teks": "Fungsi: makam berjenjang. Deskripsi singkat: susunan batu bertingkat yang...",
+            "view": {
+              "zoom": 0.85
+            }
+          },
+          {
+            "id": "peti-kubur-batu",
+            "label": "Peti Kubur Batu",
+            "model": "/assets/models/situs-megalitik/bentuk-peninggalan/peti-kubur-batu.glb",
+            "audio": "/assets/audio/situs-megalitik/bentuk-peninggalan/peti-kubur-batu.mp3",
+            "teks": "Fungsi: wadah jenazah. Deskripsi singkat: kotak batu tersusun dari...",
+            "view": {
+              "zoom": 0.85
+            }
+          },
+          {
+            "id": "punden-berundak",
+            "label": "Punden Berundak",
+            "model": "/assets/models/situs-megalitik/bentuk-peninggalan/punden-berundak.glb",
+            "audio": "/assets/audio/situs-megalitik/bentuk-peninggalan/punden-berundak.mp3",
+            "teks": "Fungsi: tempat pemujaan. Deskripsi singkat: bangunan bertingkat mirip...",
+            "view": {
+              "zoom": 0.85
+            }
+          },
+          {
+            "id": "waruga",
+            "label": "Waruga",
+            "model": "/assets/models/situs-megalitik/bentuk-peninggalan/waruga.glb",
+            "audio": "/assets/audio/situs-megalitik/bentuk-peninggalan/waruga.mp3",
+            "teks": "Fungsi: kubur batu berbentuk kubus. Deskripsi singkat: batu berbentuk kubus dengan...",
+            "view": {
+              "zoom": 0.85
+            }
+          },
+          {
+            "id": "arca-patung",
+            "label": "Arca / Patung Batu",
+            "model": "/assets/models/situs-megalitik/bentuk-peninggalan/arca-patung.glb",
+            "audio": "/assets/audio/situs-megalitik/bentuk-peninggalan/arca-patung.mp3",
+            "teks": "Fungsi: perwujudan leluhur. Deskripsi singkat: patung leluhur atau hewan.",
+            "view": {
+              "zoom": 0.85
+            }
+          }
+        ]
+      }
+    ],
+    "maxZoom": 4
+  },
   "m2-4-1": {
     "targetMind": "/assets/ar/targets/situs-megalitik/sumatra.mind",
     "targets": [
@@ -493,51 +592,12 @@
     ],
     "maxZoom": 4
   },
-  "m2-4-2": {
-    "targetMind": "/assets/ar/targets/situs-megalitik/jawa.mind",
-    "targets": [
-      {
-        "key": "Situs Megalitik Jawa",
-        "label": "Situs Megalitik Jawa",
-        "targetIndex": 0,
-        "model": "/assets/models/situs-megalitik/jawa/jabar.glb",
-        "defaultView": {
-          "rotY": 0,
-          "zoom": 0.85
-        },
-        "introAudio": "/assets/audio/situs-megalitik/jawa/intro.mp3",
-        "hotspots": [
-          {
-            "id": "Jawa Barat",
-            "label": "Jawa Barat",
-            "model": "/assets/models/situs-megalitik/jawa/jabar.glb",
-            "audio": "/assets/audio/situs-megalitik/jawa/jabar.mp3",
-            "teks": "Punden berundak terbesar di Asia Tenggara berdiri di puncak bukit di Kecamatan Campaka. Situs ini terdiri dari lima teras yang tersusun dari balok-balok batu andesit panjang. Debat tentang usianya masih hangat di kalangan ahli, tetapi konsensus arkeologis menempatkannya sebagai warisan megalitik penting untuk memahami tradisi punden berundak di Nusantara.",
-            "view": {
-              "zoom": 0.85
-            }
-          },
-          {
-            "id": "Jawa Timur",
-            "label": "Jawa Timur",
-            "model": "/assets/models/situs-megalitik/jawa/jatim.glb",
-            "audio": "/assets/audio/situs-megalitik/jawa/jatim.mp3",
-            "teks": "Di sekitar Pacitan, selain Kebudayaan Pacitan Paleolitikum, ditemukan pula menhir dan dolmen berukuran sedang. Ini menunjukkan bahwa satu wilayah bisa menyimpan lapisan-lapisan sejarah dari masa berburu sampai bercocok tanam.",
-            "view": {
-              "zoom": 0.85
-            }
-          }
-        ]
-      }
-    ],
-    "maxZoom": 4
-  },
   "m2-4-3": {
     "targetMind": "/assets/ar/targets/situs-megalitik/bali.mind",
     "targets": [
       {
-        "key": "Situs Megalitik Bali dan Nusa Tenggara",
-        "label": "Situs Megalitik di Bali dan Nusa Tenggara",
+        "key": "Situs Megalitik Bali",
+        "label": "Situs Megalitik di Bali",
         "targetIndex": 0,
         "model": "/assets/models/situs-megalitik/bali-dan-nusa-tenggara/gilimanuk.glb",
         "defaultView": {
@@ -556,17 +616,6 @@
             "model": "/assets/models/situs-megalitik/bali-dan-nusa-tenggara/gilimanuk.glb",
             "audio": "/assets/audio/situs-megalitik/bali-dan-nusa-tenggara/gilimanuk.mp3",
             "teks": "Situs ini menyimpan ratusan kubur batu dan sarkofagus khas Bali dengan hiasan kepala manusia dan hewan. Bekal kubur berupa manik-manik dan perhiasan logam menunjukkan bahwa Gilimanuk adalah situs peralihan antara Neolitikum akhir dan Perundagian awal."
-          },
-          {
-            "id": "sumba",
-            "view": {
-              "rotY": 25,
-              "zoom": 0.85
-            },
-            "label": "Sumba",
-            "model": "/assets/models/situs-megalitik/bali-dan-nusa-tenggara/sumba.glb",
-            "audio": "/assets/audio/situs-megalitik/bali-dan-nusa-tenggara/sumba.mp3",
-            "teks": "Tradisi megalitik di Sumba juga masih hidup. Kuburan batu besar (reti) berdiri di depan rumah adat, dan penguburan bangsawan bisa memakan waktu berhari-hari dengan ritual yang rumit. Yang unik, tradisi ini tidak berhenti di masa lampau, tetapi terus berlangsung sampai abad ke-21."
           }
         ]
       }
@@ -718,47 +767,6 @@
       }
     ]
   },
-  "m2-4-4": {
-    "targetMind": "/assets/ar/targets/situs-megalitik/sulawesi.mind",
-    "targets": [
-      {
-        "key": "Situs Megalitik Sulawesi",
-        "label": "Situs Megalitik Sulawesi",
-        "targetIndex": 0,
-        "model": "/assets/models/situs-megalitik/sulawesi/lembah-bada-napu-besoa.glb",
-        "defaultView": {
-          "rotY": 0,
-          "zoom": 0.85
-        },
-        "introAudio": "/assets/audio/situs-megalitik/sulawesi/intro.mp3",
-        "hotspots": [
-          {
-            "id": "Lembah Bada",
-            "view": {
-              "rotY": 0,
-              "zoom": 1.02
-            },
-            "label": "Lembah Bada",
-            "model": "/assets/models/situs-megalitik/sulawesi/lembah-bada-napu-besoa.glb",
-            "audio": "/assets/audio/situs-megalitik/sulawesi/lembah-bada.mp3",
-            "teks": "Di kawasan Taman Nasional Lore Lindu, tepatnya di Lembah Bada, Napu, dan Besoa, tersebar sekitar 400 arca menhir batu berukuran raksasa di tengah padang rumput. Yang paling terkenal adalah Palindo, patung batu setinggi hampir 4,5 meter di Lembah Bada. Fungsinya masih diperdebatkan, tetapi kemungkinan besar menjadi penanda leluhur dan wilayah kekuasaan."
-          },
-          {
-            "id": "Waruga",
-            "view": {
-              "rotY": 25,
-              "zoom": 0.85
-            },
-            "label": "Waruga",
-            "model": "/assets/models/situs-megalitik/sulawesi/waruga.glb",
-            "audio": "/assets/audio/situs-megalitik/sulawesi/waruga.mp3",
-            "teks": "Di daerah Minahasa, Sulawesi Utara, terutama di Sawangan, terdapat waruga, yaitu kubur batu berbentuk kubus dengan tutup segitiga. Jenazah dimasukkan dalam posisi duduk dan menghadap ke utara, sesuai keyakinan lokal bahwa leluhur berasal dari arah tersebut."
-          }
-        ]
-      }
-    ],
-    "maxZoom": 4
-  },
   "m2-4-5": {
     "targetMind": "/assets/ar/targets/situs-megalitik/toraja.mind",
     "targets": [
@@ -782,47 +790,6 @@
             "model": "/assets/models/situs-megalitik/toraja/toraja.glb",
             "audio": "/assets/audio/situs-megalitik/toraja/toraja.mp3",
             "teks": "Tradisi megalitik Toraja adalah salah satu yang paling terkenal di dunia. Batu Simbuang didirikan pada upacara pemakaman Rambu Solo untuk mengenang orang yang meninggal. Makam-makam batu di Londa dan Kete Kesu berupa lubang batu yang dipahat di tebing, tempat menyimpan tau-tau (patung kayu yang menyerupai orang yang meninggal). Praktik penguburan dua tahap yang khas Perundagian masih hidup di Toraja sampai sekarang."
-          }
-        ]
-      }
-    ],
-    "maxZoom": 4
-  },
-  "m2-4-6": {
-    "targetMind": "/assets/ar/targets/situs-megalitik/papua.mind",
-    "targets": [
-      {
-        "key": "Situs Megalitik Indonesia Timur",
-        "label": "Situs Megalitik Indonesia Timur",
-        "targetIndex": 0,
-        "model": "/assets/models/situs-megalitik/indonesia-timur/papua.glb",
-        "defaultView": {
-          "rotY": 0,
-          "zoom": 0.85
-        },
-        "introAudio": "/assets/audio/situs-megalitik/indonesia-timur/intro.mp3",
-        "hotspots": [
-          {
-            "id": "Papua",
-            "view": {
-              "rotY": 0,
-              "zoom": 1.02
-            },
-            "label": "Papua",
-            "model": "/assets/models/situs-megalitik/indonesia-timur/papua.glb",
-            "audio": "/assets/audio/situs-megalitik/indonesia-timur/papua.mp3",
-            "teks": "Jejak tradisi megalitik di Indonesia bagian timur menjangkau hingga Papua. Berbagai bentuk batu seperti batu tegak dan susunan batu ditemukan sebagai bagian dari kebudayaan lokal yang menghubungkan manusia dengan leluhur dan alam sekitarnya."
-          },
-          {
-            "id": "Halmahera",
-            "view": {
-              "rotY": 20,
-              "zoom": 0.85
-            },
-            "label": "Halmahera",
-            "model": "/assets/models/situs-megalitik/indonesia-timur/halmahera.glb",
-            "audio": "/assets/audio/situs-megalitik/indonesia-timur/halmahera.mp3",
-            "teks": "Di Halmahera dan kawasan Maluku lainnya juga ditemukan jejak tradisi megalitik, berupa kubur batu dan susunan batu yang berkaitan dengan penghormatan leluhur. Temuan ini menunjukkan tradisi megalitik tidak hanya tumbuh di bagian barat dan tengah Indonesia, tetapi menyebar hingga ke ujung timur Nusantara."
           }
         ]
       }
@@ -862,6 +829,16 @@
             "model": "/assets/models/sistem-kepercayaan/apa-itu-dinamisme.glb",
             "audio": "/assets/audio/sistem-kepercayaan/apa-itu-dinamisme.mp3",
             "teks": "Dinamisme adalah kepercayaan bahwa benda-benda tertentu, misalnya keris, nekara, atau batu besar, mengandung kekuatan gaib. Benda yang dianggap bertuah dipercaya bisa memberikan keselamatan atau keberhasilan bagi pemiliknya."
+          },
+          {
+            "id": "hubungannya-dengan-peninggalan-megalitik",
+            "view": {
+              "zoom": 0.85
+            },
+            "label": "Hubungannya dengan Peninggalan Megalitik",
+            "model": "/assets/models/sistem-kepercayaan/hubungannya-dengan-peninggalan-megalitik.glb",
+            "audio": "/assets/audio/sistem-kepercayaan/hubungannya-dengan-peninggalan-megalitik.mp3",
+            "teks": "Kepercayaan pada leluhur melahirkan tradisi mendirikan bangunan batu besar. Menhir didirikan untuk menghormati arwah leluhur, dolmen menjadi meja sesajen, dan arca batu menggambarkan perwujudan leluhur. Upacara panjang untuk orang yang meninggal diadakan agar arwahnya selamat menuju alam leluhur. Sistem kepercayaan inilah yang mendasari semua peninggalan megalitik yang kalian pelajari sebelumnya."
           }
         ]
       }

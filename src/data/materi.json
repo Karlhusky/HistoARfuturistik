@@ -3,11 +3,15 @@
     {
       "id": "m1",
       "urutan": 1,
-      "kode": "1 / PERIODISASI",
+      "kode": "2 / PERIODISASI",
       "layerColor": "#8a7256",
       "judul": "Periodisasi Geologi: Bumi Sebelum Manusia",
       "ringkasan": "Bumi jauh lebih tua dari manusia. Empat zaman geologi menjelaskan bagaimana bumi bersiap menjadi rumah bagi kehidupan.",
       "konten": [
+        {
+          "judul": "Apa itu Praaksara",
+          "isi": "Praaksara berarti “sebelum tulisan”. Istilah lainnya adalah nirleka, dari bahasa Sanskerta (nir = tanpa, leka = tulisan). Zaman praaksara adalah masa saat manusia sudah hidup tetapi belum mengenal aksara (Poesponegoro & Notosusanto, 2010, hlm. 15). Tanpa tulisan, kita tidak bisa membaca surat, prasasti, atau kitab dari zaman itu. Yang tersisa hanya benda: batu, tulang, sampah dapur, cap tangan di dinding gua, dan fosil manusia purba. Dari benda-benda inilah arkeolog dan geolog menyusun cerita panjang leluhur kalian (Soejono, 2008, hlm. 107)."
+        },
         {
           "judul": "Empat Zaman Geologi",
           "isi": "Berdasarkan geologi, sejarah bumi dibagi ke dalam empat zaman. Arkaekum/Arkeozoikum (± 2.500 juta tahun lalu): zaman tertua, bumi masih sangat panas dan belum stabil, belum ada kehidupan. Paleozoikum/Zaman Primer (± 340 juta tahun lalu): tanda kehidupan mulai muncul — mikroorganisme, ikan, amfibi, reptil awal, invertebrata. Mesozoikum/Zaman Sekunder (± 140 juta tahun lalu): zaman reptil raksasa (dinosaurus), burung dan mamalia mulai muncul. Neozoikum/Zaman Hidup Baru (60 juta tahun lalu hingga kini): terbagi Tersier (mamalia menyusui berkembang pesat) dan Kuartier, zaman terpenting karena tanda kehidupan manusia mulai muncul sekitar 3 juta tahun lalu."
@@ -25,7 +29,7 @@
     {
       "id": "m2-1",
       "urutan": 2,
-      "kode": "2.1 / PALEOLITIKUM",
+      "kode": "3.1 / PALEOLITIKUM",
       "layerColor": "#7a5c3e",
       "judul": "Berburu-Meramu Tingkat Sederhana",
       "ringkasan": "Masa paling awal kehidupan manusia praaksara. Alam belum stabil, manusia bertahan dengan berburu, meramu, dan berpindah-pindah tempat.",
@@ -47,7 +51,7 @@
     {
       "id": "m2-2",
       "urutan": 3,
-      "kode": "2.2 / Mesolitikum",
+      "kode": "3.2 / Mesolitikum",
       "layerColor": "#7a5c3e",
       "judul": "Masa Berburu dan Mengumpulkan Makanan Tingkat Lanjut",
       "ringkasan": "Pola hidup pada masa ini masih terpengaruh masa sebelumnya. Manusia masih berburu, masih meramu, masih berpindah dari satu gua ke gua lain. Tetapi ada perubahan penting: mereka mulai menetap lebih lama.",
@@ -73,7 +77,7 @@
     {
       "id": "m2-3",
       "urutan": 4,
-      "kode": "2.3 / Neolitikum",
+      "kode": "3.3 / Neolitikum",
       "layerColor": "#7a5c3e",
       "judul": "Masa Bercocok Tanam",
       "ringkasan": "Ini adalah masa paling penting dalam sejarah manusia praaksara. Peralihan dari berburu-meramu ke bercocok tanam berlangsung lama, tetapi dampaknya mengubah segalanya. Secara arkeologis, masa ini disebut Neolitikum.",
@@ -97,12 +101,54 @@
       ]
     },
     {
-      "id": "m2-4-1",
+      "id": "m2-4-0",
       "urutan": 5,
-      "kode": "2.4.1 / Megalitik Sumatera",
+      "kode": "3.4 / Delapan Bentuk Peninggalan",
       "layerColor": "#7a5c3e",
-      "judul": "Situs Megalitik di Sumatera",
-      "ringkasan": "Dua situs megalitik utama di Sumatera: tradisi hidup di Nias dan patung-patung raksasa Pasemah di lereng Bukit Barisan.",
+      "judul": "Delapan Bentuk Peninggalan Megalitik",
+      "ringkasan": "Kepercayaan pada leluhur melahirkan tradisi mendirikan bangunan batu besar. Delapan bentuk peninggalan megalitik yang paling sering dijumpai di Nusantara, dari menhir sampai arca batu.",
+      "konten": [
+        {
+          "judul": "Menhir",
+          "isi": "Fungsi: penghormatan pada arwah. Deskripsi singkat: batu tegak seperti tugu, biasanya..."
+        },
+        {
+          "judul": "Dolmen",
+          "isi": "Fungsi: meja sesajen atau altar upacara. Deskripsi singkat: batu datar besar disangga beberapa..."
+        },
+        {
+          "judul": "Sarkofagus",
+          "isi": "Fungsi: peti mati dari batu utuh. Deskripsi singkat: wadah jenazah yang dipahat dari..."
+        },
+        {
+          "judul": "Kubur Berundak",
+          "isi": "Fungsi: makam berjenjang. Deskripsi singkat: susunan batu bertingkat yang..."
+        },
+        {
+          "judul": "Peti Kubur Batu",
+          "isi": "Fungsi: wadah jenazah. Deskripsi singkat: kotak batu tersusun dari..."
+        },
+        {
+          "judul": "Punden Berundak",
+          "isi": "Fungsi: tempat pemujaan. Deskripsi singkat: bangunan bertingkat mirip..."
+        },
+        {
+          "judul": "Waruga",
+          "isi": "Fungsi: kubur batu berbentuk kubus. Deskripsi singkat: batu berbentuk kubus dengan..."
+        },
+        {
+          "judul": "Arca / Patung Batu",
+          "isi": "Fungsi: perwujudan leluhur. Deskripsi singkat: patung leluhur atau hewan."
+        }
+      ]
+    },
+    {
+      "id": "m2-4-1",
+      "urutan": 6,
+      "kode": "3.4 / Situs Sumatra",
+      "layerColor": "#7a5c3e",
+      "judul": "Situs Megalitik Sumatra: Nias & Pasemah",
+      "ringkasan": "Dari barat Nusantara: tradisi megalitik yang masih hidup di Nias, dan patung-patung batu raksasa berumur 2.500 tahun di Pasemah, Sumatera Selatan.",
       "konten": [
         {
           "judul": "Nias (Sumatera Utara)",
@@ -115,70 +161,26 @@
       ]
     },
     {
-      "id": "m2-4-2",
-      "urutan": 6,
-      "kode": "2.4.2 / Megalitik Jawa",
-      "layerColor": "#7a5c3e",
-      "judul": "Situs Megalitik di Jawa",
-      "ringkasan": "Dari punden berundak raksasa Gunung Padang sampai lapisan sejarah yang bertumpuk di sekitar Pacitan.",
-      "konten": [
-        {
-          "judul": "Gunung Padang (Cianjur, Jawa Barat)",
-          "isi": "Punden berundak terbesar di Asia Tenggara berdiri di puncak bukit di Kecamatan Campaka. Situs ini terdiri dari lima teras yang tersusun dari balok-balok batu andesit panjang. Debat tentang usianya masih hangat di kalangan ahli, tetapi konsensus arkeologis menempatkannya sebagai warisan megalitik penting untuk memahami tradisi punden berundak di Nusantara (Yondri, 2014, hlm. 12–18)."
-        },
-        {
-          "judul": "Cipari (Kuningan, Jawa Barat)",
-          "isi": "Situs ini memperlihatkan bagaimana manusia Neolitikum sampai awal Perundagian tinggal berdampingan dengan tradisi megalitiknya. Ditemukan peti kubur batu, menhir, dan bekas rumah panggung dari batu."
-        },
-        {
-          "judul": "Situs Matesih dan Pacitan (Jawa Tengah dan Jawa Timur)",
-          "isi": "Di sekitar Pacitan, selain Kebudayaan Pacitan Paleolitikum, ditemukan pula menhir dan dolmen berukuran sedang. Ini menunjukkan bahwa satu wilayah bisa menyimpan lapisan-lapisan sejarah dari masa berburu sampai bercocok tanam."
-        }
-      ]
-    },
-    {
       "id": "m2-4-3",
       "urutan": 7,
-      "kode": "2.4.3 / Megalitik Bali & Nusa Tenggara",
+      "kode": "3.4 / Situs Bali",
       "layerColor": "#7a5c3e",
-      "judul": "Situs Megalitik di Bali dan Nusa Tenggara",
-      "ringkasan": "Sarkofagus khas Gilimanuk di Bali dan tradisi kubur batu Sumba yang masih hidup sampai sekarang.",
+      "judul": "Situs Megalitik Bali: Gilimanuk",
+      "ringkasan": "Situs Gilimanuk di Bali menyimpan ratusan kubur batu dan sarkofagus, penanda peralihan antara Neolitikum akhir dan Perundagian awal.",
       "konten": [
         {
           "judul": "Gilimanuk (Bali)",
           "isi": "Situs ini menyimpan ratusan kubur batu dan sarkofagus khas Bali dengan hiasan kepala manusia dan hewan. Bekal kubur berupa manik-manik dan perhiasan logam menunjukkan bahwa Gilimanuk adalah situs peralihan antara Neolitikum akhir dan Perundagian awal (Soejono, 2008, hlm. 192–196)."
-        },
-        {
-          "judul": "Sumba",
-          "isi": "Tradisi megalitik di Sumba juga masih hidup. Kuburan batu besar (reti) berdiri di depan rumah adat, dan penguburan bangsawan bisa memakan waktu berhari-hari dengan ritual yang rumit. Yang unik, tradisi ini tidak berhenti di masa lampau, tetapi terus berlangsung sampai abad ke-21."
-        }
-      ]
-    },
-    {
-      "id": "m2-4-4",
-      "urutan": 8,
-      "kode": "2.4.4 / Megalitik Sulawesi",
-      "layerColor": "#7a5c3e",
-      "judul": "Situs Megalitik di Sulawesi",
-      "ringkasan": "Ratusan arca menhir raksasa di Lembah Bada, Napu, dan Besoa, serta kubur batu waruga khas Minahasa.",
-      "konten": [
-        {
-          "judul": "Lembah Bada, Lembah Napu, dan Lembah Besoa (Sulawesi Tengah)",
-          "isi": "Ketiga lembah ini berada di kawasan Taman Nasional Lore Lindu. Di sana kalian akan menemukan sekitar 400 patung batu (arca menhir) berukuran raksasa yang tersebar di padang rumput. Yang paling terkenal adalah Palindo, patung batu setinggi hampir 4,5 meter di Lembah Bada. Fungsi pastinya masih diperdebatkan, tetapi kemungkinan besar berfungsi sebagai penanda leluhur dan wilayah kekuasaan (Kaudern dalam Poesponegoro & Notosusanto, 2010, hlm. 197–198)."
-        },
-        {
-          "judul": "Waruga (Sulawesi Utara)",
-          "isi": "Di daerah Minahasa, terutama di Sawangan, kalian akan menemukan waruga: kubur batu berbentuk kubus dengan tutup segitiga. Jenazah dimasukkan dalam posisi duduk, menghadap ke utara sesuai keyakinan lokal bahwa leluhur berasal dari sana."
         }
       ]
     },
     {
       "id": "m2-4-5",
-      "urutan": 9,
-      "kode": "2.4.5 / Megalitik Toraja",
+      "urutan": 8,
+      "kode": "3.4 / Situs Toraja",
       "layerColor": "#7a5c3e",
-      "judul": "Situs Megalitik di Tana Toraja",
-      "ringkasan": "Salah satu tradisi megalitik paling terkenal di dunia, dengan upacara pemakaman Rambu Solo dan makam tebing yang masih hidup sampai sekarang.",
+      "judul": "Situs Megalitik Toraja",
+      "ringkasan": "Tradisi megalitik Toraja, salah satu yang paling terkenal di dunia — batu Simbuang, makam tebing Londa dan Kete Kesu, serta tau-tau.",
       "konten": [
         {
           "judul": "Toraja",
@@ -187,27 +189,9 @@
       ]
     },
     {
-      "id": "m2-4-6",
-      "urutan": 10,
-      "kode": "2.4.6 / Megalitik Indonesia Timur",
-      "layerColor": "#7a5c3e",
-      "judul": "Situs Megalitik di Indonesia Timur",
-      "ringkasan": "Jejak tradisi megalitik di Papua dan Halmahera.",
-      "konten": [
-        {
-          "judul": "Papua",
-          "isi": "Jejak tradisi megalitik di Indonesia bagian timur menjangkau hingga Papua. Berbagai bentuk batu seperti batu tegak dan susunan batu ditemukan sebagai bagian dari kebudayaan lokal yang menghubungkan manusia dengan leluhur dan alam sekitarnya (Rumansara, 2015, hlm. 47–58)."
-        },
-        {
-          "judul": "Halmahera dan Kawasan Maluku",
-          "isi": "Di Halmahera dan kawasan Maluku lainnya juga ditemukan jejak tradisi megalitik, antara lain berupa kubur batu dan susunan batu yang berkaitan dengan penghormatan leluhur. Temuan-temuan ini menunjukkan tradisi megalitik tidak hanya tumbuh di bagian barat dan tengah Indonesia, tetapi menyebar hingga ke ujung timur Nusantara."
-        }
-      ]
-    },
-    {
       "id": "m2-5",
-      "urutan": 11,
-      "kode": "2.5 / Sistem Kepercayaan",
+      "urutan": 9,
+      "kode": "3.5 / Sistem Kepercayaan",
       "layerColor": "#7a5c3e",
       "judul": "Sistem Kepercayaan: Animisme dan Dinamisme",
       "ringkasan": "Semua peninggalan megalitik di atas tidak berdiri sendiri. Di baliknya ada sistem kepercayaan yang mendasari kenapa manusia praaksara sampai bersusah payah memindahkan batu-batu besar, mendirikan menhir setinggi tiga meter, dan mengadakan upacara panjang untuk orang mati.",
@@ -228,8 +212,8 @@
     },
     {
       "id": "m2-6",
-      "urutan": 12,
-      "kode": "2.6 / Zaman Logam",
+      "urutan": 10,
+      "kode": "3.6 / Zaman Logam",
       "layerColor": "#7a5c3e",
       "judul": "Masa Perundagian",
       "ringkasan": "Masa Perundagian diperkirakan adalah masa akhir dari zaman praaksara. Nama “perundagian” berasal dari kata undagi dalam bahasa Bali, yang berarti seseorang atau kelompok orang yang memiliki keterampilan khusus, misalnya membuat gerabah, perhiasan, kayu, sampan, atau batu. Secara arkeologis, masa ini disebut Zaman Logam.",
@@ -258,8 +242,8 @@
     },
     {
       "id": "m3-0",
-      "urutan": 13,
-      "kode": "3.0 / Ragam Temuan",
+      "urutan": 11,
+      "kode": "4 / Ragam Temuan",
       "layerColor": "#7a5c3e",
       "judul": "Ragam Temuan Manusia Purba di Indonesia: Bukti, Rekonstruksi, dan Perdebatan",
       "ringkasan": "Sebelum bertemu Meganthropus, Pithecanthropus, dan Homo Sapiens satu per satu, kenali dulu bagaimana bukti mereka ditemukan, dibaca, dan diperdebatkan para ahli.",
@@ -308,8 +292,8 @@
     },
     {
       "id": "m3-1",
-      "urutan": 14,
-      "kode": "3.1 / Manusia Raksasa Dari Jawa",
+      "urutan": 12,
+      "kode": "4.1 / Manusia Raksasa Dari Jawa",
       "judul": "Meganthropus Paleojavanicus",
       "ringkasan": "Mengenal manusia purba tertua yang fosilnya ditemukan di Sangiran beserta ciri fisik dan cara hidupnya.",
       "layerColor": "#8B5E3C",
@@ -334,8 +318,8 @@
     },
     {
       "id": "m3-2",
-      "urutan": 15,
-      "kode": "3.2 / PITHECANTHROPUS",
+      "urutan": 13,
+      "kode": "4.2 / PITHECANTHROPUS",
       "layerColor": "#7a6a52",
       "judul": "Pithecanthropus Erectus",
       "ringkasan": "Manusia purba yang ditemukan Eugène Dubois tahun 1891 di Trinil - salah satu 'missing link' paling terkenal dalam sejarah evolusi manusia.",
@@ -343,17 +327,25 @@
         {
           "judul": "Penemuan yang Menggegerkan Dunia",
           "isi": "Sekitar 1 juta tahun lalu, ketika Meganthropus mulai menghilang, muncul jenis manusia purba yang lebih maju. Namanya Pithecanthropus erectus, artinya “manusia kera yang berjalan tegak”. Ia ditemukan pertama kali oleh Eugène Dubois, seorang dokter Belanda, tahun 1891 di Trinil, tepi Bengawan Solo, Ngawi, Jawa Timur. Temuan Dubois menggegerkan dunia sains akhir abad ke-19 karena Pithecanthropus dianggap salah satu “missing link” antara kera dan manusia (Simanjuntak, 2016, hlm. 71–75)."
+        },
+        {
+          "judul": "Kebudayaan Pacitan dan Variasinya di Indonesia",
+          "isi": "Pithecanthropus dianggap sebagai pembuat Kebudayaan Pacitan, dengan alat batu kasar seperti kapak genggam dan kapak perimbas. Jenis Pithecanthropus di Indonesia bervariasi. Selain Pithecanthropus erectus di Trinil, ada juga Pithecanthropus mojokertensis (ditemukan di Mojokerto) dan Pithecanthropus soloensis yang ditemukan di daerah Ngandong dan sekitar Bengawan Solo (Poesponegoro & Notosusanto, 2010, hlm. 118–124)."
         }
       ]
     },
     {
       "id": "m3-3",
-      "urutan": 16,
-      "kode": "3.3 / Homo Sapiens",
+      "urutan": 14,
+      "kode": "4.3 / Homo Sapiens",
       "layerColor": "#7a5c3e",
       "judul": "Homo Sapiens",
       "ringkasan": "Sekitar 40.000 sampai 60.000 tahun lalu, jenis manusia yang wajahnya lebih mirip kalian mulai menghuni Nusantara. Namanya Homo sapiens, artinya “manusia yang bijak”. Ini adalah nenek moyang langsung kalian.",
       "konten": [
+        {
+          "judul": "Temuan Penting di Indonesia",
+          "isi": "Di Indonesia, ada beberapa temuan penting jenis Homo sapiens purba. Homo wajakensis, digali oleh B.D. van Rietschoten tahun 1889 di daerah Wajak, Tulungagung, Jawa Timur. Homo soloensis, ditemukan di daerah Ngandong, di lembah Bengawan Solo."
+        },
         {
           "judul": "Ciri Fisik",
           "isi": "Ciri fisik.\n• Tinggi kurang lebih 1,73 m, postur ramping.\n• Volume otak 1.300 sampai 1.450 cc (hampir dua kali lipat Pithecanthropus).\n• Wajah lebih rata.\n• Dahi tegak, tidak miring ke belakang.\n• Tulang alis tipis.\n• Sudah punya dagu."
@@ -366,8 +358,8 @@
     },
     {
       "id": "m3-4",
-      "urutan": 17,
-      "kode": "3.4 / Tabel Perbandingan",
+      "urutan": 15,
+      "kode": "4.4 / Tabel Perbandingan",
       "layerColor": "#7a5c3e",
       "judul": "Tabel Rangkuman Tiga Jenis Manusia Purba",
       "ringkasan": "Perbandingan Meganthropus paleojavanicus, Pithecanthropus erectus, dan Homo Sapiens (Wajakensis).",
@@ -383,24 +375,6 @@
         {
           "judul": "Homo Sapiens",
           "isi": "Manusia yang bijak, jenis yang wajahnya paling mirip manusia modern, muncul sekitar 40.000 sampai 60.000 tahun lalu. Temuan pentingnya di Indonesia antara lain Homo wajakensis dari Tulungagung dan Homo soloensis dari Ngandong. Volume otaknya 1.300 sampai 1.450 cc. Kebudayaannya paling beragam: melukis di dinding gua, membuat alat batu dan tulang yang halus, bercocok tanam, melebur logam, sampai berlayar antarpulau."
-        }
-      ]
-    },
-    {
-      "id": "m3-5",
-      "urutan": 18,
-      "kode": "3.5 / Sangiran",
-      "layerColor": "#7a5c3e",
-      "judul": "Sangiran: Rumah Para Manusia Purba, Warisan Dunia UNESCO",
-      "ringkasan": "Kalian sudah bertemu Meganthropus dan Pithecanthropus lewat AR. Sekarang saatnya kalian tahu di mana mereka “tinggal”. Semua fosil manusia purba paling penting di Indonesia digali dari satu wilayah yang sama: Situs Sangiran. Sangiran bukan cuma penting untuk Indonesia, tetapi diakui dunia sebagai salah satu situs paleoantropologi paling berharga di planet ini.",
-      "konten": [
-        {
-          "judul": "Mengapa Sangiran Istimewa",
-          "isi": "Lapisan tanah Sangiran di Kabupaten Sragen, Jawa Tengah, menyimpan rentetan endapan yang membentang jutaan tahun. Lapisan inilah yang mengawetkan fosil-fosil penting seperti Meganthropus paleojavanicus dan Pithecanthropus, bersama sisa-sisa binatang purba dan alat batu. Karena begitu lengkap dan berkesinambungan, Sangiran menjadi kunci untuk memahami perjalanan evolusi manusia di Indonesia (Widianto & Simanjuntak, 2009)."
-        },
-        {
-          "judul": "Warisan Dunia UNESCO (1996)",
-          "isi": "Pada tahun 1996, Situs Sangiran ditetapkan sebagai Warisan Dunia UNESCO. Pengakuan ini menjadikan Sangiran salah satu situs paleoantropologi paling berharga di dunia, setara dengan situs-situs manusia purba penting lainnya (UNESCO, 1996)."
         }
       ]
     }
