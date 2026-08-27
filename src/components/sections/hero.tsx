@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { MeganthropusViewer } from "@/components/viewer/MeganthropusViewer";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -13,25 +14,15 @@ export function Hero() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from(".hero-anim", {
-        y: 40,
+        y: 24,
         opacity: 0,
-        duration: 1.2,
-        ease: "power3.out",
-        stagger: 0.12,
-      });
-      gsap.to(".hero-parallax", {
-        yPercent: -30,
-        ease: "none",
-        scrollTrigger: {
-          trigger: rootRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
-        },
+        duration: 0.9,
+        ease: "power2.out",
+        stagger: 0.1,
       });
       gsap.to(".hero-fade", {
         opacity: 0,
-        y: -60,
+        y: -40,
         ease: "none",
         scrollTrigger: {
           trigger: rootRef.current,
@@ -47,45 +38,69 @@ export function Hero() {
   return (
     <section
       ref={rootRef}
-      className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 pt-32"
+      className="relative flex min-h-screen items-center overflow-hidden pb-16 pt-32"
     >
-      <div className="hero-parallax pointer-events-none absolute inset-0">
-        <div className="absolute left-1/2 top-1/2 h-[80vmin] w-[80vmin] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10" />
-        <div className="absolute left-1/2 top-1/2 h-[60vmin] w-[60vmin] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10" />
-        <div className="absolute left-1/2 top-1/2 h-[40vmin] w-[40vmin] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10" />
+      {/* Nomor katalog raksasa: motif arsip, bukan dekorasi acak. */}
+      <div
+        aria-hidden
+        className="hero-fade pointer-events-none absolute -top-10 right-0 select-none font-display text-[26vw] font-medium leading-none text-transparent sm:text-[20vw]"
+        style={{ WebkitTextStroke: "1px oklch(1 0 0 / 0.06)" }}
+      >
+        01
       </div>
 
-      <div className="hero-fade relative z-10 mx-auto max-w-5xl text-center">
-        <div className="hero-anim mx-auto mb-6 inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs">
-          <span className="h-1.5 w-1.5 rounded-full bg-holo shadow-holo" />
-          <span className="text-muted-foreground">
-            WebAR kini hadir di HistoAR
-          </span>
+      <div className="hero-fade relative z-10 grid w-full items-center gap-y-14 lg:grid-cols-[minmax(0,1fr)_44vw]">
+        <div className="px-6 lg:pl-6 lg:pr-0 xl:pl-12">
+          <div className="hero-anim catalog-label text-accent-foreground">
+            Arsip Digital · Prasejarah Indonesia
+          </div>
+          <h1 className="hero-anim mt-5 max-w-xl font-display text-6xl font-medium leading-[1.02] tracking-tight sm:text-7xl">
+            Sejarah yang bisa
+            <br />
+            kamu <span className="text-primary">bongkar sendiri</span>.
+          </h1>
+          <p className="hero-anim drop-cap mt-7 max-w-md text-base leading-relaxed text-muted-foreground sm:text-lg">
+            HistoAR menyusun manusia purba, situs megalitik, dan periodisasi
+            zaman Indonesia seperti katalog museum, lalu membiarkanmu
+            memeriksanya langsung lewat augmented reality, satu lapisan pada
+            satu waktu.
+          </p>
+          <div className="hero-anim mt-9 flex flex-wrap items-center gap-6">
+            <Link
+              to="/materi"
+              className="rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground transition hover:bg-primary/90"
+            >
+              Mulai Pengalaman
+            </Link>
+            <a
+              href="#experience"
+              className="text-sm font-medium text-foreground underline decoration-border underline-offset-8 transition hover:decoration-primary"
+            >
+              Jelajahi Lini Masa →
+            </a>
+          </div>
         </div>
-        <h1 className="hero-anim font-display text-5xl font-semibold leading-[1.05] tracking-tight sm:text-7xl md:text-8xl">
-          Sejarah,
-          <br />
-          Hadir Dalam <span className="text-holo">Dunia Nyata</span>.
-        </h1>
-        <p className="hero-anim mx-auto mt-6 max-w-2xl text-base text-muted-foreground sm:text-lg">
-         HistoAR adalah platform pembelajaran imersif yang menghadirkan masa lalu ke hadapan Anda melalui teknologi Augmented Reality. 
-         Jelajahi periodisasi bumi, amati manusia purba dan diorama interaktif, serta biarkan HistoAI memandu perjalanan belajar Anda
-         langsung dari peramban, tanpa perlu menginstal aplikasi.
-        </p>
-        <div className="hero-anim mt-10 flex flex-wrap items-center justify-center gap-3">
-          <Link
-            to="/materi"
-            className="group relative overflow-hidden rounded-full bg-holo px-6 py-3 text-sm font-semibold text-primary-foreground shadow-holo transition hover:scale-[1.02]"
-          >
-            <span className="relative z-10">Mulai Pengalaman</span>
-            <span className="shimmer absolute inset-0" />
-          </Link>
-          <a
-            href="#experience"
-            className="rounded-full glass px-6 py-3 text-sm font-medium transition hover:bg-white/10"
-          >
-            Jelajahi Garis Waktu →
-          </a>
+
+        {/* Panel model 3D sengaja bleed ke tepi kanan viewport: breakout dari
+            grid simetris, bukan card yang dikurung padding di semua sisi. */}
+        <div className="hero-anim relative -mt-6 lg:mt-0">
+          <div
+            className="absolute inset-0 -z-10 blur-3xl"
+            style={{
+              background:
+                "radial-gradient(55% 55% at 60% 40%, oklch(0.58 0.09 175 / 0.16), transparent 70%)",
+            }}
+            aria-hidden
+          />
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-l-[2.5rem] border-y border-l border-border bg-card">
+            <MeganthropusViewer />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-card via-card/70 to-transparent p-6 pt-12 sm:p-8">
+              <div className="catalog-label text-accent-foreground">Spesimen 01</div>
+              <div className="mt-1 font-display text-xl font-medium">
+                Meganthropus Paleojavanicus
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

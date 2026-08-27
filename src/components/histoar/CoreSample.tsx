@@ -27,12 +27,12 @@ export function CoreSample({ currentMateriId }: { currentMateriId?: string | nul
         return (
           <span
             key={m.id}
-            title={`${m.kode} — ${m.judul}`}
-            className={`h-2 w-6 rounded-full transition-all duration-300 ${
+            title={`${m.kode} · ${m.judul}`}
+            className={`h-1.5 w-6 rounded-full transition-all duration-300 ${
               isDone
-                ? "shadow-holo"
+                ? "hairline"
                 : isCurrent
-                  ? "animate-pulse-ring"
+                  ? "animate-pulse hairline"
                   : "opacity-30"
             }`}
             style={{ backgroundColor: isDone || isCurrent ? m.layerColor : undefined, background: isDone || isCurrent ? m.layerColor : "oklch(1 0 0 / 0.1)" }}

@@ -170,14 +170,14 @@ export function ArScan({
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-background">
-      <header className="glass fixed inset-x-0 top-0 z-30 flex items-center gap-4 px-4 py-3">
+      <header className="hairline fixed inset-x-0 top-0 z-30 flex items-center gap-4 bg-background/85 px-4 py-3 backdrop-blur-sm">
         <button
           onClick={() => navigate({ to: "/materi" })}
           className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
         >
           <ChevronLeft className="h-4 w-4" /> Kembali
         </button>
-        <h1 className="font-display text-sm font-semibold">{materiJudul}</h1>
+        <h1 className="font-display text-sm font-medium">{materiJudul}</h1>
         <button
           onClick={restartCamera}
           className="ml-auto flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
@@ -189,7 +189,7 @@ export function ArScan({
       <div id="arSceneRoot" className="ar-scene-root fixed inset-0" />
 
       {modelError && (
-        <div className="glass-strong fixed left-1/2 top-20 z-30 -translate-x-1/2 rounded-2xl px-4 py-2 text-center font-mono text-xs text-destructive">
+        <div className="hairline fixed left-1/2 top-20 z-30 -translate-x-1/2 rounded-2xl bg-card px-4 py-2 text-center font-mono text-xs text-destructive">
           {modelError}
           <br />
           Cek console browser untuk detail error, atau tap &quot;Kamera bermasalah?&quot; buat coba lagi.
@@ -206,7 +206,7 @@ export function ArScan({
       )}
 
       {scanHintVisible && ready && (
-        <div id="arScanHint" className="glass fixed left-1/2 top-20 z-20 -translate-x-1/2 rounded-full px-4 py-2 font-mono text-xs text-muted-foreground">
+        <div id="arScanHint" className="hairline fixed left-1/2 top-20 z-20 -translate-x-1/2 rounded-full bg-background/85 px-4 py-2 text-xs text-muted-foreground backdrop-blur-sm">
           Arahkan kamera ke gambar target di buku/kartu
         </div>
       )}
@@ -217,7 +217,7 @@ export function ArScan({
         hidden={!reopenVisible}
         onClick={() => engineRef.current?.reopenPanel()}
         aria-label="Buka info lagi"
-        className="glass fixed bottom-24 right-4 z-20 flex h-11 w-11 items-center justify-center rounded-full"
+        className="hairline fixed bottom-24 right-4 z-20 flex h-11 w-11 items-center justify-center rounded-full bg-background/85 backdrop-blur-sm"
       >
         <Info className="h-5 w-5" />
       </button>
@@ -227,20 +227,20 @@ export function ArScan({
       <div
         id="arViewControls"
         hidden={!showViewControls}
-        className="glass fixed right-4 top-1/2 z-20 flex -translate-y-1/2 flex-col gap-2 rounded-2xl p-2"
+        className="hairline fixed right-4 top-1/2 z-20 flex -translate-y-1/2 flex-col gap-2 rounded-2xl bg-background/85 p-2 backdrop-blur-sm"
       >
-        <button id="btnZoomIn" onClick={() => engineRef.current?.zoomIn()} aria-label="Perbesar model" className="flex h-10 w-10 items-center justify-center rounded-xl hover:bg-white/10">
+        <button id="btnZoomIn" onClick={() => engineRef.current?.zoomIn()} aria-label="Perbesar model" className="flex h-10 w-10 items-center justify-center hover:bg-white/10">
           <Plus className="h-5 w-5" />
         </button>
-        <button id="btnZoomOut" onClick={() => engineRef.current?.zoomOut()} aria-label="Perkecil model" className="flex h-10 w-10 items-center justify-center rounded-xl hover:bg-white/10">
+        <button id="btnZoomOut" onClick={() => engineRef.current?.zoomOut()} aria-label="Perkecil model" className="flex h-10 w-10 items-center justify-center hover:bg-white/10">
           <Minus className="h-5 w-5" />
         </button>
-        <div className="mx-1 my-0.5 h-px bg-white/10" />
-        <button id="btnResetView" onClick={() => engineRef.current?.resetView()} aria-label="Reset tampilan" className="flex h-10 w-10 items-center justify-center rounded-xl hover:bg-white/10">
+        <div className="mx-1 my-0.5 h-px bg-border" />
+        <button id="btnResetView" onClick={() => engineRef.current?.resetView()} aria-label="Reset tampilan" className="flex h-10 w-10 items-center justify-center hover:bg-white/10">
           <RotateCcw className="h-5 w-5" />
         </button>
         {showDevTools && (
-          <button id="btnCopyView" onClick={() => engineRef.current?.copyCurrentView()} aria-label="Salin posisi kamera (dev)" title="DEV: salin posisi buat ditempel ke ar.json" className="flex h-10 w-10 items-center justify-center rounded-xl text-primary hover:bg-white/10">
+          <button id="btnCopyView" onClick={() => engineRef.current?.copyCurrentView()} aria-label="Salin posisi kamera (dev)" title="DEV: salin posisi buat ditempel ke ar.json" className="flex h-10 w-10 items-center justify-center text-primary hover:bg-white/10">
             <Ruler className="h-5 w-5" />
           </button>
         )}
@@ -251,7 +251,7 @@ export function ArScan({
         <div
           id="arMoveControls"
           hidden={!showMoveControls}
-          className="glass fixed bottom-24 left-4 z-20 grid grid-cols-3 gap-1 rounded-2xl p-2"
+          className="hairline fixed bottom-24 left-4 z-20 grid grid-cols-3 gap-1 rounded-2xl bg-background/85 p-2 backdrop-blur-sm"
         >
           <span />
           <button id="btnMoveUp" onClick={() => engineRef.current?.moveUp()} className="flex h-9 w-9 items-center justify-center rounded-xl hover:bg-white/10"><ArrowUp className="h-4 w-4" /></button>
@@ -265,9 +265,9 @@ export function ArScan({
         </div>
       )}
 
-      <div id="arCopyToast" hidden className="glass fixed bottom-4 left-1/2 z-30 -translate-x-1/2 whitespace-pre rounded-xl px-4 py-2 font-mono text-xs" />
+      <div id="arCopyToast" hidden className="hairline fixed bottom-4 left-1/2 z-30 -translate-x-1/2 whitespace-pre rounded-xl bg-card px-4 py-2 font-mono text-xs" />
 
-      {/* Bottom sheet. Default "peek" (pendek) supaya area scan/model lega di HP —
+      {/* Bottom sheet. Default "peek" (pendek) supaya area scan/model lega di HP,
           ini fix "kepotong, nggak full layar". Tap gagang buat lebarin. Semua
           elemen ber-id TETAP di DOM (di-collapse pakai display:none), jadi engine
           imperatif yang pakai getElementById tetap jalan. */}
@@ -276,7 +276,7 @@ export function ArScan({
         ref={panelRef}
         hidden={panelHidden}
         style={{ transform: `translateY(${sheetOffset}px)` }}
-        className="glass-strong fixed inset-x-0 bottom-0 z-20 flex max-h-[80vh] flex-col rounded-t-3xl pb-[env(safe-area-inset-bottom)] touch-none"
+        className="hairline fixed inset-x-0 bottom-0 z-20 flex max-h-[80vh] flex-col rounded-t-xl bg-card pb-[env(safe-area-inset-bottom)] touch-none"
       >
         <button
           onPointerDown={onHandleDown}
@@ -291,8 +291,8 @@ export function ArScan({
         </button>
 
         <div className="flex items-center justify-between px-5">
-          <h2 id="arPanelTitle" className="font-display text-lg font-semibold">
-            —
+          <h2 id="arPanelTitle" className="font-display text-lg font-medium">
+            …
           </h2>
           <button id="arPanelClose" onClick={() => engineRef.current?.closePanel()} aria-label="Tutup panel" className="flex h-8 w-8 items-center justify-center rounded-full hover:bg-white/10">
             <X className="h-4 w-4" />
@@ -300,12 +300,12 @@ export function ArScan({
         </div>
 
         <div className="min-h-0 flex-1 overflow-y-auto px-5 pb-5">
-          <div id="arHotspotRow" className="mt-3 flex flex-wrap gap-2 empty:hidden [&_.ar-hotspot-pill]:rounded-full [&_.ar-hotspot-pill]:border [&_.ar-hotspot-pill]:border-white/10 [&_.ar-hotspot-pill]:bg-white/[0.03] [&_.ar-hotspot-pill]:px-3 [&_.ar-hotspot-pill]:py-1.5 [&_.ar-hotspot-pill]:text-xs [&_.ar-hotspot-pill.is-active]:bg-holo [&_.ar-hotspot-pill.is-active]:text-primary-foreground [&_.ar-hotspot-pill.is-visited-pill]:border-holo/50 [&_.ar-hotspot-pill:disabled]:opacity-40" />
+          <div id="arHotspotRow" className="mt-3 flex flex-wrap gap-2 empty:hidden [&_.ar-hotspot-pill]:rounded-full [&_.ar-hotspot-pill]:border [&_.ar-hotspot-pill]:border-border [&_.ar-hotspot-pill]:bg-background/40 [&_.ar-hotspot-pill]:px-3 [&_.ar-hotspot-pill]:py-1.5 [&_.ar-hotspot-pill]:text-xs [&_.ar-hotspot-pill.is-active]:bg-primary [&_.ar-hotspot-pill.is-active]:text-primary-foreground [&_.ar-hotspot-pill.is-visited-pill]:border-success/60 [&_.ar-hotspot-pill:disabled]:opacity-40" />
 
           {/* Bagian panjang: disembunyikan saat panel di-peek biar model AR keliatan. */}
           <div className={panelExpanded ? "" : "hidden"}>
             <p id="arPanelDesc" className="mt-3 text-sm leading-relaxed text-muted-foreground [&:not(.is-expanded)]:line-clamp-3">
-              —
+              …
             </p>
             <button
               id="arDescToggle"
@@ -316,14 +316,14 @@ export function ArScan({
               Baca selengkapnya ▾
             </button>
 
-            <div id="arProgressDots" className="mt-4 flex gap-1.5 [&_.ar-dot]:h-1.5 [&_.ar-dot]:w-1.5 [&_.ar-dot]:rounded-full [&_.ar-dot]:bg-white/15 [&_.ar-dot.is-visited]:bg-holo" />
+            <div id="arProgressDots" className="mt-4 flex gap-1.5 [&_.ar-dot]:h-1.5 [&_.ar-dot]:w-1.5 [&_.ar-dot]:rounded-full [&_.ar-dot]:bg-white/15 [&_.ar-dot.is-visited]:bg-primary" />
           </div>
 
           <button
             id="btnKeQuiz"
             disabled={!gateReady}
             onClick={() => gateReady && navigate({ to: "/quiz/$id", params: { id: materiId } })}
-            className="mt-5 w-full rounded-full bg-holo px-4 py-3 text-sm font-semibold text-primary-foreground shadow-holo transition disabled:cursor-not-allowed disabled:opacity-40"
+            className="mt-5 w-full rounded-full bg-primary px-4 py-3 text-sm font-medium text-primary-foreground transition hover:bg-primary/90 disabled:cursor-not-allowed disabled:bg-muted disabled:opacity-60"
           >
             {gateReady ? "Lanjut ke Quiz →" : `🔒 Jelajahi semua bagian dulu (${gate.done}/${gate.total || "…"})`}
           </button>

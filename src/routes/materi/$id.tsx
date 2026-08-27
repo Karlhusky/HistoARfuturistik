@@ -16,7 +16,7 @@ export const Route = createFileRoute("/materi/$id")({
     return { materi, arConfig: arConfigAll[params.id] };
   },
   head: ({ loaderData }) => ({
-    meta: [{ title: `Scan AR — ${loaderData?.materi.judul ?? ""} — HistoAR` }],
+    meta: [{ title: `Scan AR · ${loaderData?.materi.judul ?? ""} · HistoAR` }],
   }),
   component: MateriArPage,
 });
@@ -52,7 +52,7 @@ function BlockedState({ message }: { message: string }) {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-4 bg-background px-6 text-center">
       <p className="max-w-md text-muted-foreground">{message}</p>
-      <Link to="/materi" className="rounded-full bg-holo px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-holo">
+      <Link to="/materi" className="rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition hover:bg-primary/90">
         Kembali ke daftar materi
       </Link>
     </div>

@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
-import { AuroraBackground } from "@/components/aurora-background";
+import { FieldTexture } from "@/components/field-texture";
 import { MateriGrid } from "@/components/histoar/MateriGrid";
 import { CoreSample } from "@/components/histoar/CoreSample";
 
@@ -15,16 +15,14 @@ export const Route = createFileRoute("/materi/")({
 function MateriPage() {
   return (
     <main className="relative min-h-screen overflow-hidden">
-      <AuroraBackground />
+      <FieldTexture />
       <Nav />
       <div className="relative z-10 mx-auto max-w-6xl px-6 pt-32 pb-24">
         <div className="mb-4">
           <CoreSample currentMateriId={null} />
         </div>
-        <span className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs text-muted-foreground">
-          <span className="h-1.5 w-1.5 rounded-full bg-holo shadow-holo" /> Peta Lapisan
-        </span>
-        <h1 className="mt-4 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
+        <span className="catalog-label text-accent-foreground">Katalog · Peta Lapisan</span>
+        <h1 className="mt-3 font-display text-4xl font-medium tracking-tight sm:text-5xl">
           Pilih Materi
         </h1>
         <p className="mt-3 max-w-2xl text-muted-foreground">

@@ -6,12 +6,12 @@ import { askHistoAI } from "../../lib/histo-ai";
 type Message = { role: "ai" | "user"; text: string };
 
 const seed: Message[] = [
-  { role: "ai", text: "Selamat datang. Aku HistoAI, Pemandu kamu. Tanyakan apa saja kepadaku tentang Kehidupan Praaksara Materi Kelas 10." },
+  { role: "ai", text: "Selamat datang. Aku HistoAI, pemandu kamu. Tanyakan apa saja soal materi kehidupan praaksara kelas 10." },
 ];
 
 const prompts = [
- "Jelaskan Periodisasi Bumi untuk siswa kelas 10",
- "Bandingkan Zaman Berburu dan Meramu dengan Zaman Bercocok Tanam",
+ "Jelaskan periodisasi bumi untuk siswa kelas 10",
+ "Bandingkan zaman berburu-meramu dengan zaman bercocok tanam",
  "Tunjukkan perbedaan Meganthropus, Pithecanthropus, dan Homo",
 ];
 
@@ -41,7 +41,7 @@ export function AIGuide() {
       console.error(err);
       setMessages((m) => [
         ...m,
-        { role: "ai", text: "Sorry, I'm having trouble responding right now. Try again in a moment." },
+        { role: "ai", text: "Maaf, ada gangguan saat menjawab. Coba lagi sebentar lagi." },
       ]);
     } finally {
       setLoading(false);
@@ -52,17 +52,16 @@ export function AIGuide() {
     <section id="ai" className="relative mx-auto max-w-6xl px-6 py-32">
       <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
         <div>
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full glass px-3 py-1 text-xs text-muted-foreground">
-            <Sparkles className="h-3 w-3 text-holo" /> AI Guide
+          <div className="catalog-label mb-4 flex items-center gap-2 text-accent-foreground">
+            <Sparkles className="h-3 w-3" /> Pemandu AI
           </div>
-          <h2 className="font-display text-4xl font-semibold sm:text-6xl">
-            Meet <span className="text-holo">HistoAI</span>.
-            <br />Pemandu AI kamu.
+          <h2 className="font-display text-4xl font-medium sm:text-5xl">
+            Kenalan dengan <span className="text-primary">HistoAI</span>.
           </h2>
-          <p className="mt-6 max-w-md text-muted-foreground">
-            HistoAI Menarasikan, memberikan kuis, dan mengartikan setiap materi dengan gaya penyampaian yang menyesuaikan usia, rasa ingin tahu, dan kecepatan belajarmu.
-            Ia tidak pernah lelah menjawab pertanyaan, "Mengapa?"
-".
+          <p className="mt-6 max-w-md leading-relaxed text-muted-foreground">
+            HistoAI menjawab pertanyaan seputar setiap materi, dengan gaya
+            penyampaian yang menyesuaikan rasa ingin tahu dan kecepatan
+            belajarmu. Ia tidak pernah bosan menjawab "kenapa?"
           </p>
           <div className="mt-8 flex flex-wrap gap-2">
             {prompts.map((p) => (
@@ -70,7 +69,7 @@ export function AIGuide() {
                 key={p}
                 onClick={() => send(p)}
                 disabled={loading}
-                className="rounded-full glass px-4 py-2 text-xs text-muted-foreground transition hover:bg-white/10 hover:text-foreground disabled:opacity-50"
+                className="rounded-full border border-border px-4 py-2 text-xs text-muted-foreground transition hover:border-primary/50 hover:text-foreground disabled:opacity-50"
               >
                 {p}
               </button>
@@ -78,17 +77,15 @@ export function AIGuide() {
           </div>
         </div>
 
-        <div className="glass-strong flex h-[520px] flex-col overflow-hidden rounded-3xl">
-          <div className="flex items-center gap-3 border-b border-white/10 px-5 py-4">
-            <div className="relative flex h-9 w-9 items-center justify-center rounded-full bg-holo">
-              <Sparkles className="h-4 w-4 text-primary-foreground" />
-              <span className="absolute -bottom-0 -right-0 h-2.5 w-2.5 rounded-full bg-emerald-400 ring-2 ring-background" />
+        <div className="flex h-[520px] flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-[0_30px_80px_-30px_oklch(0_0_0/0.25)]">
+          <div className="flex items-center gap-3 border-b border-border px-5 py-4">
+            <div className="relative flex h-9 w-9 items-center justify-center rounded-full border border-primary/40">
+              <Sparkles className="h-4 w-4 text-primary" />
+              <span className="absolute -bottom-0.5 -right-0.5 h-2 w-2 rounded-full border border-background bg-success" />
             </div>
             <div>
-              <div className="text-sm font-semibold">HistoAI</div>
-              <div className="text-[10px] text-muted-foreground">
-                Pemandu AI · online
-              </div>
+              <div className="text-sm font-medium">HistoAI</div>
+              <div className="catalog-label">Pemandu AI · Online</div>
             </div>
           </div>
 
@@ -101,8 +98,8 @@ export function AIGuide() {
                 <div
                   className={`max-w-[80%] whitespace-pre-wrap rounded-2xl px-4 py-2.5 text-sm ${
                     m.role === "user"
-                      ? "bg-holo text-primary-foreground"
-                      : "glass text-foreground"
+                      ? "bg-primary text-primary-foreground"
+                      : "border border-border bg-background/40 text-foreground"
                   }`}
                 >
                   {m.text}
@@ -111,7 +108,7 @@ export function AIGuide() {
             ))}
             {loading && (
               <div className="flex justify-start">
-                <div className="glass flex items-center gap-2 rounded-2xl px-4 py-2.5 text-sm text-muted-foreground">
+                <div className="flex items-center gap-2 rounded-2xl border border-border bg-background/40 px-4 py-2.5 text-sm text-muted-foreground">
                   <Loader2 className="h-3.5 w-3.5 animate-spin" />
                   Berpikir…
                 </div>
@@ -124,20 +121,20 @@ export function AIGuide() {
               e.preventDefault();
               send(input);
             }}
-            className="flex items-center gap-2 border-t border-white/10 p-3"
+            className="flex items-center gap-2 border-t border-border p-3"
           >
             <input
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Ask HistoAI anything…"
+              placeholder="Tanya HistoAI…"
               disabled={loading}
-              className="flex-1 rounded-full bg-white/5 px-4 py-2.5 text-sm outline-none placeholder:text-muted-foreground focus:bg-white/10 disabled:opacity-50"
+              className="flex-1 rounded-full border border-border bg-background/40 px-4 py-2.5 text-sm outline-none placeholder:text-muted-foreground focus:border-primary/50 disabled:opacity-50"
             />
             <button
               type="submit"
               disabled={loading}
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-holo text-primary-foreground shadow-holo transition hover:scale-105 disabled:opacity-50"
-              aria-label="Send"
+              aria-label="Kirim"
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground transition hover:bg-primary/90 disabled:opacity-50"
             >
               <Send className="h-4 w-4" />
             </button>

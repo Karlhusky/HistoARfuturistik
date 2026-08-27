@@ -40,11 +40,11 @@ export function QuizPanel({
   }
 
   return (
-    <div className="glass mx-auto w-full max-w-2xl rounded-2xl p-6 sm:p-8">
-      <div className="font-mono text-xs text-muted-foreground">
+    <div className="mx-auto w-full max-w-2xl rounded-3xl border border-border bg-card p-6 shadow-[0_20px_60px_-30px_oklch(0_0_0/0.25)] sm:p-8">
+      <div className="catalog-label">
         Soal {index + 1} / {questions.length}
       </div>
-      <h3 className="mt-3 font-display text-xl font-semibold leading-snug">{q.pertanyaan}</h3>
+      <h3 className="mt-3 font-display text-xl font-medium leading-snug">{q.pertanyaan}</h3>
 
       <div className="mt-6 flex flex-col gap-2.5">
         {q.opsi.map((opsiText, idx) => {
@@ -57,9 +57,9 @@ export function QuizPanel({
               disabled={answered}
               onClick={() => selectAnswer(idx)}
               className={cn(
-                "rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-left text-sm transition-all",
-                !answered && "hover:border-primary/50 hover:bg-white/[0.06]",
-                answered && isCorrect && "border-emerald-400/60 bg-emerald-400/10 text-emerald-300",
+                "rounded-xl border border-border bg-background/40 px-4 py-3 text-left text-sm transition-colors",
+                !answered && "hover:border-primary/50",
+                answered && isCorrect && "border-success bg-success/10 text-success",
                 answered && isPicked && !isCorrect && "border-destructive/60 bg-destructive/10 text-destructive",
               )}
             >
@@ -70,7 +70,7 @@ export function QuizPanel({
       </div>
 
       <div className="mt-6 flex justify-end">
-        <Button onClick={next} disabled={!answered} className="bg-holo text-primary-foreground shadow-holo hover:opacity-90">
+        <Button onClick={next} disabled={!answered} className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90">
           {isLast ? "Lihat Hasil" : "Lanjut"}
         </Button>
       </div>

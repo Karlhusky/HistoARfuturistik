@@ -79,12 +79,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "HistoAR is a premium WebAR education platform. Explore 5,000 years of history in your room, guided by an AI curator.",
+          "HistoAR: arsip digital sejarah dan prasejarah Indonesia. Jelajahi manusia purba, situs megalitik, dan zaman batu-logam lewat augmented reality.",
       },
-      { property: "og:title", content: "HistoAR — The Future Museum" },
+      { property: "og:title", content: "HistoAR: Arsip Prasejarah Indonesia" },
       {
         property: "og:description",
-        content: "Immersive WebAR history lessons, interactive timelines and an AI guide.",
+        content:
+          "Manusia purba, situs megalitik, dan periodisasi zaman Indonesia, dijelajahi lewat AR, disusun seperti katalog museum.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -96,7 +97,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap",
       },
     ],
   }),
@@ -108,7 +109,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="id">
       <head>
         <HeadContent />
       </head>

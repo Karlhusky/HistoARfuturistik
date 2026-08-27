@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useLenis } from "@/hooks/use-lenis";
-import { AuroraBackground } from "@/components/aurora-background";
-import { Particles } from "@/components/particles";
+import { FieldTexture } from "@/components/field-texture";
 import { Nav } from "@/components/nav";
 import { Hero } from "@/components/sections/hero";
 import { Experience } from "@/components/sections/experience";
@@ -20,8 +19,7 @@ function Index() {
   useLenis();
   return (
     <main className="relative min-h-screen overflow-hidden">
-      <AuroraBackground />
-      <Particles count={36} />
+      <FieldTexture />
       <Nav />
       <Hero />
       <Experience />

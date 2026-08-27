@@ -86,15 +86,15 @@ export function Chatbot({
   }
 
   return (
-    <section className="glass mt-6 flex flex-col overflow-hidden rounded-2xl">
-      <div className="flex items-center gap-3 border-b border-white/10 px-5 py-4">
-        <span className="relative flex h-9 w-9 items-center justify-center rounded-full bg-holo">
-          <Sparkles className="h-4 w-4 text-primary-foreground" />
-          <span className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full border-2 border-background bg-emerald-400" />
+    <section className="mt-6 flex flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-[0_20px_60px_-30px_oklch(0_0_0/0.25)]">
+      <div className="flex items-center gap-3 border-b border-border px-5 py-4">
+        <span className="relative flex h-9 w-9 items-center justify-center rounded-full border border-primary/40">
+          <Sparkles className="h-4 w-4 text-primary" />
+          <span className="absolute -bottom-0.5 -right-0.5 h-2 w-2 rounded-full border border-background bg-success" />
         </span>
         <div>
-          <div className="font-display text-sm font-semibold">HistoAI</div>
-          <div className="text-xs text-muted-foreground">Pemandu belajar · online</div>
+          <div className="font-display text-sm font-medium">HistoAI</div>
+          <div className="catalog-label">Pemandu Belajar · Online</div>
         </div>
       </div>
 
@@ -104,8 +104,8 @@ export function Chatbot({
             key={i}
             className={`max-w-[85%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${
               m.role === "user"
-                ? "self-end bg-holo text-primary-foreground"
-                : "self-start bg-white/[0.06] text-foreground"
+                ? "self-end bg-primary text-primary-foreground"
+                : "self-start border border-border bg-background/40 text-foreground"
             }`}
           >
             {renderMarkdownLite(m.text)}
@@ -120,7 +120,7 @@ export function Chatbot({
               key={s}
               type="button"
               onClick={() => handleSend(s)}
-              className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-xs text-muted-foreground transition hover:bg-white/[0.08] hover:text-foreground"
+              className="rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground transition hover:border-primary/50 hover:text-foreground"
             >
               {s}
             </button>
@@ -128,7 +128,7 @@ export function Chatbot({
         </div>
       )}
 
-      <div className="flex items-center gap-2 border-t border-white/10 px-4 py-3">
+      <div className="flex items-center gap-2 border-t border-border px-4 py-3">
         <input
           type="text"
           value={input}
@@ -136,14 +136,14 @@ export function Chatbot({
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && handleSend()}
           placeholder="Tanya HistoAI soal materi ini..."
-          className="flex-1 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm outline-none placeholder:text-muted-foreground focus:border-primary/50"
+          className="flex-1 rounded-full border border-border bg-background/40 px-4 py-2 text-sm outline-none placeholder:text-muted-foreground focus:border-primary/50"
         />
         <button
           type="button"
           onClick={() => handleSend()}
           disabled={sending}
           aria-label="Kirim"
-          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-holo text-primary-foreground shadow-holo transition hover:opacity-90 disabled:opacity-50"
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground transition hover:bg-primary/90 disabled:opacity-50"
         >
           <Send className="h-4 w-4" />
         </button>

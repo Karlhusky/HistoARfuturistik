@@ -12,7 +12,7 @@ export function MeganthropusViewer() {
   if (!mounted) {
 
     return (
-      <div className="h-full w-full rounded-3xl bg-white/5 animate-pulse"/>
+      <div className="h-full w-full bg-muted animate-pulse"/>
     );
 
   }

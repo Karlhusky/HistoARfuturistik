@@ -27,22 +27,20 @@ export function MateriGrid() {
         const cardInner = (
           <>
             <div className="flex items-center justify-between">
-              <span className="font-mono text-xs tracking-wider text-muted-foreground">
-                {m.kode}
-              </span>
+              <span className="catalog-label">{m.kode}</span>
               <span
                 className="h-2 w-2 rounded-full"
                 style={{ background: m.layerColor }}
                 aria-hidden
               />
             </div>
-            <h3 className="mt-3 font-display text-lg font-semibold leading-snug">{m.judul}</h3>
+            <h3 className="mt-3 font-display text-lg font-medium leading-snug">{m.judul}</h3>
             <p className="mt-2 text-sm text-muted-foreground line-clamp-3">{m.ringkasan}</p>
             <div className="mt-4 flex items-center gap-1.5 text-xs font-medium">
               {done ? (
                 <>
-                  <CheckCircle2 className="h-3.5 w-3.5 text-holo" />
-                  <span className="text-holo">Selesai</span>
+                  <CheckCircle2 className="h-3.5 w-3.5 text-success" />
+                  <span className="text-success">Selesai</span>
                 </>
               ) : unlocked ? (
                 <>
@@ -60,9 +58,9 @@ export function MateriGrid() {
         );
 
         const cardClass =
-          "glass group relative overflow-hidden rounded-2xl p-5 transition-all duration-300" +
+          "group relative overflow-hidden rounded-2xl border border-border bg-card p-5 shadow-[0_20px_50px_-30px_oklch(0_0_0/0.25)] transition-all duration-300" +
           (unlocked
-            ? " hover:-translate-y-1 hover:shadow-holo cursor-pointer"
+            ? " hover:-translate-y-1 hover:border-primary/40 cursor-pointer"
             : " opacity-50 cursor-not-allowed");
 
         if (unlocked) {

@@ -3,18 +3,18 @@ import { Check, X, RotateCcw } from "lucide-react";
 
 const questions = [
   {
-    q: "Periodisasi Geologi Paling tua adalah?",
+    q: "Periodisasi geologi paling tua adalah?",
     options: ["Arkaekum", "Paleozoikum", "Mesozoikum", "Neozoikum"],
     correct: 0,
   },
   {
-    q: "Pada masa Mesozoikum, bagaimana kehidupan manusia praaksara",
-    options: ["Bercocok Tanam", "Berburu dan meramu", "Berburu dan bercocok tanam", "Meramu dan bercocok tanam"],
+    q: "Pada masa Mesozoikum, bagaimana kehidupan manusia praaksara?",
+    options: ["Bercocok tanam", "Berburu dan meramu", "Berburu dan bercocok tanam", "Meramu dan bercocok tanam"],
     correct: 1,
   },
   {
-    q: "Siapa Penemu kerangka manusia purba Pithecanthropus?",
-    options: ["G.H.R. von Koenigswald", "B.D. van Rietschoten", "Eugene Dubois", "von Koenigswald"],
+    q: "Siapa penemu fosil manusia purba Pithecanthropus?",
+    options: ["G.H.R. von Koenigswald", "B.D. van Rietschoten", "Eugène Dubois", "Ralph von Koenigswald"],
     correct: 2,
   },
 ];
@@ -46,32 +46,30 @@ export function Quiz() {
   }
 
   return (
-    <section id="quiz" className="relative mx-auto max-w-4xl px-6 py-32">
+    <section id="quiz" className="relative mx-auto max-w-3xl px-6 py-32">
       <div className="mb-10 text-center">
-        <div className="mb-4 inline-flex items-center gap-2 rounded-full glass px-3 py-1 text-xs text-muted-foreground">
-          Test yourself
-        </div>
-        <h2 className="font-display text-4xl font-semibold sm:text-6xl">
-          Prove you were <span className="text-holo">there</span>.
+        <div className="catalog-label text-accent-foreground">Uji Pemahaman</div>
+        <h2 className="mt-3 font-display text-4xl font-medium sm:text-5xl">
+          Coba <span className="text-primary">kuis singkat</span>.
         </h2>
       </div>
 
-      <div className="glass-strong overflow-hidden rounded-3xl p-8 sm:p-10">
+      <div className="overflow-hidden rounded-3xl border border-border bg-card p-8 shadow-[0_30px_80px_-30px_oklch(0_0_0/0.25)] sm:p-10">
         {!done ? (
           <>
             <div className="mb-6 flex items-center justify-between text-xs text-muted-foreground">
               <span className="font-mono">
-                Question {index + 1} / {questions.length}
+                Soal {index + 1} / {questions.length}
               </span>
-              <span className="font-mono">Score {score}</span>
+              <span className="font-mono">Skor {score}</span>
             </div>
-            <div className="mb-2 h-1 w-full overflow-hidden rounded-full bg-white/5">
+            <div className="mb-2 h-0.5 w-full overflow-hidden bg-border">
               <div
-                className="h-full bg-holo transition-all duration-500"
+                className="h-full bg-primary transition-all duration-500"
                 style={{ width: `${((index + 1) / questions.length) * 100}%` }}
               />
             </div>
-            <h3 className="mt-8 font-display text-2xl font-semibold sm:text-3xl">
+            <h3 className="mt-8 font-display text-2xl font-medium sm:text-3xl">
               {current.q}
             </h3>
             <div className="mt-8 grid gap-3 sm:grid-cols-2">
@@ -84,16 +82,16 @@ export function Quiz() {
                     key={opt}
                     onClick={() => choose(i)}
                     disabled={selected !== null}
-                    className={`group relative flex items-center justify-between rounded-2xl glass px-5 py-4 text-left text-sm transition hover:-translate-y-0.5 hover:bg-white/10 disabled:cursor-not-allowed ${
+                    className={`group relative flex items-center justify-between rounded-xl border border-border bg-background/40 px-5 py-4 text-left text-sm transition hover:border-primary/50 disabled:cursor-not-allowed ${
                       isCorrect
-                        ? "ring-2 ring-holo bg-holo/10"
+                        ? "border-success bg-success/10"
                         : isWrong
-                          ? "ring-2 ring-destructive bg-destructive/10"
+                          ? "border-destructive bg-destructive/10"
                           : ""
                     }`}
                   >
                     <span>{opt}</span>
-                    {isCorrect && <Check className="h-4 w-4 text-holo" />}
+                    {isCorrect && <Check className="h-4 w-4 text-success" />}
                     {isWrong && <X className="h-4 w-4 text-destructive" />}
                   </button>
                 );
@@ -102,26 +100,26 @@ export function Quiz() {
           </>
         ) : (
           <div className="py-8 text-center">
-            <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-holo/10 ring-1 ring-holo/40">
-              <span className="font-display text-3xl font-bold text-holo">
+            <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border border-primary/40">
+              <span className="font-display text-2xl font-medium text-primary">
                 {score}/{questions.length}
               </span>
             </div>
-            <h3 className="mt-6 font-display text-3xl font-semibold">
+            <h3 className="mt-6 font-display text-3xl font-medium">
               {score === questions.length
-                ? "Curator level."
+                ? "Setara kurator."
                 : score >= questions.length / 2
-                  ? "Nicely done."
-                  : "Back to the exhibit!"}
+                  ? "Cukup baik."
+                  : "Perlu kunjungi lagi pamerannya."}
             </h3>
             <p className="mt-2 text-sm text-muted-foreground">
-              Share your score, or dive back into the timeline.
+              Ulangi kuis, atau lanjut ke lini masa dan daftar materi lengkap.
             </p>
             <button
               onClick={reset}
-              className="mt-6 inline-flex items-center gap-2 rounded-full bg-holo px-6 py-3 text-sm font-semibold text-primary-foreground shadow-holo"
+              className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition hover:bg-primary/90"
             >
-              <RotateCcw className="h-4 w-4" /> Try again
+              <RotateCcw className="h-4 w-4" /> Coba lagi
             </button>
           </div>
         )}

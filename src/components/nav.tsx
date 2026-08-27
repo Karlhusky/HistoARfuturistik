@@ -2,12 +2,12 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
 const links = [
-  { href: "/#experience", label: "Experience" },
-  { href: "/#timeline", label: "Timeline" },
-  { href: "/#learn", label: "Learn" },
-  { href: "/#ar", label: "WebAR" },
-  { href: "/#quiz", label: "Quiz" },
-  { href: "/#ai", label: "AI Guide" },
+  { href: "/#experience", label: "Pengalaman" },
+  { href: "/#timeline", label: "Lini Masa" },
+  { href: "/#learn", label: "Materi" },
+  { href: "/#ar", label: "AR" },
+  { href: "/#quiz", label: "Kuis" },
+  { href: "/#ai", label: "Pemandu AI" },
 ];
 
 export function Nav() {
@@ -22,25 +22,24 @@ export function Nav() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 flex justify-center px-4 pt-4">
       <nav
-        className={`glass flex w-full max-w-6xl items-center justify-between rounded-full px-4 py-2.5 transition-all duration-500 ${
-          scrolled ? "shadow-holo" : ""
+        className={`flex w-full max-w-6xl items-center justify-between rounded-full border border-border bg-card/90 px-5 py-2.5 backdrop-blur-sm transition-shadow duration-500 ${
+          scrolled ? "shadow-[0_8px_30px_-12px_oklch(0_0_0/0.25)]" : ""
         }`}
       >
-        <Link to="/" className="flex items-center gap-2 pl-2">
-          <span className="relative flex h-8 w-8 items-center justify-center rounded-full bg-holo">
-            <span className="absolute inset-0 rounded-full animate-pulse-ring" />
-            <span className="text-xs font-bold text-primary-foreground">H</span>
+        <Link to="/" className="flex items-center gap-2.5">
+          <span className="flex h-7 w-7 items-center justify-center rounded-full border border-primary/40 text-[0.6rem] font-semibold text-primary">
+            H
           </span>
-          <span className="font-display text-sm font-semibold tracking-tight">
-            Histo<span className="text-holo">AR</span>
+          <span className="font-display text-base tracking-tight">
+            Histo<span className="text-primary">AR</span>
           </span>
         </Link>
-        <ul className="hidden items-center gap-1 md:flex">
+        <ul className="hidden items-center gap-7 md:flex">
           {links.map((l) => (
             <li key={l.href}>
               <a
                 href={l.href}
-                className="rounded-full px-3 py-1.5 text-xs font-medium text-muted-foreground transition hover:bg-white/5 hover:text-foreground"
+                className="text-sm text-muted-foreground transition hover:text-foreground"
               >
                 {l.label}
               </a>
@@ -49,9 +48,9 @@ export function Nav() {
         </ul>
         <Link
           to="/materi"
-          className="rounded-full bg-holo px-4 py-1.5 text-xs font-semibold text-primary-foreground shadow-holo transition hover:opacity-90"
+          className="rounded-full bg-primary px-4 py-1.5 text-sm font-medium text-primary-foreground transition hover:bg-primary/90"
         >
-          Launch AR
+          Mulai
         </Link>
       </nav>
     </header>

@@ -74,18 +74,16 @@ export function Timeline() {
       className="relative mx-auto max-w-6xl px-6 py-32"
     >
       <div className="mb-20 text-center">
-        <div className="mb-4 inline-flex items-center gap-2 rounded-full glass px-3 py-1 text-xs text-muted-foreground">
-          Interactive Timeline
-        </div>
-        <h2 className="font-display text-4xl font-semibold sm:text-6xl">
-          Menjelajahi <span className="text-holo">Masa ke masa</span>.
+        <div className="catalog-label text-accent-foreground">Lini Masa · Periodisasi Geologi</div>
+        <h2 className="mt-3 font-display text-4xl font-medium sm:text-5xl">
+          Menjelajahi <span className="text-primary">masa ke masa</span>.
         </h2>
       </div>
 
       <div className="relative">
-        <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-white/10" />
+        <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-border" />
         <div
-          className="tl-line-fill absolute left-1/2 top-0 h-full w-px origin-top -translate-x-1/2 bg-holo shadow-holo"
+          className="tl-line-fill absolute left-1/2 top-0 h-full w-px origin-top -translate-x-1/2 bg-primary"
           style={{ transform: "translateX(-50%) scaleY(0)" }}
         />
 
@@ -98,17 +96,15 @@ export function Timeline() {
               }`}
             >
               <div className="absolute left-1/2 top-6 -translate-x-1/2">
-                <span className="relative block h-3 w-3 rounded-full bg-holo shadow-holo">
-                  <span className="absolute inset-0 rounded-full animate-pulse-ring" />
-                </span>
+                <span className="block h-2.5 w-2.5 border-2 border-primary bg-background" />
               </div>
-              <div className="glass w-[calc(50%-2rem)] rounded-2xl p-6 transition hover:-translate-y-1 hover:shadow-holo">
-                <div className="text-xs font-mono text-holo">{e.year}</div>
-                <h3 className="mt-1 font-display text-xl font-semibold">
+              <div className="w-[calc(50%-2rem)] rounded-2xl border border-border bg-card p-6 shadow-[0_20px_50px_-30px_oklch(0_0_0/0.25)] transition hover:border-primary/40">
+                <div className="font-mono text-xs text-accent-foreground">{e.year}</div>
+                <h3 className="mt-1 font-display text-xl font-medium">
                   {e.title}
                 </h3>
                 <div className="text-xs text-muted-foreground">{e.place}</div>
-                <p className="mt-3 text-sm text-muted-foreground">{e.desc}</p>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{e.desc}</p>
               </div>
             </li>
           ))}
